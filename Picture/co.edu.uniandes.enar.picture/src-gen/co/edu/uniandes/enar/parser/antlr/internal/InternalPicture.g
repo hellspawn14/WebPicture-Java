@@ -5268,9 +5268,9 @@ rulePage returns [EObject current=null]
     {
     	newLeafNode(otherlv_14, grammarAccess.getPageAccess().getRightCurlyBracketKeyword_8_3());
     }
-)?(	otherlv_15='Additionals buttons' 
+)?(	otherlv_15='Additional buttons' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getPageAccess().getAdditionalsButtonsKeyword_9_0());
+    	newLeafNode(otherlv_15, grammarAccess.getPageAccess().getAdditionalButtonsKeyword_9_0());
     }
 	otherlv_16='{' 
     {

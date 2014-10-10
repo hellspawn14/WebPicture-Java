@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalPictureParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'true'", "'false'", "'default'", "'solid'", "'dash'", "'dot'", "'dashdot'", "'dashdotdot'", "'create'", "'edit'", "'info'", "'textField'", "'textArea'", "'checkBox'", "'comboBox'", "'Slider'", "'File'", "'Image'", "'import'", "'as'", "'Graphical'", "'representation'", "'{'", "'}'", "'reference'", "'package'", "'.'", "'class'", "'root'", "'Palette for'", "'Tool group'", "'description'", "'Creation button for'", "'name'", "'icon'", "'Style definition'", "'Line style'", "'width'", "'type'", "'color'", "'rhomb'", "'square'", "'arrow'", "'closed'", "'Custom line decoration'", "'Color'", "'('", "', '", "')'", "'layout'", "'custom'", "'implementation reference'", "'Rounded'", "'radiox'", "'radioy'", "'Regular polygon'", "'vertex quantity'", "'start angle'", "'Ellipse'", "'proportion'", "'Custom figure'", "'Point'", "'definition'", "'Node_element'", "'for'", "'label'", "'placement'", "'size'", "'phantom'", "'extends'", "'Regular figure extends'", "'background color'", "'border'", "'path'", "'position'", "'Image figure'", "'image path'", "'Complex figure'", "'Node_link'", "'style'", "'source'", "'decoration'", "'target'", "'<-'", "'Node_line'", "'Internal_node'", "'External_node'", "'Rules definition'", "'Rules for'", "'case'", "'use'", "'Interaction definition'", "'Interaction elements'", "'Statements'", "'Wizard'", "'context'", "'title'", "'pages'", "'buttons'", "'Page'", "'Attributes to show'", "'References to show'", "'Additionals buttons'", "'Button'", "'Personal'", "'wizard'", "'View'", "'data'", "'provider'", "'Show'", "'childs'", "'parent element'", "'selection'", "'filter type'", "'Count'", "'types'", "'Personal view'", "'Actions for type'", "'on'", "'do'", "'down'", "'enter'", "'horizontal'", "'wheel'", "'up'", "'vertical'", "'hover'", "'exit'", "'double'", "'click'", "'press'", "'Menu event'", "'show'", "'view'", "'execute'", "'none'", "'filled'", "'list'", "'internal'", "'external'", "'tree'", "'table'", "'graphic'", "'mouse'", "'key'", "'delete'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'true'", "'false'", "'default'", "'solid'", "'dash'", "'dot'", "'dashdot'", "'dashdotdot'", "'create'", "'edit'", "'info'", "'textField'", "'textArea'", "'checkBox'", "'comboBox'", "'Slider'", "'File'", "'Image'", "'import'", "'as'", "'Graphical'", "'representation'", "'{'", "'}'", "'reference'", "'package'", "'.'", "'class'", "'root'", "'Palette for'", "'Tool group'", "'description'", "'Creation button for'", "'name'", "'icon'", "'Style definition'", "'Line style'", "'width'", "'type'", "'color'", "'rhomb'", "'square'", "'arrow'", "'closed'", "'Custom line decoration'", "'Color'", "'('", "', '", "')'", "'layout'", "'custom'", "'implementation reference'", "'Rounded'", "'radiox'", "'radioy'", "'Regular polygon'", "'vertex quantity'", "'start angle'", "'Ellipse'", "'proportion'", "'Custom figure'", "'Point'", "'definition'", "'Node_element'", "'for'", "'label'", "'placement'", "'size'", "'phantom'", "'extends'", "'Regular figure extends'", "'background color'", "'border'", "'path'", "'position'", "'Image figure'", "'image path'", "'Complex figure'", "'Node_link'", "'style'", "'source'", "'decoration'", "'target'", "'<-'", "'Node_line'", "'Internal_node'", "'External_node'", "'Rules definition'", "'Rules for'", "'case'", "'use'", "'Interaction definition'", "'Interaction elements'", "'Statements'", "'Wizard'", "'context'", "'title'", "'pages'", "'buttons'", "'Page'", "'Attributes to show'", "'References to show'", "'Additional buttons'", "'Button'", "'Personal'", "'wizard'", "'View'", "'data'", "'provider'", "'Show'", "'childs'", "'parent element'", "'selection'", "'filter type'", "'Count'", "'types'", "'Personal view'", "'Actions for type'", "'on'", "'do'", "'down'", "'enter'", "'horizontal'", "'wheel'", "'up'", "'vertical'", "'hover'", "'exit'", "'double'", "'click'", "'press'", "'Menu event'", "'show'", "'view'", "'execute'", "'none'", "'filled'", "'list'", "'internal'", "'external'", "'tree'", "'table'", "'graphic'", "'mouse'", "'key'", "'delete'"
     };
     public static final int T__144=144;
     public static final int T__143=143;
@@ -42234,21 +42234,21 @@ public class InternalPictureParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Page__Group_9__0__Impl"
-    // ../co.edu.uniandes.enar.picture.ui/src-gen/co/edu/uniandes/enar/ui/contentassist/antlr/internal/InternalPicture.g:16333:1: rule__Page__Group_9__0__Impl : ( 'Additionals buttons' ) ;
+    // ../co.edu.uniandes.enar.picture.ui/src-gen/co/edu/uniandes/enar/ui/contentassist/antlr/internal/InternalPicture.g:16333:1: rule__Page__Group_9__0__Impl : ( 'Additional buttons' ) ;
     public final void rule__Page__Group_9__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../co.edu.uniandes.enar.picture.ui/src-gen/co/edu/uniandes/enar/ui/contentassist/antlr/internal/InternalPicture.g:16337:1: ( ( 'Additionals buttons' ) )
-            // ../co.edu.uniandes.enar.picture.ui/src-gen/co/edu/uniandes/enar/ui/contentassist/antlr/internal/InternalPicture.g:16338:1: ( 'Additionals buttons' )
+            // ../co.edu.uniandes.enar.picture.ui/src-gen/co/edu/uniandes/enar/ui/contentassist/antlr/internal/InternalPicture.g:16337:1: ( ( 'Additional buttons' ) )
+            // ../co.edu.uniandes.enar.picture.ui/src-gen/co/edu/uniandes/enar/ui/contentassist/antlr/internal/InternalPicture.g:16338:1: ( 'Additional buttons' )
             {
-            // ../co.edu.uniandes.enar.picture.ui/src-gen/co/edu/uniandes/enar/ui/contentassist/antlr/internal/InternalPicture.g:16338:1: ( 'Additionals buttons' )
-            // ../co.edu.uniandes.enar.picture.ui/src-gen/co/edu/uniandes/enar/ui/contentassist/antlr/internal/InternalPicture.g:16339:1: 'Additionals buttons'
+            // ../co.edu.uniandes.enar.picture.ui/src-gen/co/edu/uniandes/enar/ui/contentassist/antlr/internal/InternalPicture.g:16338:1: ( 'Additional buttons' )
+            // ../co.edu.uniandes.enar.picture.ui/src-gen/co/edu/uniandes/enar/ui/contentassist/antlr/internal/InternalPicture.g:16339:1: 'Additional buttons'
             {
-             before(grammarAccess.getPageAccess().getAdditionalsButtonsKeyword_9_0()); 
+             before(grammarAccess.getPageAccess().getAdditionalButtonsKeyword_9_0()); 
             match(input,113,FOLLOW_113_in_rule__Page__Group_9__0__Impl32793); 
-             after(grammarAccess.getPageAccess().getAdditionalsButtonsKeyword_9_0()); 
+             after(grammarAccess.getPageAccess().getAdditionalButtonsKeyword_9_0()); 
 
             }
 

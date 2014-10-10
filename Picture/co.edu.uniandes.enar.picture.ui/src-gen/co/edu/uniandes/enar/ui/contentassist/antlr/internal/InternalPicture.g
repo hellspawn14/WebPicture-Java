@@ -16336,11 +16336,11 @@ rule__Page__Group_9__0__Impl
     }
 :
 (
-{ before(grammarAccess.getPageAccess().getAdditionalsButtonsKeyword_9_0()); }
+{ before(grammarAccess.getPageAccess().getAdditionalButtonsKeyword_9_0()); }
 
-	'Additionals buttons' 
+	'Additional buttons' 
 
-{ after(grammarAccess.getPageAccess().getAdditionalsButtonsKeyword_9_0()); }
+{ after(grammarAccess.getPageAccess().getAdditionalButtonsKeyword_9_0()); }
 )
 
 ;

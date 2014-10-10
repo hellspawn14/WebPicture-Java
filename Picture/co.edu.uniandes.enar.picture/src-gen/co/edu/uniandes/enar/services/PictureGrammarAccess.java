@@ -3197,7 +3197,7 @@ public class PictureGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cReferencesIDTerminalRuleCall_8_2_0 = (RuleCall)cReferencesAssignment_8_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_8_3 = (Keyword)cGroup_8.eContents().get(3);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
-		private final Keyword cAdditionalsButtonsKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Keyword cAdditionalButtonsKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
 		private final Assignment cButtonsAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
 		private final RuleCall cButtonsButtonParserRuleCall_9_2_0 = (RuleCall)cButtonsAssignment_9_2.eContents().get(0);
@@ -3206,11 +3206,11 @@ public class PictureGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Page:
 		//	{Page} "Page" "{" "title" title=STRING "description" description=STRING ("Attributes to show" "{" attributes+=AttMap*
-		//	"}")? ("References to show" "{" references+=ID* "}")? ("Additionals buttons" "{" buttons+=Button* "}")? "}";
+		//	"}")? ("References to show" "{" references+=ID* "}")? ("Additional buttons" "{" buttons+=Button* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
 		//{Page} "Page" "{" "title" title=STRING "description" description=STRING ("Attributes to show" "{" attributes+=AttMap*
-		//"}")? ("References to show" "{" references+=ID* "}")? ("Additionals buttons" "{" buttons+=Button* "}")? "}"
+		//"}")? ("References to show" "{" references+=ID* "}")? ("Additional buttons" "{" buttons+=Button* "}")? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{Page}
@@ -3276,11 +3276,11 @@ public class PictureGrammarAccess extends AbstractGrammarElementFinder {
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_8_3() { return cRightCurlyBracketKeyword_8_3; }
 
-		//("Additionals buttons" "{" buttons+=Button* "}")?
+		//("Additional buttons" "{" buttons+=Button* "}")?
 		public Group getGroup_9() { return cGroup_9; }
 
-		//"Additionals buttons"
-		public Keyword getAdditionalsButtonsKeyword_9_0() { return cAdditionalsButtonsKeyword_9_0; }
+		//"Additional buttons"
+		public Keyword getAdditionalButtonsKeyword_9_0() { return cAdditionalButtonsKeyword_9_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_9_1() { return cLeftCurlyBracketKeyword_9_1; }
@@ -5398,7 +5398,7 @@ public class PictureGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Page:
 	//	{Page} "Page" "{" "title" title=STRING "description" description=STRING ("Attributes to show" "{" attributes+=AttMap*
-	//	"}")? ("References to show" "{" references+=ID* "}")? ("Additionals buttons" "{" buttons+=Button* "}")? "}";
+	//	"}")? ("References to show" "{" references+=ID* "}")? ("Additional buttons" "{" buttons+=Button* "}")? "}";
 	public PageElements getPageAccess() {
 		return pPage;
 	}

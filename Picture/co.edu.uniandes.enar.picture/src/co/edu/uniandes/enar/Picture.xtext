@@ -351,7 +351,7 @@ Page returns Page:
 		'description' description=STRING 
 		('Attributes to show''{' (attributes+=AttMap)* '}')?
 		('References to show' '{' (references+=ID)* '}')?
-		('Additionals buttons''{' (buttons+=Button)* '}')?
+		('Additional buttons''{' (buttons+=Button)* '}')?
 	'}';
 
 AttMap returns AttMap:
