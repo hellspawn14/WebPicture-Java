@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/co.edu.uniandes.enar.picture/src-gen" editDirectory="/co.edu.uniandes.enar.picture.edit/src"
+    editorDirectory="/co.edu.uniandes.enar.picture.editor/src" modelPluginID="co.edu.uniandes.enar.picture"
+    forceOverwrite="true" modelName="Picture" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="co.edu.uniandes.enar.picture.edit"
+    editorPluginID="co.edu.uniandes.enar.picture.editor" runtimeVersion="2.10">
+  <genPackages prefix="Picture" basePackage="co.edu.uniandes.enar" disposableProviderFactory="true"
+      fileExtensions="picture" ecorePackage="Picture.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Picture.ecore#//LineType">
+      <genEnumLiterals ecoreEnumLiteral="Picture.ecore#//LineType/solid"/>
+      <genEnumLiterals ecoreEnumLiteral="Picture.ecore#//LineType/dash"/>
+      <genEnumLiterals ecoreEnumLiteral="Picture.ecore#//LineType/dot"/>
+      <genEnumLiterals ecoreEnumLiteral="Picture.ecore#//LineType/dashdot"/>
+      <genEnumLiterals ecoreEnumLiteral="Picture.ecore#//LineType/dashdotdot"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Picture.ecore#//WizardType">
+      <genEnumLiterals ecoreEnumLiteral="Picture.ecore#//WizardType/create"/>
+      <genEnumLiterals ecoreEnumLiteral="Picture.ecore#//WizardType/edit"/>
+      <genEnumLiterals ecoreEnumLiteral="Picture.ecore#//WizardType/info"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Picture.ecore#//ComponentType">
+      <genEnumLiterals ecoreEnumLiteral="Picture.ecore#//ComponentType/textField"/>
+      <genEnumLiterals ecoreEnumLiteral="Picture.ecore#//ComponentType/textArea"/>
+      <genEnumLiterals ecoreEnumLiteral="Picture.ecore#//ComponentType/checkBox"/>
+      <genEnumLiterals ecoreEnumLiteral="Picture.ecore#//ComponentType/comboBox"/>
+      <genEnumLiterals ecoreEnumLiteral="Picture.ecore#//ComponentType/slider"/>
+      <genEnumLiterals ecoreEnumLiteral="Picture.ecore#//ComponentType/fileReference"/>
+      <genEnumLiterals ecoreEnumLiteral="Picture.ecore#//ComponentType/imageReference"/>
+    </genEnums>
+    <genClasses ecoreClass="Picture.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//Model/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//Model/graphicalREpresentation"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Import/importedNamespace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Import/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//GraphicalRepresentation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//GraphicalRepresentation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//GraphicalRepresentation/referencePackage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//GraphicalRepresentation/root"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//GraphicalRepresentation/toolsDefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//GraphicalRepresentation/styleDefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//GraphicalRepresentation/graphicalDefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//GraphicalRepresentation/rulesDefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//GraphicalRepresentation/interactionDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//MetaConceptReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//MetaConceptReference/class"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//ClassReference"/>
+    <genClasses ecoreClass="Picture.ecore#//AttReference"/>
+    <genClasses ecoreClass="Picture.ecore#//ROOT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//ROOT/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//ToolDefinition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Picture.ecore#//ToolDefinition/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//ToolDefinition/toolGroups"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//ToolGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//ToolGroup/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//ToolGroup/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//ToolGroup/toolGroups"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//ToolGroup/buttons"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//CreationButton">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//CreationButton/metaConceptReference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//CreationButton/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//CreationButton/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//CreationButton/icon"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//StyleDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//StyleDefinition/styleElements"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//StyleElement"/>
+    <genClasses ecoreClass="Picture.ecore#//LineStyle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//LineStyle/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//LineStyle/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//LineStyle/lineType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Picture.ecore#//LineStyle/color"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//LineDecoration"/>
+    <genClasses ecoreClass="Picture.ecore#//DefaultLineDecoration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//DefaultLineDecoration/none"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//DefaultLineDecoration/arrow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//DefaultLineDecoration/rhomb"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//DefaultLineDecoration/filledrhomb"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//DefaultLineDecoration/square"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//DefaultLineDecoration/filledsquare"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//DefaultLineDecoration/closedarrow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//DefaultLineDecoration/filledclosedarrow"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//CustomLineDecoration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//CustomLineDecoration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//CustomLineDecoration/referenceImplementation"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//Color">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Color/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Color/red"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Color/green"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Color/blue"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//Layout"/>
+    <genClasses ecoreClass="Picture.ecore#//DefaultLayout">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//DefaultLayout/list"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//DefaultLayout/default"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//CustomLayout">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//CustomLayout/referenceImplementation"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//FigureStyle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//FigureStyle/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//Rounded">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Rounded/rx"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Rounded/ry"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//RegularPolygon">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//RegularPolygon/vertexCant"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//RegularPolygon/startAngle"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//Ellipse">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Ellipse/radiox"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Ellipse/radioy"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//CustomFigure">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//CustomFigure/points"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//Point">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Point/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Point/y"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//LabelPosition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//LabelPosition/internal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//LabelPosition/external"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//Size">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Size/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Size/height"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//GraphicalDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//GraphicalDefinition/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//GraphicalElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//GraphicalElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//ElementDef"/>
+    <genClasses ecoreClass="Picture.ecore#//NodeDef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeDef/referenceClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//NodeDef/label"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//AttLinkDef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//AttLinkDef/referenceName"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//ElementAlt"/>
+    <genClasses ecoreClass="Picture.ecore#//NodeAlt"/>
+    <genClasses ecoreClass="Picture.ecore#//AttLinkAlt"/>
+    <genClasses ecoreClass="Picture.ecore#//NodeElementDef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//NodeElementDef/labelIcon"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeElementDef/labelPlacement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeElementDef/size"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeElementDef/figure"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//NodeElementDef/phantomN"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//NodeElementAlt">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeElementAlt/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeElementAlt/labelPlacement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeElementAlt/figure"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeElementAlt/size"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//Figure"/>
+    <genClasses ecoreClass="Picture.ecore#//RegularFigure">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Picture.ecore#//RegularFigure/figureStyle"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Picture.ecore#//RegularFigure/bacgroundColor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Picture.ecore#//RegularFigure/border"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//RegularFigure/path"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//RegularFigure/size"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//RegularFigure/position"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//ImageFigure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//ImageFigure/path"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//ComplexFigure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//ComplexFigure/implementationReference"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//NodeLinkDef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeLinkDef/style"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeLinkDef/sourceDecoration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeLinkDef/targetDecoration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//NodeLinkDef/sourceReference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//NodeLinkDef/targetReference"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//NodeLinkAlt">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeLinkAlt/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeLinkAlt/style"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeLinkAlt/sourceDecoration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeLinkAlt/targetDecoration"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//NodeLineDef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//NodeLineDef/label"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeLineDef/style"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeLineDef/sourceDecoration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeLineDef/targetDecoration"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//NodeLineAlt">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeLineAlt/parent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeLineAlt/style"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeLineAlt/sourceDecoration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//NodeLineAlt/targetDecoration"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//InterNodeDef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//InterNodeDef/layout"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//InterNodeAlt">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Picture.ecore#//InterNodeAlt/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//InterNodeAlt/layout"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//ExternalNodeDef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//ExternalNodeDef/size"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//ExternalNodeAlt">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Picture.ecore#//ExternalNodeAlt/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//ExternalNodeAlt/size"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//RulesDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//RulesDefinition/ruless"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//Rule"/>
+    <genClasses ecoreClass="Picture.ecore#//RuleForType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//RuleForType/classReference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//RuleForType/cases"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//RuleForReference">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//RuleForReference/reference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//RuleForReference/cases"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//CaseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//CaseType/condition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Picture.ecore#//CaseType/nodeElement"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//CaseReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//CaseReference/condition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Picture.ecore#//CaseReference/referenceElement"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//InteractionDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//InteractionDefinition/interactionElements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//InteractionDefinition/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//InteractionElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//InteractionElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//Wizard"/>
+    <genClasses ecoreClass="Picture.ecore#//ElementWizard">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//ElementWizard/classReference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//ElementWizard/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//ElementWizard/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//ElementWizard/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//ElementWizard/pages"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//ElementWizard/defaultButtons"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//Page">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Page/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Page/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//Page/attributes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Page/references"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//Page/buttons"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//AttMap">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//AttMap/attribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//AttMap/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//AttMap/component"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//AttMap/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//Button">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Button/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Button/methodAction"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//PersonalWizard">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//PersonalWizard/referenceImplementation"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//View">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//View/referenceImplementation"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//PredefinedView">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//PredefinedView/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//PredefinedView/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//PredefinedView/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//PredefinedView/style"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//ViewType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//ViewType/classReference"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//ShowChilds"/>
+    <genClasses ecoreClass="Picture.ecore#//ShowSelection"/>
+    <genClasses ecoreClass="Picture.ecore#//CountTypes"/>
+    <genClasses ecoreClass="Picture.ecore#//ViewStyle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//ViewStyle/tree"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//ViewStyle/selection"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//ViewStyle/table"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//ViewStyle/resultGraphic"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//PersonalView"/>
+    <genClasses ecoreClass="Picture.ecore#//Statement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//Statement/classReference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//Statement/events"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//Event">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//Event/eventType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Picture.ecore#//Event/instructions"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//EventType"/>
+    <genClasses ecoreClass="Picture.ecore#//MouseEvent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//MouseEvent/mouseDown"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//MouseEvent/mouseEnter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//MouseEvent/mouseHorizontalWheel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//MouseEvent/mouseUp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//MouseEvent/mouseWheel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//MouseEvent/mouseVerticalWheel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//MouseEvent/mouseHover"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//MouseEvent/mouseExit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//MouseEvent/mouseDoubleClick"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//KeyEvent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//KeyEvent/keyPress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//KeyEvent/keyUp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//KeyEvent/keyDown"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//ElementEvent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//ElementEvent/create"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//ElementEvent/delete"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//MenuEvent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//MenuEvent/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//Instruction"/>
+    <genClasses ecoreClass="Picture.ecore#//WizardStart">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Picture.ecore#//WizardStart/wizard"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//ViewDeploy">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Picture.ecore#//ViewDeploy/view"/>
+    </genClasses>
+    <genClasses ecoreClass="Picture.ecore#//ClassExecution">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Picture.ecore#//ClassExecution/inplementationReference"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,465 @@
+grammar co.edu.uniandes.enar.Picture with org.eclipse.xtext.common.Terminals
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+generate picture "http://www.edu.co/uniandes/enar/Picture"
+
+Model:
+	{Model} imports+=Import
+	graphicalREpresentation=GraphicalRepresentation;
+
+Import:
+	'import' importedNamespace=STRING 'as' name= ID;
+
+GraphicalRepresentation returns GraphicalRepresentation:
+	'Graphical' 'representation' name = ID '{'
+		('reference' 'package' referencePackage=QualifiedName )? 
+		root=ROOT 
+		toolsDefinition=ToolDefinition
+		styleDefinition=StyleDefinition
+		graphicalDefinition=GraphicalDefinition
+		rulesDefinition=RulesDefinition
+		interactionDefinition=InteractionDefinition
+    '}';
+
+QualifiedName:
+ID ('.' ID)* ;
+
+MetaConceptReference returns MetaConceptReference:
+	ClassReference | AttReference;
+
+ClassReference returns ClassReference:
+	'class' class=QualifiedName;
+
+AttReference returns AttReference:
+	'reference' class=QualifiedName;
+
+ROOT returns ROOT:
+	'root' name=ID;
+
+/////////ToolDefinition/////////
+
+ToolDefinition returns ToolDefinition:
+	{ToolDefinition}
+	'Palette for' name=[ROOT|ID] '{'
+		toolGroups+=ToolGroup+
+	'}';
+
+ToolGroup returns ToolGroup:
+	'Tool group' name=ID '{'
+		'description' description=STRING
+		(toolGroups+=ToolGroup)*
+		(buttons+=CreationButton)*
+	'}';
+
+CreationButton returns CreationButton:
+	{CreationButton}
+	'Creation button for' metaConceptReference=ClassReference '{'
+		'name' name=STRING
+		'description' description=STRING
+		'icon' icon=STRING
+	'}';
+
+/////////StyleDefinition/////////
+
+StyleDefinition returns StyleDefinition:
+	{StyleDefinition}
+	'Style definition' '{'
+		(styleElements+=StyleElement)*
+	'}';
+
+StyleElement returns StyleElement:
+	LineStyle | Color |  LineDecoration | FigureStyle;
+
+LineStyle returns LineStyle:
+	'Line style' name=ID '{'
+		'width' width=INT
+		'type' lineType=LineType
+		'color' color=[Color|ID]
+	'}';
+
+LineDecoration returns LineDecoration:
+	DefaultLineDecoration | CustomLineDecoration;
+
+DefaultLineDecoration returns DefaultLineDecoration:
+	none='none' |
+	arrow = 'arrow' |
+	rhomb = 'rhomb' |
+	filledrhomb = 'filled' 'rhomb' |
+	square = 'square' |
+	filledsquare = 'filled' 'square' |
+	closedarrow = 'closed' 'arrow' |
+	filledclosedarrow = 'filled' 'closed' 'arrow'; 
+
+CustomLineDecoration returns CustomLineDecoration:
+	'Custom line decoration' name=ID '{'
+		'class' referenceImplementation=STRING
+	'}';
+
+enum LineType returns LineType:
+	solid = 'solid' | 
+	dash = 'dash' | 
+	dot = 'dot' |
+	dashdot = 'dashdot' |
+	dashdotdot = 'dashdotdot';
+
+Color returns Color:
+	'Color' name=ID	'(' red=INT ', ' green=INT ', ' blue=INT ')';
+
+Layout returns Layout:
+	DefaultLayout | CustomLayout; 
+
+DefaultLayout returns DefaultLayout:
+	list='list' 'layout' |
+	default='default' 'layout'; 
+
+CustomLayout returns CustomLayout:
+	'custom' 'layout' '{'
+		'implementation reference' referenceImplementation=STRING
+	'}';
+
+FigureStyle returns FigureStyle:
+	Rounded | RegularPolygon | Ellipse | CustomFigure;
+
+Rounded returns Rounded:
+	'Rounded' name=ID '{'
+		'radiox' rx=INT
+		'radioy' ry=INT
+	'}';
+
+RegularPolygon returns RegularPolygon:
+	'Regular polygon' name=ID '{'
+		'vertex quantity' vertexCant=INT
+		'start angle' startAngle=INT
+	'}';
+
+Ellipse returns Ellipse:
+	'Ellipse' name=ID '{'
+		'proportion' '(' radiox=INT ', ' radioy=INT')'
+	'}';
+
+CustomFigure returns CustomFigure:
+	'Custom figure' name=ID '{'
+		points+=Point
+	'}';
+
+Point returns Point:
+	{Point}
+	'Point' '(' x=INT ', ' y=INT ')';
+
+LabelPosition returns LabelPosition:
+internal = 'internal' | external = 'external';
+
+Size returns Size:
+	{Size}
+	'(' width=INT ', ' height=INT')';
+
+EBoolean returns ecore::EBoolean:
+	'true' | 'false';
+
+/////////GraphicalDefinition/////////
+
+GraphicalDefinition returns GraphicalDefinition:
+	{GraphicalDefinition}
+	'Graphical' 'definition' '{'
+		elements+=GraphicalElement+
+	'}';
+
+GraphicalElement returns GraphicalElement:
+	ElementDef | ElementAlt;
+	
+ElementDef returns ElementDef:
+	NodeDef | AttLinkDef;
+	
+NodeDef returns NodeDef:
+	NodeElementDef | NodeLinkDef; 
+
+AttLinkDef returns AttLinkDef:
+	NodeLineDef | InterNodeDef | ExternalNodeDef;
+
+ElementAlt returns ElementAlt:
+	NodeAlt | AttLinkAlt;
+	
+NodeAlt returns NodeAlt:
+	NodeElementAlt | NodeLinkAlt; 
+
+AttLinkAlt returns AttLinkAlt:
+	NodeLineAlt | InterNodeAlt | ExternalNodeAlt;
+
+NodeElementDef returns NodeElementDef:
+	'Node_element' name=ID 'for' referenceClass=ClassReference '{'
+		'label' label=ID
+		'label' 'icon' labelIcon= EBoolean
+		'label' 'placement' labelPlacement=LabelPosition
+		'size' size=Size
+		figure=Figure
+		'phantom' phantomN = EBoolean
+	'}';
+
+NodeElementAlt returns NodeElementAlt:
+	'Node_element' name=ID 'extends' parent=[NodeElementDef|ID] '{'
+		('label' 'placement' labelPlacement=LabelPosition)?
+		(figure=Figure)?
+		('size' size=Size)?
+	'}';
+
+Figure returns Figure:
+	RegularFigure | ImageFigure | ComplexFigure;
+
+RegularFigure returns RegularFigure:
+	{RegularFigure}
+	'Regular figure extends' figureStyle=[FigureStyle|ID] '{'
+		'background color' bacgroundColor=[Color|ID]
+		'border' border=[LineStyle|ID]
+		('icon' 'path' path=STRING
+		'icon' 'size' size=Size
+		'icon' 'position' position=Point)?
+	'}';
+
+ImageFigure returns ImageFigure:
+	{ImageFigure}
+	'Image figure' '{'
+		'image path' path=STRING
+	'}';
+
+ComplexFigure returns ComplexFigure:
+	{ComplexFigure}
+	'Complex figure' '{'
+		'class' implementationReference=STRING
+	'}';
+
+NodeLinkDef returns NodeLinkDef:
+	'Node_link' name=ID 'for' referenceClass=ClassReference '{'
+		'label' label=ID
+		'style' style=LineStyle
+		'source' 'decoration' sourceDecoration=LineDecoration
+		'target' 'decoration' targetDecoration=LineDecoration
+		'source' 'reference' '<-' sourceReference=ID  
+		'target' 'reference' '<-' targetReference=ID
+	'}';
+
+NodeLinkAlt returns NodeLinkAlt:
+	'Node_link' name=ID 'extends' parent=[NodeLinkDef|ID] '{'
+		('style' style=LineStyle)?
+		('source' 'decoration' sourceDecoration=LineDecoration)?
+		('target' 'decoration' targetDecoration=LineDecoration)?
+	'}';
+
+NodeLineDef returns NodeLineDef:
+	'Node_line' name=ID 'for' referenceName=AttReference '{'
+		'label' label = STRING
+		'style' style=[LineStyle|ID]
+		'source' 'decoration' sourceDecoration=LineDecoration
+		'target' 'decoration' targetDecoration=LineDecoration
+	'}';
+
+NodeLineAlt returns NodeLineAlt:
+	'Node_line' name=ID 'extends' parent=[NodeLineDef|ID] '{'
+		('style' style=[LineStyle|ID])?
+		('source' 'decoration' sourceDecoration=LineDecoration)?
+		('target' 'decoration' targetDecoration=LineDecoration)?
+	'}';
+
+InterNodeDef returns InterNodeDef:
+	'Internal_node' name=ID 'for' referenceName=AttReference	'{'
+		'layout' layout=Layout
+	'}';
+
+InterNodeAlt returns InterNodeAlt:
+	'Internal_node' name=ID 'extends' parent=[InterNodeDef|ID] '{'
+		'layout' layout=Layout
+	'}';
+
+ExternalNodeDef returns ExternalNodeDef:
+	'External_node' name=ID 'for' referenceName=AttReference '{'
+		'size' size=Size
+	'}';
+
+ExternalNodeAlt returns ExternalNodeAlt:
+	'External_node' name=ID 'extends' parent=[ExternalNodeDef|ID] '{'
+		'size' size=Size
+	'}';
+
+/////////RulesDefinition/////////
+
+RulesDefinition returns RulesDefinition:
+	{RulesDefinition}
+	'Rules definition' '{'
+		(ruless+=Rule)*
+	'}';
+
+Rule returns Rule:
+	RuleForType | RuleForReference;
+
+RuleForType returns RuleForType:
+	'Rules for' classReference=ClassReference '{'
+		(cases+=CaseType)*
+	'}';
+
+RuleForReference returns RuleForReference:
+	'Rules for' reference=AttReference '{'
+		(cases+=CaseReference)*
+	'}';
+
+CaseType returns CaseType:
+	{CaseType}
+	'case' condition=STRING 'use' ((nodeElement=[NodeAlt|ID]) | 'default');
+
+CaseReference returns CaseReference:
+	{CaseReference}
+	'case' condition=STRING 'use' ((referenceElement=[AttLinkAlt|ID]) | 'default');
+
+/////////InteractionDefinition/////////
+
+InteractionDefinition returns InteractionDefinition:
+	{InteractionDefinition}
+	'Interaction definition' '{'
+		'Interaction elements' '{'
+			(interactionElements+=InteractionElement)*
+		'}'
+		'Statements' '{'
+			(statements+=Statement)*
+		'}'
+	'}';
+
+InteractionElement returns InteractionElement:
+	Wizard | View;
+
+Wizard returns Wizard:
+	ElementWizard | PersonalWizard;
+
+ElementWizard returns ElementWizard:
+	'Wizard' name=ID 'for' 'context' classReference=ClassReference '{'
+		'title' title=STRING
+		'description' description=STRING
+		'type' type=WizardType
+		'pages' '{'
+			pages+=Page*
+		'}'
+		'default' 'buttons' defaultButtons=EBoolean
+	'}';
+
+enum WizardType returns WizardType:
+	create='create'|
+	edit='edit' | 
+	info='info';
+
+Page returns Page:
+	{Page}
+	'Page' '{'
+		'title' title=STRING
+		'description' description=STRING 
+		('Attributes to show''{' (attributes+=AttMap)* '}')?
+		('References to show' '{' (references+=ID)* '}')?
+		('Additionals buttons''{' (buttons+=Button)* '}')?
+	'}';
+
+AttMap returns AttMap:
+	{AttMap}
+	'('attribute=STRING', 'label=STRING', 'component=ComponentType', 'defaultValue=STRING')';
+
+enum ComponentType returns ComponentType:
+	textField='textField' |
+	textArea='textArea' |
+	checkBox='checkBox' |
+	comboBox='comboBox' |
+	slider='Slider' |
+	fileReference='File' |
+	imageReference='Image';
+
+Button returns Button:
+	{Button}
+	'Button' '('label=STRING', 'methodAction=STRING')';
+
+PersonalWizard returns PersonalWizard:
+	'Personal' 'wizard' name=ID '{'
+		'implementation reference' referenceImplementation=STRING
+	'}';
+
+View returns View:
+	PredefinedView | PersonalView;
+
+PredefinedView returns PredefinedView:
+	'View' name=ID '{'
+		'title' title=STRING
+		'description' description=STRING
+		'type' type=ViewType
+		'style' style=ViewStyle
+		('class' 'data' 'provider' referenceImplementation=STRING)?
+	'}';
+
+ViewType returns ViewType:
+	ShowChilds | ShowSelection | CountTypes;
+	
+ShowChilds returns ShowChilds:
+	{ShowChilds}
+	'Show' 'childs' '(''parent element' classReference=ClassReference ')';
+
+ShowSelection returns ShowSelection:
+	{ShowSelection}
+	'Show' 'selection'('(''filter type' classReference=ClassReference')')?;
+
+CountTypes returns CountTypes:
+	{CountTypes}
+	'Count' 'types' '(''type' classReference=ClassReference')';
+
+ViewStyle returns ViewStyle:
+	tree='tree' |
+	selection='selection' |
+	table='table'
+	resultGraphic='graphic';
+
+PersonalView returns PersonalView:
+	'Personal view' name=ID '{'
+		'implementation reference' referenceImplementation=STRING
+	'}';
+
+Statement returns Statement:
+	'Actions for type' classReference=ID '{'
+		(events+=Event)* 
+	'}';
+
+Event returns Event:
+	{Event}
+	'on' eventType=EventType 'do' '{'
+		(instructions+=Instruction)*
+	'}';
+
+EventType returns EventType:
+	MouseEvent | KeyEvent | ElementEvent | MenuEvent;
+
+MouseEvent returns MouseEvent:
+	mouseDown='mouse' 'down' |
+	mouseEnter='mouse' 'enter' |
+	mouseHorizontalWheel='mouse' 'horizontal' 'wheel' |
+	mouseUp='mouse' 'up' |
+	mouseWheel='mouse' 'wheel' |
+	mouseVerticalWheel='mouse' 'vertical' 'wheel' |
+	mouseHover='mouse' 'hover' |
+	mouseExit='mouse' 'exit' |
+	mouseDoubleClick='mouse' 'double' 'click';
+
+KeyEvent returns KeyEvent:
+	keyPress='key' 'press' |
+	keyUp='key' 'up' |
+	keyDown='key' 'down';
+
+ElementEvent returns ElementEvent:
+	create='create'|
+	delete='delete';
+
+MenuEvent returns MenuEvent:
+	{MenuEvent}
+	'Menu event' '('name=STRING ')';
+
+Instruction returns Instruction:
+	WizardStart | ViewDeploy | ClassExecution;
+	
+WizardStart returns WizardStart:
+	'show' 'wizard' wizard=[Wizard|ID];
+
+ViewDeploy returns ViewDeploy:
+	'show' 'view' view=[View|ID];
+
+ClassExecution returns ClassExecution:
+	'execute' inplementationReference=STRING;
