@@ -1,0 +1,175 @@
+<! DOCTYPE html>
+<meta charset="UTF-8">
+<html lang="en">
+<link rel="icon" href="../res/siteIcon.png" type="image/x-icon"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Index web site for WebPicture online DSL model editor">
+<head>
+	<title>Create new editor</title>
+    <link rel="icon" href="../res/siteIcon.png" type="image/x-icon">
+    <!-- Hojas de estilo -->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet" href="../pure-css/css/layouts/grids-responsive.css">
+    <link rel="stylesheet" href="../pure-css/css/layouts/marketing.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="../pure-css/css/layouts/headers.css"> 
+</head>
+<body>
+
+    <div class="header">
+    	<div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed"style="background-color:#181818">
+        	<a class="pure-menu-heading" href="index.html"><img src="../res/logo.png" class="pure-img"/></a>
+    	</div>  
+	</div>
+    
+    <div class="splash-container" style="background-color:#FFFFFF; height:100%">
+    	<header>
+        	<p style="visibility:hidden">I bet you can't see me</p>
+        </header>
+        
+        <div style="text-align:center; height:100%">
+        	<div style="height:50%">
+            <div class="pure-g">
+        		<div class="pure-u-1-3" style="text-align:center; height:auto; border-right:1px solid #808080">
+                	<img class="pure-img-responsive" src="../res/crt1.png" style="width:50%;heigth:50%; margin-top:10px"/>
+            	</div>
+            	<div class="pure-u-1-3" style="text-align:center; height:auto; border-right:1px solid #808080">
+                	<img class="pure-img-responsive" src="../res/crt2.png" style="width:50%;heigth:50%; margin-top:10px"/>
+            	</div>
+            	<div class="pure-u-1-3" style="text-align:center; height:auto">
+                	<img class="pure-img-responsive" src="../res/crt3.png" style="width:50%;heigth:50%; margin-top:10px"/>
+        		</div>
+        	</div> 
+            
+            
+            <div class="pure-g" style="height:100%">
+        		<div class="pure-u-1-3" style="text-align:center; height:auto; border-right:1px solid #808080">
+                	<p class="marketing-header" style="text-align:center">Upload an ecore file</p>
+            	</div>
+            	<div class="pure-u-1-3" style="text-align:center; height:auto; border-right:1px solid #808080">
+                	<p class="marketing-header" style="text-align:center">Select a graphical representation</p>
+            	</div>
+            
+            	<div class="pure-u-1-3" style="text-align:center; height:auto">
+                	<p class="marketing-header" style="text-align:center">Editor aditional information</p>
+        		</div>
+        	</div> 
+            </div>
+            <div style="height:50%">
+            <div class="pure-g">
+        		<div class="pure-u-1-3" style="text-align:center; height:100%;border-right:1px solid #808080">
+                	<!-- carga el .ecore-->
+                    <form>
+                    	<input type="file" class="custom-file-input" accept=".ecore"/>
+                    </form>
+            	</div>
+            	<div class="pure-u-1-3" style="text-align:center; height:100%; border-right:1px solid #808080">
+                	<div class="pure-g">
+                    	<div class="pure-u-1-2">
+                			<p>Use default set <input type="radio" name="set" value="default" onChange="hideElements()"/></p>
+                       	</div>
+                        <div class="pure-u-1-2">
+                        	<p>Use custom set <input type="radio" name="set" value="custom" onChange="showElements()" /></p>
+                        </div>
+                    </div>
+                    <p id="pictureText" style="visibility:hidden; text-align:center">Upload a picture file <input type="file" id="uploadPicture" class="custom-file-input" style="visibility:hidden"></p>
+                    <p id="folderText" style="visibility:hidden; text-align:center">Upload resource folder <input type="file" id="uploadFolder" class="custom-file-input" style="visibility:hidden"></p>
+            	</div>
+            	<div class="pure-u-1-3" style="text-align:center; height:auto">
+                	<form class="pure-form pure-form-stacked">
+    					<fieldset>
+    						<div class="pure-g">
+            					<div class="pure-u-1 pure-u-md-1-2">
+                					<input id="editorName" type="text" placeholder="Editor name">
+            					</div>
+								<div class="pure-u-1 pure-u-md-1-2">
+                					<input id="author" type="text" placeholder="Author">
+            					</div>
+                            </div>
+                            <fieldset class="pure-group">
+                            	<textArea type="description" class="pure-input-1-2" placeholder="Editor description" style="width:100%"></textArea>
+                            </fieldset>
+                            <button type="submit" class="button-success pure-button pure-input-1-2">Generate editor</button>
+        				</fieldset>
+					</form>
+        		</div>
+        	</div> 
+            </div>
+     	</div>
+     </div>
+    
+    <div class="content-wrapper">
+    <p class="hero-tagline" style="text-align:center; background-color:#1D78CC;color:white"><i class="fa fa-angle-down"></i> Help</p>
+    	<div class="content">
+        	<h3 class="content-subhead" style="text-align:center">
+        		<i class="fa fa-check-circle"></i> The basics
+        	</h3>
+            <p style="text-align:justify">WebPicture lets you create awesome DSL web based editors, using key features of <a target="_blank" href="http://www.eclipse.org/modeling/emf/">EMF</a> and <a target="_blank" href="http://backus1.uniandes.edu.co/enar/dokuwiki/doku.php?id=picture">Picture</a> a domain specific language independent to the desire metamodel to represent.</p>
+            <h3 class="content-subhead" style="text-align:center">
+        		<i class="fa fa-check-circle"></i> Getting everything you need
+        	</h3>
+
+
+			<h3 class="content-subhead">
+        		<i class="fa fa-sitemap"></i> Building the metamodel
+        	</h3>
+            <p style="text-align:justify">EMF technology lets you create quick and easy metamodels for code generation. WebPicture requieres an ecore model you can learn more about EMF you can follow this <a  target="_blank" href="http://eclipsesource.com/blogs/tutorials/emf-tutorial/">tutorial</a>.</p> 
+            
+            <h3 class="content-subhead">
+        		<i class="fa fa-picture-o"></i> Setting the graphical representation 
+        	</h3>
+            <p style="text-align:justify">Currently WebPicture supports two ways to set graphical representations for models.</p>
+            <p style="text-align:justify">One way to represent your models is to choose the default set option, by choosing this option WebPicture takes a basic default set to get everything painted. You can learn more about this option in our <a href="aboutGraphicalSets.html" target="_blank"> default graphical set site</a>.</p>
+            <p style="text-align:justify">The second option to set the graphical representation for your model is to upload your own graphical representation. You can write down your own Picture file following the specification available in the <a target="_blank" href="http://backus1.uniandes.edu.co/enar/dokuwiki/doku.php?id=picture">EnAr Wiki </a>. Also there is a cool option that you must try it auto generates a custom Picture file based on a ecore file you can choose between several options to customize everything in your editor. You can learn more at <a target="_blank" href="http://localhost:8080/PictureMaker/" id="pictureServer">PictureMaker</a>.</p>
+            
+            <p style="text-align:justify">If your Picture files references media resources such as images you must upload a folder which contains all the resources requiered. We recomend using a single folder that contains all your files.</p>
+            
+            <h3 class="content-subhead">
+        		<i class="fa fa-info-circle"></i> Generating the editor
+        	</h3>
+            <p style="text-align:justify">Finally to wrap things up give a name to your new editor, get credit for it and give it a description.</p>
+            <h3 class="content-subhead">
+        		<i class="fa fa-rocket"></i> Ready
+        	</h3>
+            <p style="text-align:justify">Got everything done now click the Generate editor button to create the new editor.</p>
+            <h3 class="content-subhead" style="text-align:center">
+        		<i class="fa fa-question-circle"></i> Got troubles?
+        	</h3>
+            <h3 class="content-subhead">
+        		<i class="fa fa-times"></i> Metamodel exception
+        	</h3>
+            <p style="text-align:justify">Make sure that everything in side the XML structure of the ecore file is valid, probably you should validate its structure.</p>
+            <h3 class="content-subhead">
+        		<i class="fa fa-times"></i> Picture exception
+        	</h3>
+            <p style="text-align:justify">First make sure that your file does not have any missing brackets. Second make sure the content</p>
+             <h3 class="content-subhead">
+        		<i class="fa fa-times"></i> Directory exception
+        	</h3>
+            <p style="text-align:justify">In case your graphical representation uses external resources such as images and media make sure that you've uploaded a folder with a proper name and structure. Also make sure the files names and directories correspont to your Picture file.</p>
+        </div>
+    	<div class="footer"style="background-color:#181818">
+        	<p>All rights reserved Uniandes 2014</p>
+            <p>Universidad de los Andes - Computer engineering department - Engineering Faculty</p>           
+    	</div>
+	</div>
+</body>
+
+<script>
+function showElements() {
+	document.getElementById("pictureText").style.visibility="visible";
+	document.getElementById("uploadPicture").style.visibility="visible";
+	document.getElementById("folderText").style.visibility="visible";
+	document.getElementById("uploadFolder").style.visibility="visible";
+	
+}
+function hideElements(){
+	document.getElementById("pictureText").style.visibility="hidden";
+	document.getElementById("uploadPicture").style.visibility="hidden";
+	document.getElementById("folderText").style.visibility="hidden";
+	document.getElementById("uploadFolder").style.visibility="hidden";
+}
+
+</script>
+
+</html>
