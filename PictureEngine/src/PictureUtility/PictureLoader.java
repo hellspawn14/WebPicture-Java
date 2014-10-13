@@ -1,10 +1,5 @@
 package PictureUtility;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Collections;
 import java.util.Iterator;
 
 import org.eclipse.emf.common.util.EList;
@@ -13,12 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import co.edu.uniandes.enar.picture.Model;
 
@@ -40,7 +30,7 @@ public class PictureLoader
 	 * @return Model - Es el modelo generado desde el archivo Picture
 	 * @throws Exception - En el caso de que el archivo Picture tenga un error devuelve la lista de los errores
 	 */
-	public static Model parse(String picturePath) throws Exception
+	public void loadPicture(String picturePath) throws Exception
 	{
 		//Carga el modelo de la gramatica en memoria principal 
 		new org.eclipse.emf.mwe.utils.StandaloneSetup().setPlatformUri("../");
@@ -72,20 +62,22 @@ public class PictureLoader
 			}
 			throw new Exception (mensajeException);
 		}
-		return model;
 	}
 	
 	public void loadModel(Model model)
 	{
-		
 	}
 	
 	public static void main (String args[])
 	{
-		
+		PictureLoader Pl = new PictureLoader();
+		try 
+		{
+			Pl.loadPicture("./data/hellspawn.picture");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
-	//------------------------------------------------------------------
-	//Getters & Setters 
-	//------------------------------------------------------------------
 }
