@@ -28,30 +28,17 @@ import com.google.inject.Injector;
  * Servicio responsabla de hacer el parseo y validacion del archivo picture
  * @author hellspawn
  */
-public class PictureParser 
+public class PictureLoader 
 {
-	
-	//------------------------------------------------------------------
-	//Constantes
-	//------------------------------------------------------------------
-	
-	//------------------------------------------------------------------
-	//Atributos
-	//------------------------------------------------------------------
-
-	//------------------------------------------------------------------
-	//Constructores
-	//------------------------------------------------------------------
-
-	
+		
 	//------------------------------------------------------------------
 	//Metodos 
 	//------------------------------------------------------------------
 	
 	/**
-	 * Carga el modelo desde una ruta fija 
+	 * Carga el modelo desde una ruta fija a memoria principal 
 	 * @return Model - Es el modelo generado desde el archivo Picture
-	 * @throws IOException
+	 * @throws Exception - En el caso de que el archivo Picture tenga un error devuelve la lista de los errores
 	 */
 	public static Model parse(String picturePath) throws Exception
 	{
@@ -95,15 +82,7 @@ public class PictureParser
 	
 	public static void main (String args[])
 	{
-		try 
-		{
-			parse("./data/hellspawn.picture");
-		} 
-		catch (Exception e) 
-		{
-			System.out.println(e.getMessage());
-			//e.printStackTrace();
-		}
+		
 	}
 	
 	//------------------------------------------------------------------
