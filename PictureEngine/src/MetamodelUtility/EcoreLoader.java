@@ -81,7 +81,7 @@ public class EcoreLoader
 					name = (String) classObject.eGet(classObject.eClass().getEAllAttributes().get(0));
 				}
 				 
-				//System.out.println("EClass ->" + name);
+				System.out.println("EClass ->" + name);
 				//Crea la nueva entidad
 				E = new Entity(name);
 				result.add(E);
@@ -100,7 +100,7 @@ public class EcoreLoader
 							String atrName = elements[i].split(" ")[2].substring(0,elements[i].split(" ")[2].length()-1);
 							A = new Attribute(atrName);
 							E.addAtribute(A);
-							//System.out.println("      	EAttribute->" + atrName);		
+							System.out.println("      	EAttribute->" + atrName);		
 						} 
 					}
 						
@@ -119,14 +119,18 @@ public class EcoreLoader
 								 int lowBound = Integer.parseInt(elements[i].split(" ")[8].substring(0,elements[i].split(" ")[8].length() - 1));
 								 int upBound = Integer.parseInt(elements[i].split(" ")[10].substring(0,elements[i].split(" ")[10].length() - 1));
 								 String containment = elements[i].split(" ")[24].substring(0,elements[i].split(" ")[24].length() - 1);
+								 System.out.println(elements[i].toString());
 								 boolean isContainment = false;
 								 if (containment.equals("true"))
 								 {
 									 isContainment = true;
 								 }
 								 //System.out.println("      	EReference->" + referenceName);
+								 
 								 Reference R = new Reference(E, upBound, lowBound, referenceName, isContainment);
 								 E.addReference(R);
+								 System.out.println("	" + R.getSource().getEntityName() + " - " + referenceName + " ->");// + R.getTarget().getEntityName());
+								 //System.out.println("	" + R)
 							}				
 						}				
 					}	
