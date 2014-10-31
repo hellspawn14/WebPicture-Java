@@ -27,6 +27,11 @@ public class Metamodel
 	 */
 	private String name;
 	
+	/**
+	 * Nombre del metamodelo referenciado
+	 */
+	private String referencedModel;
+	
 	//------------------------------------------------------------------
 	//Constructores
 	//------------------------------------------------------------------
@@ -34,10 +39,12 @@ public class Metamodel
 	/**
 	 * Crea un nuevo metamodelo vacio 
 	 * @param name - Nombre del metamodelo 
+	 * @param referencedModel - Nombre del archivo .ecore
 	 */
-	public Metamodel(String name) 
+	public Metamodel(String name, String referencedModel) 
 	{
 		this.name = name;
+		this.referencedModel = referencedModel;
 		modelElements = new ArrayList <Metaelement> ();
 	}
 	
@@ -125,5 +132,13 @@ public class Metamodel
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getReferencedModel() {
+		return referencedModel;
+	}
+
+	public void setReferencedModel(String referencedModel) {
+		this.referencedModel = referencedModel;
 	}
 }
