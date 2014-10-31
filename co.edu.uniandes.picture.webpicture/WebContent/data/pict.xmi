@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ASCII"?>
+<picture:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:picture="http://www.edu.co/uniandes/enar/Picture">
+  <imports importedNamespace="/your_path/hellspawnlang.ecore" name="MM"/>
+  <graphicalREpresentation name="NewRepresentation" referencePackage="ModelStructure">
+    <root name="ModelBase"/>
+    <toolsDefinition name="//@graphicalREpresentation/@root">
+      <toolGroups name="ElementsPalette" description="Elements">
+        <buttons name="GameLibrary" description="Description of GameLibrary" icon="/imagenes/NodeIcon.gif">
+          <metaConceptReference class="GameLibrary"/>
+        </buttons>
+        <buttons name="Game" description="Description of Game" icon="/imagenes/NodeIcon.gif">
+          <metaConceptReference class="Game"/>
+        </buttons>
+        <buttons name="Owner" description="Description of Owner" icon="/imagenes/NodeIcon.gif">
+          <metaConceptReference class="Owner"/>
+        </buttons>
+        <buttons name="Plataforma" description="Description of Plataforma" icon="/imagenes/NodeIcon.gif">
+          <metaConceptReference class="Plataforma"/>
+        </buttons>
+      </toolGroups>
+    </toolsDefinition>
+    <styleDefinition>
+      <styleElements xsi:type="picture:Color" name="color0" red="221" green="221" blue="221"/>
+      <styleElements xsi:type="picture:Color" name="color1" red="161" green="161" blue="161"/>
+      <styleElements xsi:type="picture:LineStyle" name="LineStyle0" width="2" color="//@graphicalREpresentation/@styleDefinition/@styleElements.1"/>
+      <styleElements xsi:type="picture:Rounded" name="rounded0" rx="5" ry="5"/>
+    </styleDefinition>
+    <graphicalDefinition>
+      <elements xsi:type="picture:NodeElementDef" name="GameDefinition" label="elementName">
+        <referenceClass class="Game"/>
+        <labelPlacement internal="internal"/>
+        <size width="100" height="200"/>
+        <figure xsi:type="picture:RegularFigure" figureStyle="//@graphicalREpresentation/@styleDefinition/@styleElements.3" bacgroundColor="//@graphicalREpresentation/@styleDefinition/@styleElements.0" border="//@graphicalREpresentation/@styleDefinition/@styleElements.2" path="/change/default/path">
+          <size width="10" height="10"/>
+          <position x="15" y="15"/>
+        </figure>
+      </elements>
+      <elements xsi:type="picture:NodeElementDef" name="OwnerDefinition" label="elementName">
+        <referenceClass class="Owner"/>
+        <labelPlacement internal="internal"/>
+        <size width="100" height="200"/>
+        <figure xsi:type="picture:RegularFigure" figureStyle="//@graphicalREpresentation/@styleDefinition/@styleElements.3" bacgroundColor="//@graphicalREpresentation/@styleDefinition/@styleElements.0" border="//@graphicalREpresentation/@styleDefinition/@styleElements.2" path="/change/default/path">
+          <size width="10" height="10"/>
+          <position x="15" y="15"/>
+        </figure>
+      </elements>
+      <elements xsi:type="picture:NodeElementDef" name="PlataformaDefinition" label="elementName">
+        <referenceClass class="Plataforma"/>
+        <labelPlacement internal="internal"/>
+        <size width="100" height="200"/>
+        <figure xsi:type="picture:RegularFigure" figureStyle="//@graphicalREpresentation/@styleDefinition/@styleElements.3" bacgroundColor="//@graphicalREpresentation/@styleDefinition/@styleElements.0" border="//@graphicalREpresentation/@styleDefinition/@styleElements.2" path="/change/default/path">
+          <size width="10" height="10"/>
+          <position x="15" y="15"/>
+        </figure>
+      </elements>
+      <elements xsi:type="picture:NodeElementDef" name="GameLibraryDefinition" label="elementName">
+        <referenceClass class="GameLibrary"/>
+        <labelPlacement internal="internal"/>
+        <size width="100" height="200"/>
+        <figure xsi:type="picture:RegularFigure" figureStyle="//@graphicalREpresentation/@styleDefinition/@styleElements.3" bacgroundColor="//@graphicalREpresentation/@styleDefinition/@styleElements.1" border="//@graphicalREpresentation/@styleDefinition/@styleElements.2" path="/change/default/path">
+          <size width="10" height="10"/>
+          <position x="15" y="15"/>
+        </figure>
+      </elements>
+    </graphicalDefinition>
+    <rulesDefinition/>
+    <interactionDefinition>
+      <interactionElements xsi:type="picture:ElementWizard" name="WizardForCreateGame" title="Ola ke ase" description="Ola ke ase" defaultButtons="true">
+        <classReference class="Game"/>
+        <pages title="Ola ke ase" description="Ola ke ase">
+          <attributes attribute="name" label="name" defaultValue="name"/>
+          <attributes attribute="manufacterName" label="manufacterName" defaultValue="manufacterName"/>
+          <attributes attribute="category" label="category" defaultValue="category"/>
+        </pages>
+      </interactionElements>
+      <statements classReference="Game">
+        <events>
+          <eventType xsi:type="picture:ElementEvent" create="create"/>
+          <instructions xsi:type="picture:WizardStart" wizard="//@graphicalREpresentation/@interactionDefinition/@interactionElements.0"/>
+        </events>
+      </statements>
+    </interactionDefinition>
+  </graphicalREpresentation>
+</picture:Model>

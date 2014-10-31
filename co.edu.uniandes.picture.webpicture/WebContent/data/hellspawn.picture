@@ -1,0 +1,181 @@
+import "/your_path/hellspawnlang.ecore" as MM
+Graphical representation NewRepresentation
+{
+	reference package ModelStructure root ModelBase
+	
+	Palette for ModelBase
+	{
+		Tool group ElementsPalette
+		{
+			description "Elements"	
+			Creation button for class GameLibrary 
+			{
+				name "GameLibrary"
+				description "Description of GameLibrary"
+				icon "/imagenes/NodeIcon.gif"
+			}
+
+			Creation button for class Game 
+			{
+				name "Game"
+				description "Description of Game"
+				icon "/imagenes/NodeIcon.gif"
+			}
+
+			Creation button for class Owner 
+			{
+				name "Owner"
+				description "Description of Owner"
+				icon "/imagenes/NodeIcon.gif"
+			}
+
+			Creation button for class Plataforma
+			{
+				name "Plataforma"
+				description "Description of Plataforma"
+				icon "/imagenes/NodeIcon.gif"
+			}
+
+		} 
+	}
+
+	Style definition 
+	{ 
+		Color color0 (221 , 221 , 221)
+		Color color1 (161 , 161 , 161)
+		Line style LineStyle0 
+		{
+			width 2
+			type solid
+			color color1
+		}
+
+		Rounded rounded0 
+		{
+			radiox 5
+			radioy 5
+		}
+	}
+
+	Graphical definition 
+	{ 
+		Node_element GameDefinition for class Game 
+		{
+			label elementName
+			label icon false
+			label placement internal
+			size ( 100 , 200 )
+			Regular figure extends rounded0
+			{
+				background color color0
+				border LineStyle0
+				icon path "/change/default/path"
+				icon size (10 , 10)
+				icon position Point( 15 , 15 )
+			}
+			phantom false
+		}
+
+		Node_element OwnerDefinition for class Owner 
+		{
+			label elementName
+			label icon false
+			label placement internal
+			size (100 , 200)
+			Regular figure extends rounded0
+			{
+				background color color0
+				border LineStyle0
+				icon path "/change/default/path"
+				icon size (10 , 10)
+				icon position Point( 15 , 15 )
+			}
+			phantom false
+		}
+
+		Node_element PlataformaDefinition for class Plataforma 
+		{
+			label elementName
+			label icon false	
+			label placement internal
+			size ( 100 , 200 )
+			Regular figure extends rounded0
+			{
+				background color color0
+				border LineStyle0
+				icon path "/change/default/path"
+				icon size (10 , 10)
+				icon position Point( 15 , 15 )
+			}
+			phantom false
+		}
+
+		Node_element GameLibraryDefinition for class GameLibrary 
+		{
+			label elementName
+			label icon false
+			label placement internal
+			size ( 100 , 200 )
+			Regular figure extends rounded0
+			{
+				background color color1
+				border LineStyle0
+				icon path "/change/default/path"
+				icon size (10 , 10)
+				icon position Point( 15 , 15 )
+			}
+			phantom false
+		}
+	}
+	
+	Rules definition 
+	{
+		
+	}
+
+	Interaction definition 
+	{
+		Interaction elements 
+		{
+			Wizard WizardForCreateGame for context class Game 
+			{
+				title "Ola ke ase"
+				description "Ola ke ase"
+				type create
+				pages {
+					Page{
+						title "Ola ke ase"
+						description "Ola ke ase"
+						Attributes to show 
+						{
+							("name", "name", textField, "name")
+							("manufacterName", "manufacterName", textField, "manufacterName")
+							("category", "category", textField, "category")
+						}
+						References to show 
+						{
+					
+						}
+						Additional buttons
+						{
+					
+						}
+					}
+					
+				}
+				default buttons true				
+			}	
+		}
+		
+		Statements 
+		{
+			Actions for type Game
+			{
+				on create do 
+				{
+					show wizard WizardForCreateGame
+				}
+			}
+		}	
+	}
+}

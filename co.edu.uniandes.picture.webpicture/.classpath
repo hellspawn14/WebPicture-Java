@@ -81,5 +81,24 @@
 			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
 		</accessrules>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Applications/eclipse tesis/plugins/com.google.inject_3.0.0.v201312141243.jar" sourcepath="/Applications/eclipse tesis/plugins/com.google.inject.source_3.0.0.v201312141243.jar">
+		<accessrules>
+			<accessrule kind="accessible" pattern="com/google/inject/*"/>
+			<accessrule kind="accessible" pattern="com/google/inject/binder/*"/>
+			<accessrule kind="discouraged" pattern="com/google/inject/internal/*"/>
+			<accessrule kind="discouraged" pattern="com/google/inject/internal/util/*"/>
+			<accessrule kind="accessible" pattern="com/google/inject/matcher/*"/>
+			<accessrule kind="accessible" pattern="com/google/inject/name/*"/>
+			<accessrule kind="accessible" pattern="com/google/inject/spi/*"/>
+			<accessrule kind="accessible" pattern="com/google/inject/util/*"/>
+			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
+		</accessrules>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Applications/eclipse tesis/plugins/org.eclipse.emf.mwe.utils_1.3.4.v201409021027.jar" sourcepath="/Applications/eclipse tesis/plugins/org.eclipse.emf.mwe.utils.source_1.3.4.v201409021027.jar">
+		<accessrules>
+			<accessrule kind="accessible" pattern="org/eclipse/emf/mwe/utils/*"/>
+			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
+		</accessrules>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
