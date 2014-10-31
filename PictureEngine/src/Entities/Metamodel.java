@@ -32,11 +32,6 @@ public class Metamodel
 	private String modelDir;
 	
 	/**
-	 * Elemento raiz del metamodelo 
-	 */
-	private Root rootElement;
-	
-	/**
 	 * Entidades del metamodelo
 	 */
 	private ArrayList <Entity> entities;
@@ -174,23 +169,6 @@ public class Metamodel
 	//Getters & Setters
 	//------------------------------------------------------------------
 
-	/**
-	 * Retorna el elemento root 
-	 * @return rootElement
-	 */
-	public Root getRootElement() 
-	{
-		return rootElement;
-	}
-
-	/**
-	 * Inicializa el elemento root
-	 * @param rootElement
-	 */
-	public void setRootElement(Root rootElement) 
-	{
-		this.rootElement = rootElement;
-	}
 
 	/**
 	 * Retorna las entidades 

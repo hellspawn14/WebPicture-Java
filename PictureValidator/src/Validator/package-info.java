@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author hellspawn
- *
- */
-package Validator;

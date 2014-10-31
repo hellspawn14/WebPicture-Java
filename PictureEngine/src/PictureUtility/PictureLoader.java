@@ -1,6 +1,9 @@
 package PictureUtility;
 
+import java.io.IOException;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -9,6 +12,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import co.edu.uniandes.enar.picture.Model;
 
@@ -40,6 +44,7 @@ public class PictureLoader
 		Resource resource = resourceSet.getResource(URI.createURI(picturePath), true);
 		Model model = (Model) resource.getContents().get(0);
 		
+		
 		//Valida el modelo y busca errores
 		EList <Diagnostic> listaErrores = resource.getErrors();
 		if (listaErrores.isEmpty())
@@ -51,6 +56,7 @@ public class PictureLoader
 				EObject classObject = iterator.next();
 				System.out.println(classObject.toString());
 			}
+			//this.loadModel(resource);
 		}
 		else
 		{
@@ -64,8 +70,9 @@ public class PictureLoader
 		}
 	}
 	
-	public void loadModel(Model model)
+	public void loadModel(Resource resource) throws IOException
 	{
+		
 	}
 	
 	public static void main (String args[])
