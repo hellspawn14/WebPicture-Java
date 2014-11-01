@@ -1,7 +1,7 @@
 package co.edu.uniandes.picture.webpicture.graphical.shapes;
 
-import co.edu.uniandes.picture.webpicture.graphical.style.Border;
-import co.edu.uniandes.picture.webpicture.graphical.style.Color;
+import co.edu.uniandes.picture.webpicture.graphical.shapes.style.Border;
+import co.edu.uniandes.picture.webpicture.graphical.shapes.style.Color;
 
 /**
  * Representa una figura geometrica basica 
