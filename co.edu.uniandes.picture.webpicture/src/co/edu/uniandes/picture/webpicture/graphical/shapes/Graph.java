@@ -40,11 +40,6 @@ public abstract class Graph
 	 */
 	private String shapeId;
 	
-	/**
-	 * Propiedad de transparencia
-	 */
-	private boolean phantom;
-	
 	//------------------------------------------------------------------
 	//Constructores
 	//------------------------------------------------------------------
