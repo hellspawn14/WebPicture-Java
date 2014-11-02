@@ -30,7 +30,17 @@ public class Validator
 	public boolean validate(Model model, Metamodel metamodel)
 	{
 		boolean ans = false;
+		//1. Verificar que el picture referencie el mismo archivo .ecore
+		
+		model.getGraphicalREpresentation().getGraphicalDefinition().toString();
 		return ans;
+	}
+	
+	public boolean validateImports(Model model, Metamodel metamodel)
+	{
+		boolean ans = false;
+		
+		return ans; 
 	}
 	
 	//------------------------------------------------------------------
