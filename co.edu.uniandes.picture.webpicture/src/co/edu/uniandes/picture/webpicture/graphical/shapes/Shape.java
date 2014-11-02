@@ -38,9 +38,9 @@ public abstract class Shape extends Graph
 	 * @param color - Color de la forma (fondo)
 	 * @param border - Borde de la forma
 	 */
-	public Shape(int height, int width, int x, int y, String label, Color color, Border border) 
+	public Shape(int height, int width, int x, int y, String label, Color color, Border border, String metaelementName) 
 	{
-		super(height, width, x, y, label);
+		super(height, width, x, y, label, metaelementName);
 		this.color = color;
 		this.border = border;
 	}
