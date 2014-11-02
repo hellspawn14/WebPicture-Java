@@ -35,10 +35,11 @@ public class RoundedRectangle extends Basic
 	 * @param border - Borde de la forma
 	 * @param rx - Radio x 
 	 * @param ry - Radio y
+	 * @param metaelementName - Nombre del metaelemento que representa 
 	 */
-	public RoundedRectangle(int height, int width, int x, int y, String label, Color color, Border border, int rx, int ry) 
+	public RoundedRectangle(int height, int width, int x, int y, String label, Color color, Border border, int rx, int ry, String metaelementName) 
 	{
-		super(height, width, x, y, label, color, border);
+		super(height, width, x, y, label, color, border, metaelementName);
 		this.setRx(rx);
 		this.setRy(ry);
 	}
@@ -56,7 +57,7 @@ public class RoundedRectangle extends Basic
 		String script = "var " + varId + " = new joint.shapes.basic.Rect({" + "\n" + 
 						"position: { x: " + this.getX() + ", y:" +  this.getY() + " }," + "\n" + 
 						"size: { width:" + this.getWidth() + ", height: " + this.getHeight() + " }," + "\n" + 
-						"attrs: { rect: { width: " + this.getWidth() + ", height: " + this.getHeight() + ", fill: '" + this.getColor().getHex() + "', rx: " + this.getRx() + ", ry: " + this.getRy() + "," + this.getBorder().generateScript() + "},  text: {text: '" + this.getLabel() + "', fill: 'black', 'font-size': 14, 'font-weight': 'normal'}}" + "\n" + 
+						"attrs: { rect: { width: " + this.getWidth() + ", height: " + this.getHeight() + ", fill: '" + this.getColor().getHex() + "', rx: " + this.getRx() + ", ry: " + this.getRy() + "," + this.getBorder().generateScript() + ",magnet: true, type: '" + this.getMetaelementName() + "' },  text: {text: '" + this.getLabel() + "', fill: 'black', 'font-size': 14, 'font-weight': 'normal'}}" + "\n" + 
 		    			"});";
 		return script;
 	}
@@ -70,7 +71,7 @@ public class RoundedRectangle extends Basic
 		Color filler = new Color (0,255,255,"Cyan");
 		Color lines = new Color (0,0,0,"White");
 		Border B = new Border(lines, 1, "dot");
-		RoundedRectangle R = new RoundedRectangle(100, 100, 10 , 70, "Ola ke ase", filler, B, 20, 20);
+		RoundedRectangle R = new RoundedRectangle(100, 100, 10 , 70, "Ola ke ase", filler, B, 20, 20, "EClass");
 		System.out.println(R.generateScript());
 	}
 	
