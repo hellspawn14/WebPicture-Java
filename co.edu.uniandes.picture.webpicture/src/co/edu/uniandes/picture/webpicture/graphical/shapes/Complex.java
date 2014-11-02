@@ -6,6 +6,7 @@ import co.edu.uniandes.picture.webpicture.graphical.shapes.style.Color;
 /**
  * Representa una figura compleja 
  * @author hellspawn
+ * No soporta magnet
  */
 public class Complex extends Shape
 {
@@ -32,10 +33,11 @@ public class Complex extends Shape
 	 * @param color - Color de la forma (fondo)
 	 * @param border - Borde de la forma
 	 * @param vertices - Numero de vertices 
+	 * @param metaelementName - Nombre del meta elemento que representa
 	 */
-	public Complex(int height, int width, int x, int y, String label, Color color, Border border, int vertices) 
+	public Complex(int height, int width, int x, int y, String label, Color color, Border border, int vertices, String metaelementName) 
 	{
-		super(height, width, x, y, label, color, border);
+		super(height, width, x, y, label, color, border, metaelementName);
 		this.setVertices(vertices);
 	}
 
@@ -52,13 +54,13 @@ public class Complex extends Shape
 			this.setShapeId(varId);
 			String ans = "var "  + varId + " = new joint.shapes.basic.Path({" + "\n" + 
 						 "position: { x: " + this.getX() + ", y: " + this.getY() + " }, size: { width: " + this.getWidth() + ", height: " + this.getHeight() + " }," + "\n" + 
-						 "attrs: {path: { d: 'M 100 100 L 300 100 L 200 50 z'," + this.getBorder().generateScript() + ", fill: '" + this.getColor().getHex() + "'}" + ", text: { text: '" + this.getLabel() + "', fill: 'black', 'font-size': 14, 'font-weight': 'normal'}}" + "\n" + 
+						 "attrs: {path: { d: 'M 100 100 L 300 100 L 200 50 z'," + this.getBorder().generateScript() + ", fill: '" + this.getColor().getHex() + "',magnet: true, type: '" + this.getMetaelementName() +"'}" + ", text: { text: '" + this.getLabel() + "', fill: 'black', 'font-size': 14, 'font-weight': 'normal'}}" + "\n" + 
 						 "});";
 			return ans;
 		}
 		else if (vertices == 4)
 		{
-			Rectangle R = new Rectangle(this.getHeight(), this.getWidth(), this.getX(), this.getY(), this.getLabel(), this.getColor(), this.getBorder());
+			Rectangle R = new Rectangle(this.getHeight(), this.getWidth(), this.getX(), this.getY(), this.getLabel(), this.getColor(), this.getBorder(), this.getMetaelementName());
 			return R.generateScript();
 		}
 		else 
@@ -100,7 +102,7 @@ public class Complex extends Shape
 		Color bCol = new Color(10,25,15, "Ola ke ase");
 		Color fColo = new Color(45,43,244, "Ola ke ase");
 		Border B = new Border(bCol, 1, "dash");
-		Complex C = new Complex(100, 100, 0, 0, "Ola ke ase", fColo, B, 5);
+		Complex C = new Complex(100, 100, 0, 0, "Ola ke ase", fColo, B, 5, "EClass");
 		System.out.println(C.generateScript());
 	}
 	
