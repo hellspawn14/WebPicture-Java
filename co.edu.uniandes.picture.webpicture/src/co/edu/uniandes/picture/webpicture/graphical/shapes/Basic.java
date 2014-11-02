@@ -26,10 +26,11 @@ public abstract class Basic extends Shape
 	 * @param label - Label para mostrar 
 	 * @param color - Color de la forma (fondo)
 	 * @param border - Borde de la forma
+	 * @param metaelementName - Nombre del elemento que representa
 	 */
-	public Basic(int height, int width, int x, int y, String label, Color color, Border border) 
+	public Basic(int height, int width, int x, int y, String label, Color color, Border border, String metaelementName) 
 	{
-		super(height, width, x, y, label, color, border);
+		super(height, width, x, y, label, color, border, metaelementName);
 	}
 	
 	//------------------------------------------------------------------
