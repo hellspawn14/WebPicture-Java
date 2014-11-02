@@ -5,8 +5,6 @@ import co.edu.uniandes.picture.webpicture.graphical.shapes.style.Color;
 
 public class Ellipse extends Basic
 {
-
-	
 	//------------------------------------------------------------------
 	//Atributos
 	//------------------------------------------------------------------
@@ -25,9 +23,9 @@ public class Ellipse extends Basic
 	 * @param color - Color de la forma (fondo)
 	 * @param border - Borde de la forma
 	 */
-	public Ellipse(int height, int width, int x, int y, String label,Color color, Border border) 
+	public Ellipse(int height, int width, int x, int y, String label,Color color, Border border, String metaelementName) 
 	{
-		super(height, width, x, y, label, color, border);
+		super(height, width, x, y, label, color, border,metaelementName);
 	}
 
 	//------------------------------------------------------------------
@@ -41,7 +39,7 @@ public class Ellipse extends Basic
 		this.setShapeId(varId);
 		String script = "var " +  varId + " = new joint.shapes.basic.Circle({ " + "\n" + 
 						"position: { x: " + this.getX() + ", y: " + this.getY() + " }, size: { width: " + this.getWidth() + ", height: " + this.getHeight() + " }," + "\n" + 
-						"attrs: { circle: { width: " + this.getWidth() + ", height: " + this.getHeight() + ", fill: '" + this.getColor().getHex() + "', rx: 0, ry: 0, " + this.getBorder().generateScript() + "},  text: {text: '" + this.getLabel() + "', fill: 'black', 'font-size': 14, 'font-weight': 'normal'}}" + "\n" + 
+						"attrs: { circle: { width: " + this.getWidth() + ", height: " + this.getHeight() + ", fill: '" + this.getColor().getHex() + "', rx: 0, ry: 0, " + this.getBorder().generateScript() + ",magnet: true, type: '" + this.getMetaelementName() + "'},  text: {text: '" + this.getLabel() + "', fill: 'black', 'font-size': 14, 'font-weight': 'normal'}}" + "\n" + 
 						"});";
 		return script;
 	}
@@ -51,7 +49,7 @@ public class Ellipse extends Basic
 		Color filler = new Color (0,255,255,"Cyan");
 		Color lines = new Color (0,0,0,"White");
 		Border B = new Border(lines, 1, "solid");
-		Ellipse C = new Ellipse(100, 100, 10 , 70, "Ola ke ase", filler, B);
+		Ellipse C = new Ellipse(100, 100, 10 , 70, "Ola ke ase", filler, B, "EClass");
 		System.out.println(C.generateScript());
 	}
 }
