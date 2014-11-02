@@ -3,6 +3,7 @@ package co.edu.uniandes.picture.webpicture.graphical.shapes;
 /**
  * Representa una imagen cargada desde el picture como un elemento del modelo 
  * @author hellspawn
+ * No tiene soporte de magnet
  */
 public class Image extends Graph
 {
@@ -28,10 +29,11 @@ public class Image extends Graph
 	 * @param y - Posición inicial en Y
 	 * @param imageLabel - Etiqueta de la imagen 
 	 * @param path - Ruta de la imagen 
+	 * @param metaelementName - Nombre del elemenento del metamodelo que representa
 	 */
-	public Image(int height, int width, int x, int y, String label, String path) 
+	public Image(int height, int width, int x, int y, String label, String path, String metaelementName) 
 	{
-		super(height, width, x, y, label);
+		super(height, width, x, y, label,metaelementName);
 		this.setPath(path);
 	}
 	
@@ -51,7 +53,7 @@ public class Image extends Graph
 		String script = "var " + varId + " = new joint.shapes.basic.Image({" + "\n" + 
 						"	position: { x: " + this.getX() + ", y: " + this.getY() + " }," + "\n" + 
 						"	size: { width: " + this.getWidth() + ", height: " + this.getHeight() + " }," + "\n" + 
-						"	attrs: { " + "text: { text: '" + this.getLabel() + "' }," + " image: { 'xlink:href': '" + this.getPath() + "', width: " + this.getWidth() + ", height: " + this.getHeight() + "}" + " }" + "\n" + 
+						"	attrs: { " + "magnet: true, type: '" + this.getMetaelementName()  + "', "+ "text: { text: '" + this.getLabel() + "' }," + " image: { 'xlink:href': '" + this.getPath() + "', width: " + this.getWidth() + ", height: " + this.getHeight() + "}" + " }" + "\n" + 
 						"});";
 		return script;
 	}
@@ -78,7 +80,7 @@ public class Image extends Graph
 	
 	public static void main (String args[])
 	{
-		Image img = new Image(50, 50, 70, 10, "cosplay", "http://img-9gag-lol.9cache.com/photo/a1ZPj9R_700b.jpg");
+		Image img = new Image(50, 50, 70, 10, "cosplay", "http://img-9gag-lol.9cache.com/photo/a1ZPj9R_700b.jpg", "EClass");
 		System.out.println(img.generateScript());
 	}
 
