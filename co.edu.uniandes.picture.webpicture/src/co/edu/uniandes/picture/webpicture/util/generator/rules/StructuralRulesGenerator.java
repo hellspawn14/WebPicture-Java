@@ -30,6 +30,16 @@ public class StructuralRulesGenerator
 	//Metodos
 	//------------------------------------------------------------------
 
+	/**
+	 * Genera el script de la funcion validateConnection para validar la union entre elementos del modelo 
+	 * @return Script - >
+	 * //Linking basic rules definition
+	 * var SRC_7f31245a = (magnetS && magnetS.getAttribute('type') === 'A');
+	 * var TRG_7f31245a = (magnetT && magnetT.getAttribute('type') === 'B');
+	 * var SRC_6d6f6e28 = (magnetS && magnetS.getAttribute('type') === 'B');
+	 * var TRG_6d6f6e28 = (magnetT && magnetT.getAttribute('type') === 'C');
+	 * return SRC_7f31245a && TRG_7f31245a || SRC_6d6f6e28 && TRG_6d6f6e28;
+	 */
 	public String generateRule()
 	{
 		//Var X1 = ....
