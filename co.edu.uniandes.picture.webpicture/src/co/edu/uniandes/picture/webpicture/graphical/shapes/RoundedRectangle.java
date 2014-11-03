@@ -3,6 +3,10 @@ package co.edu.uniandes.picture.webpicture.graphical.shapes;
 import co.edu.uniandes.picture.webpicture.graphical.shapes.style.Border;
 import co.edu.uniandes.picture.webpicture.graphical.shapes.style.Color;
 
+/**
+ * Representa un rectangulo con esquinas redondeadas
+ * @author hellspawn
+ */
 public class RoundedRectangle extends Basic
 {
 
