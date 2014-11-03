@@ -17,21 +17,28 @@ public class RuleDefinition
 	private String rule;
 	
 	/**
-	 * Port typing
+	 * In port typing
 	 */
-	private String portType;
+	private String srcMagnet;
+	
+	/**
+	 * Out port typing
+	 */
+	private String trgMagnet;
 	
 	//------------------------------------------------------------------
 	//Constructores 
 	//------------------------------------------------------------------
 
 	/**
-	 * Crea una nueva definición de una regla estructural basica 
-	 * @param portType - Es el tipo de puerto 
+	 * Crea una nueva definición de una regla estructural basica
+	 * @param srcMagnet - Magnet de salida 
+	 * @param trgMagnet - Magnet de entrada 
 	 */
-	public RuleDefinition(String portType)
+	public RuleDefinition(String srcMagnet, String trgMagnet)
 	{
-		this.portType = portType;
+		this.srcMagnet = srcMagnet;
+		this.trgMagnet = trgMagnet;
 	}
 	
 	//------------------------------------------------------------------
@@ -40,14 +47,16 @@ public class RuleDefinition
 
 	/**
 	 * Genera la definición de la regla estructural y establece la condicion
-	 * @return
+	 * @return Script -> 
+	 * var SRC_7f31245a = (magnetS && magnetS.getAttribute('type') === 'attributes');
+	 * var TRG_7f31245a = (magnetT && magnetT.getAttribute('type') === 'attributes');
 	 */
 	public String generateRuleDefinition()
 	{
 		String src = "SRC_" + this.toString().split("@")[this.toString().split("@").length - 1];
 		String trg = "TRG_" + this.toString().split("@")[this.toString().split("@").length - 1];
-		String srcDef = "var " + src + " = (magnetS && magnetS.getAttribute('type') === '" + portType + "');" + "\n";
-		String trgDef = "var " + trg + " = (magnetT && magnetT.getAttribute('type') === '" + portType + "');" + "\n";
+		String srcDef = "var " + src + " = (magnetS && magnetS.getAttribute('type') === '" + srcMagnet + "');" + "\n";
+		String trgDef = "var " + trg + " = (magnetT && magnetT.getAttribute('type') === '" + trgMagnet + "');" + "\n";
 		rule = src + " && " + trg;
 		return srcDef + trgDef;
 	}
@@ -71,16 +80,30 @@ public class RuleDefinition
 	}
 
 	/**
-	 * @return the portType
+	 * @return the srcMagnet
 	 */
-	public String getPortType() {
-		return portType;
+	public String getSrcMagnet() {
+		return srcMagnet;
 	}
 
 	/**
-	 * @param portType the portType to set
+	 * @param srcMagnet the srcMagnet to set
 	 */
-	public void setPortType(String portType) {
-		this.portType = portType;
+	public void setSrcMagnet(String srcMagnet) {
+		this.srcMagnet = srcMagnet;
 	}
+
+	/**
+	 * @return the trgMagnet
+	 */
+	public String getTrgMagnet() {
+		return trgMagnet;
+	}
+
+	/**
+	 * @param trgMagnet the trgMagnet to set
+	 */
+	public void setTrgMagnet(String trgMagnet) {
+		this.trgMagnet = trgMagnet;
+	}	
 }

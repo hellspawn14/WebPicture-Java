@@ -71,8 +71,8 @@ public class StructuralRulesGenerator
 	
 	public static void main (String args[])
 	{
-		RuleDefinition R1 = new RuleDefinition("attributes");
-		RuleDefinition R2 = new RuleDefinition("XY");
+		RuleDefinition R1 = new RuleDefinition("A", "B");
+		RuleDefinition R2 = new RuleDefinition("B", "C");
 		StructuralRulesGenerator gen = new StructuralRulesGenerator();
 		gen.getDefinitions().add(R1);
 		gen.getDefinitions().add(R2);
