@@ -241,6 +241,19 @@ public class FileManager
 		}
 		return F;
 	}
+	
+	public synchronized void uploadGraphicalRepresentation(String path, FileItem pic)
+	{
+		File F = new File(path + "/" + PICTURE_LANG_DIRECTORY + "/" + pic.getName());
+		try 
+		{
+			pic.write(F);
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+	}
 
 	
 	//------------------------------------------------------------------

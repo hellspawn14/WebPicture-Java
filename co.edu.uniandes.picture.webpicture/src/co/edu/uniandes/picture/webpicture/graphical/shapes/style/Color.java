@@ -30,6 +30,9 @@ public class Color
 	 */
 	private String cName;
 	
+	/**
+	 * Representación en HEX del color
+	 */
 	private String hex;
 
 	//------------------------------------------------------------------

@@ -5,9 +5,9 @@ import java.util.Iterator;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
-import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 
 import co.edu.uniandes.enar.picture.GraphicalRepresentation;
 import co.edu.uniandes.enar.picture.Import;
@@ -16,17 +16,24 @@ import co.edu.uniandes.enar.picture.impl.ModelImpl;
 
 import com.google.inject.Injector;
 
+
+
 /**
  * Carga un modelo de Picture basado en la gramatica implementada 
  * @author hellspawn
  */
 public class DSLLoader 
 {
+	
+	public DSLLoader()
+	{
+		System.out.println("->>Deberia imprimir esto");
+	}
+	
 	//------------------------------------------------------------------
 	//Metodos 
 	//------------------------------------------------------------------
 	
-
 	/**
 	 * Carga el modelo desde una ruta fija a memoria principal 
 	 * @return Model - Es el modelo generado desde el archivo Picture

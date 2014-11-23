@@ -43,6 +43,7 @@ public class XMIMetamodelLoader
 			
 			//Obtiene el nombre del modelo
 			String modelName = doc.getDocumentElement().getAttribute("name");
+			System.out.println(ecore.getName());
 			//Genera el modelo vacio 
 			Metamodel metamodel = new Metamodel(modelName, ecore.getName());
 			
