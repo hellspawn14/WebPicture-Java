@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="BusinessProcessArchitecture"
+    nsURI="http://architecture.muebles.losalpes.com.co/bpaComplete" nsPrefix="bpaComplete">
+  <eClassifiers xsi:type="ecore:EClass" name="ValueChainLink" abstract="true" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//MacroProcess" containment="true" eOpposite="#//MacroProcess/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flowFrom" eType="#//ValueChainLink"
+        eOpposite="#//ValueChainLink/flowTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flowTo" eType="#//ValueChainLink"
+        eOpposite="#//ValueChainLink/flowFrom"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ValueChainType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MacroProcess" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//Process" containment="true" eOpposite="#//Process/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
+        eType="#//ValueChainLink" eOpposite="#//ValueChainLink/children"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flowFrom" eType="#//MacroProcess"
+        eOpposite="#//MacroProcess/flowTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flowTo" eType="#//MacroProcess"
+        eOpposite="#//MacroProcess/flowFrom"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Activity" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignedTo" upperBound="-1"
+        eType="#//Role" eOpposite="#//Role/assignedTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="manipulates" eType="#//BusinessObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subprocess" upperBound="-1"
+        eType="#//Process"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="consistsOf" upperBound="-1"
+        eType="#//Activity" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
+        eType="#//MacroProcess" eOpposite="#//MacroProcess/children"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignedTo" upperBound="-1"
+        eType="#//Activity" eOpposite="#//Activity/assignedTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="has" lowerBound="1" eType="#//OrganizationalUnit"
+        eOpposite="#//OrganizationalUnit/belongsTo"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimaryLink" eSuperTypes="#//ValueChainLink"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SupportLink" eSuperTypes="#//ValueChainLink"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessObject" eSuperTypes="#//ModelElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OrganizationalUnit" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owns" lowerBound="1" upperBound="-1"
+        eType="#//MacroProcess"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="belongsTo" lowerBound="1"
+        upperBound="-1" eType="#//Role" containment="true" eOpposite="#//Role/has"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueChain" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="has" upperBound="-1" eType="#//ValueChainLink"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Organization">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//ModelElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ValueChainType">
+    <eLiterals name="primaryLink"/>
+    <eLiterals name="supportLink" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

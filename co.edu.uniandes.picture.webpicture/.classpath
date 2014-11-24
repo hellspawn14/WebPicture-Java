@@ -9,7 +9,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="/Users/hellspawn/Documents/Uniandes/Tesis/Repositorios/WebPicture-Java/PictureMaker/WebContent/WEB-INF/lib/org.eclipse.emf.ecore_2.8.1.v20120911-0500.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/co.edu.uniandes.enar.picture"/>
 	<classpathentry kind="lib" path="/Applications/eclipse tesis/plugins/org.eclipse.xtext_2.7.2.v201409160908.jar" sourcepath="/Applications/eclipse tesis/plugins/org.eclipse.xtext.source_2.7.2.v201409160908.jar">
 		<accessrules>
 			<accessrule kind="accessible" pattern="org/eclipse/xtext/*"/>
@@ -100,5 +99,98 @@
 			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
 		</accessrules>
 	</classpathentry>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-fileupload-1.3.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="/Applications/Tomcat/apache-tomcat-8.0.9/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="/Applications/eclipse tesis/plugins/org.eclipse.ui.workbench_3.106.0.v20140530-0732.jar" sourcepath="/Applications/eclipse tesis/plugins/org.eclipse.ui.workbench.source_3.106.0.v20140530-0732.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/Applications/eclipse%20tesis/plugins/org.eclipse.platform.doc.isv_4.4.0.v20140604-2138.jar!/reference/api"/>
+		</attributes>
+		<accessrules>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/about/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/actions/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/activities/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/application/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/branding/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/browser/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/commands/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/contexts/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/databinding/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/dialogs/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/dnd/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/fieldassist/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/handlers/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/help/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/about/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/actions/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/activities/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/activities/ws/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/application/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/browser/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/commands/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/contexts/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/decorators/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/dialogs/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/dnd/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/e4/compatibility/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/editorsupport/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/expressions/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/handlers/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/help/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/intro/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/keys/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/keys/model/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/layout/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/menus/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/misc/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/model/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/operations/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/part/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/preferences/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/progress/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/provisional/application/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/provisional/presentations/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/quickaccess/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/registry/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/services/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/splash/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/statushandlers/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/testing/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/themes/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/tweaklets/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/util/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/wizards/*"/>
+			<accessrule kind="discouraged" pattern="org/eclipse/ui/internal/wizards/preferences/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/intro/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/keys/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/menus/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/model/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/operations/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/part/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/plugin/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/preferences/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/presentations/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/progress/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/services/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/splash/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/statushandlers/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/swt/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/themes/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/views/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/ui/wizards/*"/>
+			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
+		</accessrules>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/commons-fileupload-1.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.emf.common_2.8.0.v20120911-0500.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.emf.ecore_2.8.1.v20120911-0500.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.emf.ecore.xmi_2.8.0.v20120911-0500.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/co.edu.uniandes.enar.picture"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/co.edu.uniandes.enar.picture.tests"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/co.edu.uniandes.enar.picture.ui"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/picture_lang.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

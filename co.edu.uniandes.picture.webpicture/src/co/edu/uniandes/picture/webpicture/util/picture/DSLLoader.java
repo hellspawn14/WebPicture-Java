@@ -17,7 +17,6 @@ import co.edu.uniandes.enar.picture.impl.ModelImpl;
 import com.google.inject.Injector;
 
 
-
 /**
  * Carga un modelo de Picture basado en la gramatica implementada 
  * @author hellspawn
@@ -42,7 +41,7 @@ public class DSLLoader
 	public Model loadPicture(String path) throws Exception
 	{
 		//Carga el modelo de la gramatica en memoria principal 
-		new org.eclipse.emf.mwe.utils.StandaloneSetup().setPlatformUri("../");
+		//new org.eclipse.emf.mwe.utils.StandaloneSetup().setPlatformUri("../");
 		Injector injector = new co.edu.uniandes.enar.PictureStandaloneSetup().createInjectorAndDoEMFRegistration();
 		XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
 		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);

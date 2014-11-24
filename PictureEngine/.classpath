@@ -95,6 +95,8 @@
 			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
 		</accessrules>
 	</classpathentry>
-	<classpathentry kind="src" path="/co.edu.uniandes.enar.picture"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/co.edu.uniandes.enar.picture"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/co.edu.uniandes.enar.picture.tests"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/co.edu.uniandes.enar.picture.ui"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
