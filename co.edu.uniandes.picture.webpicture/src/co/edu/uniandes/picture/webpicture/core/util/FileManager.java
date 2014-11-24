@@ -54,6 +54,11 @@ public class FileManager
 	 */
 	private String PICTURE_LANG_DIRECTORY = "Picture";
 	
+	/**
+	 * Directorio para diagramas
+	 */
+	private String DIAGRAM_DIR = "Diagrams";
+	
 	//------------------------------------------------------------------
 	//Atributos
 	//------------------------------------------------------------------
@@ -139,6 +144,11 @@ public class FileManager
 		F = new File(path);
 		F.mkdir();
 		
+		//Crea el directorio de los diagramas 
+		path = basePath + "/" + folder + "/" + DIAGRAM_DIR; 
+		F = new File(path);
+		F.mkdir();
+		
 		path = basePath + "/" + folder; 
 		return ans;
 	}
@@ -220,6 +230,28 @@ public class FileManager
 		{
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Guarda un modelo en el servidor 
+	 * @param path - Directorio base del editor
+	 * @param model - Modelo generado 
+	 * @return Directorio del modelo guardado 
+	 */
+	public synchronized String saveDiagram(String path, FileItem model)
+	{
+		String modelDir = this.getRandomPath();
+		File F = new File(path + "/" + DIAGRAM_DIR + "/" + modelDir + "/" + model.getName());
+		try 
+		{
+			model.write(F);
+			return F.getAbsolutePath();
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+		return F.getAbsolutePath();
 	}
 	
 	/**
