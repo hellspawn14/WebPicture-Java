@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 
+import co.edu.uniandes.enar.picture.GraphicalRepresentation;
 import co.edu.uniandes.enar.picture.Model;
 import co.edu.uniandes.enar.picture.impl.ModelImpl;
 
@@ -70,6 +71,16 @@ public class DSLLoader
 			}
 			throw new Exception (mensajeException);
 		}
+	}
+	
+	/**
+	 * Retorna la representación grafica de un modelo generado a partir de un script de picture
+	 * @param model - Modelo generado 
+	 * @return Representación grafica del modelo
+	 */
+	public GraphicalRepresentation getGraphicalRepresentation(Model model)
+	{
+		return model.getGraphicalREpresentation();
 	}
 	
 	//------------------------------------------------------------------
