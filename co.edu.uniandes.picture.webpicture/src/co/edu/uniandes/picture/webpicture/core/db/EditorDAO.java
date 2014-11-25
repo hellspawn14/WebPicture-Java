@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import co.edu.uniandes.picture.webpicture.core.util.DateParser;
-import co.edu.uniandes.picture.webpicture.core.Diagram;
 import co.edu.uniandes.picture.webpicture.core.Editor;
 
 /**
