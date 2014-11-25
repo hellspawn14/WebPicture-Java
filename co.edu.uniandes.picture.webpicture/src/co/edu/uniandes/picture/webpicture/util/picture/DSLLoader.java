@@ -9,8 +9,6 @@ import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 
-import co.edu.uniandes.enar.picture.GraphicalRepresentation;
-import co.edu.uniandes.enar.picture.Import;
 import co.edu.uniandes.enar.picture.Model;
 import co.edu.uniandes.enar.picture.impl.ModelImpl;
 
@@ -18,16 +16,23 @@ import com.google.inject.Injector;
 
 
 /**
- * Carga un modelo de Picture basado en la gramatica implementada 
+ * Componente para cargar un modelo de Picture basado en la gramatica implementada 
  * @author hellspawn
  */
 public class DSLLoader 
 {
-	
-	public DSLLoader()
-	{
-		System.out.println("->>Deberia imprimir esto");
-	}
+	//------------------------------------------------------------------
+	//Constantes 
+	//------------------------------------------------------------------
+
+	//------------------------------------------------------------------
+	//Atributos 
+	//------------------------------------------------------------------
+
+	//------------------------------------------------------------------
+	//Constructores 
+	//------------------------------------------------------------------
+
 	
 	//------------------------------------------------------------------
 	//Metodos 
@@ -41,6 +46,7 @@ public class DSLLoader
 	public Model loadPicture(String path) throws Exception
 	{
 		//Carga el modelo de la gramatica en memoria principal 
+		//Dejar en comentario sino no corre
 		//new org.eclipse.emf.mwe.utils.StandaloneSetup().setPlatformUri("../");
 		Injector injector = new co.edu.uniandes.enar.PictureStandaloneSetup().createInjectorAndDoEMFRegistration();
 		XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
@@ -66,25 +72,7 @@ public class DSLLoader
 		}
 	}
 	
-	public static void main (String args[])
-	{
-		DSLLoader loader = new DSLLoader();
-		try 
-		{
-			Model M = loader.loadPicture("./WebContent/samples/bpmnTest2.picture");
-			GraphicalRepresentation G = M.getGraphicalREpresentation();
-			System.out.println(G.getRoot().getName());
-			EList<Import> classFiles = M.getImports();
-			for (Import classFile : classFiles) 
-			{
-				System.out.println(classFile.getImportedNamespace());
-				System.out.println(classFile.getName());
-				
-			}
-		} 
-		catch (Exception e) 
-		{
-			e.printStackTrace();
-		}
-	}
+	//------------------------------------------------------------------
+	//Getters & Setters 
+	//------------------------------------------------------------------
 }
