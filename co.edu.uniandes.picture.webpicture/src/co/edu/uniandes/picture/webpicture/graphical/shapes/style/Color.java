@@ -1,5 +1,9 @@
 package co.edu.uniandes.picture.webpicture.graphical.shapes.style;
 
+/**
+ * Representa un color de un elemento JS
+ * @author hellspawn
+ */
 public class Color 
 {
 	
