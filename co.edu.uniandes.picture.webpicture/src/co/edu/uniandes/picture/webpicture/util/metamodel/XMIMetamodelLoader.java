@@ -14,14 +14,25 @@ import co.edu.uniandes.picture.webpicture.metamodel.Metamodel;
 
 import java.io.File;
 
-
-
 /**
  * Carga el metamodelo construido por el usuario 
  * @author hellspawn
  */
 public class XMIMetamodelLoader 
 {
+
+	//------------------------------------------------------------------
+	//Constantes
+	//------------------------------------------------------------------
+
+	//------------------------------------------------------------------
+	//Atributos
+	//------------------------------------------------------------------
+
+	//------------------------------------------------------------------
+	//Constructores
+	//------------------------------------------------------------------
+
 	//------------------------------------------------------------------
 	//Metodos
 	//------------------------------------------------------------------
@@ -147,9 +158,9 @@ public class XMIMetamodelLoader
 		return null;
 	}
 	
-	public static void main (String args[])
-	{
-		XMIMetamodelLoader loader = new XMIMetamodelLoader();
-		System.out.println(loader.load("./WebContent/data/organizationalStructure2.ecore").toString());
-	}
+	//------------------------------------------------------------------
+	//Getters & Setters
+	//------------------------------------------------------------------
+
+	
 }
