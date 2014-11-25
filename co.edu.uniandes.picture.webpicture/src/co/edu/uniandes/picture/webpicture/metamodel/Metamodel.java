@@ -32,7 +32,6 @@ public class Metamodel
 	 */
 	private String referencedModel;
 	
-
 	
 	//------------------------------------------------------------------
 	//Constructores
@@ -46,7 +45,7 @@ public class Metamodel
 	public Metamodel(String name, String referencedModel) 
 	{
 		this.name = name;
-		this.referencedModel = referencedModel;
+		this.setReferencedModel(referencedModel);
 		modelElements = new ArrayList <Metaelement> ();
 	}
 	
@@ -136,10 +135,16 @@ public class Metamodel
 		this.name = name;
 	}
 
+	/**
+	 * @return the referencedModel
+	 */
 	public String getReferencedModel() {
 		return referencedModel;
 	}
 
+	/**
+	 * @param referencedModel the referencedModel to set
+	 */
 	public void setReferencedModel(String referencedModel) {
 		this.referencedModel = referencedModel;
 	}
