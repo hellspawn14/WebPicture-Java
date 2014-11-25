@@ -439,10 +439,10 @@ public class DiagramDAO
 
 	public static void main (String args[])
 	{
-		DateParser Dp = new DateParser();
+		//DateParser Dp = new DateParser();
 		try
 		{
-			DiagramDAO dia = new DiagramDAO(Dp);	
+			//DiagramDAO dia = new DiagramDAO(Dp);	
 		}
 		catch(Exception e)
 		{
