@@ -436,17 +436,4 @@ public class DiagramDAO
 	//------------------------------------------------------------------
 	//Getters & Setters
 	//------------------------------------------------------------------
-
-	public static void main (String args[])
-	{
-		//DateParser Dp = new DateParser();
-		try
-		{
-			//DiagramDAO dia = new DiagramDAO(Dp);	
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
 }
