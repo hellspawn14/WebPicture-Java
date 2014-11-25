@@ -12,7 +12,6 @@ public class Editor
 	//------------------------------------------------------------------
 	//Constantes
 	//------------------------------------------------------------------
-
 	
 	//------------------------------------------------------------------
 	//Atributos
@@ -81,7 +80,7 @@ public class Editor
 		this.path = path;
 		this.created = created;
 		this.lastModified = lastModified;
-		diagrams = new ArrayList <Diagram> ();
+		diagrams = new ArrayList <Diagram>();
 	}
 
 	//------------------------------------------------------------------
