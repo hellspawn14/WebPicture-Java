@@ -10,6 +10,7 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 
 import co.edu.uniandes.enar.picture.GraphicalRepresentation;
+import co.edu.uniandes.enar.picture.Import;
 import co.edu.uniandes.enar.picture.Model;
 import co.edu.uniandes.enar.picture.impl.ModelImpl;
 
@@ -73,17 +74,30 @@ public class DSLLoader
 		}
 	}
 	
-	/**
-	 * Retorna la representación grafica de un modelo generado a partir de un script de picture
-	 * @param model - Modelo generado 
-	 * @return Representación grafica del modelo
-	 */
-	public GraphicalRepresentation getGraphicalRepresentation(Model model)
-	{
-		return model.getGraphicalREpresentation();
-	}
 	
 	//------------------------------------------------------------------
 	//Getters & Setters 
 	//------------------------------------------------------------------
+	
+	public static void main (String args[])
+	  {
+	    DSLLoader loader = new DSLLoader();
+	    try 
+	    {
+	      Model M = loader.loadPicture("./WebContent/samples/bpmnTest2.picture");
+	      GraphicalRepresentation G = M.getGraphicalREpresentation();
+	      System.out.println(G.getRoot().getName());
+	      EList<Import> classFiles = M.getImports();
+	      for (Import classFile : classFiles) 
+	      {
+	        System.out.println(classFile.getImportedNamespace());
+	        System.out.println(classFile.getName());
+	        
+	      }
+	    } 
+	    catch (Exception e) 
+	    {
+	      e.printStackTrace();
+	    }
+	  }
 }
