@@ -42,7 +42,7 @@ public class XMIMetamodelLoader
 	 * @param path - Directorio en el que se encuentra el metamodelo 
 	 * @return Metamodel metamodelo base generado para iniciar la validacion 
 	 */
-	public Metamodel load(String path)
+	public Metamodel load(String path) throws Exception
 	{
 		try 
 		{
@@ -54,7 +54,7 @@ public class XMIMetamodelLoader
 			
 			//Obtiene el nombre del modelo
 			String modelName = doc.getDocumentElement().getAttribute("name");
-			System.out.println(ecore.getName());
+			//System.out.println(ecore.getName());
 			//Genera el modelo vacio 
 			Metamodel metamodel = new Metamodel(modelName, ecore.getName());
 			
@@ -67,6 +67,11 @@ public class XMIMetamodelLoader
 				{
 					Element eElement = (Element) nNode;
 					Metaelement element = new Metaelement(eElement.getAttribute("name"));
+					Metaelement existing = metamodel.getMetaelementByName(eElement.getAttribute("name"));
+					if (existing != null)
+					{
+						throw new Exception ("There's already an element with the name " + eElement.getAttribute("name")  + " please review the metamodel.");
+					}
 					element.setFather(null);
 					metamodel.getModelElements().add(element);
 				}
@@ -162,5 +167,23 @@ public class XMIMetamodelLoader
 	//Getters & Setters
 	//------------------------------------------------------------------
 
+	public static void main (String args[])
+	{
+		try
+		{
+			XMIMetamodelLoader loader = new XMIMetamodelLoader();
+			Metamodel MM = loader.load("./WebContent/samples/uml.ecore");
+			if (MM != null)
+			{
+				System.out.println(MM.getReferencedModel() + "ds");
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
+	
 	
 }
