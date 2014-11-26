@@ -1,5 +1,8 @@
 package co.edu.uniandes.picture.webpicture.util.generator;
 
+import co.edu.uniandes.enar.picture.Model;
+import co.edu.uniandes.picture.webpicture.metamodel.Metamodel;
+
 /**
  * Clase responsable de generar el codigo en JS para crear el editor base
  * @author hellspawn
@@ -21,7 +24,7 @@ public class Generator
 	//------------------------------------------------------------------
 	//Metodos
 	//------------------------------------------------------------------
-
+	
 	//------------------------------------------------------------------
 	//Getters & Setters 
 	//------------------------------------------------------------------
