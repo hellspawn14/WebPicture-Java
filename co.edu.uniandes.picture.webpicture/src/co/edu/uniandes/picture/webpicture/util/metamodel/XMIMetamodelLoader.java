@@ -173,7 +173,7 @@ public class XMIMetamodelLoader
 		try
 		{//Archimate.ecore
 			XMIMetamodelLoader loader = new XMIMetamodelLoader();
-			Metamodel MM = loader.load("./WebContent/samples/Archimate.ecore");
+			Metamodel MM = loader.load("./WebContent/samples/ApplicationLayerArch.ecore");
 			if (MM != null)
 			{
 				System.out.println(MM.getReferencedModel());
