@@ -67,6 +67,7 @@ public class XMIMetamodelLoader
 				{
 					Element eElement = (Element) nNode;
 					Metaelement element = new Metaelement(eElement.getAttribute("name"));
+					//System.out.println(eElement.getAttribute("name"));
 					Metaelement existing = metamodel.getMetaelementByName(eElement.getAttribute("name"));
 					if (existing != null)
 					{
@@ -170,12 +171,12 @@ public class XMIMetamodelLoader
 	public static void main (String args[])
 	{
 		try
-		{
+		{//Archimate.ecore
 			XMIMetamodelLoader loader = new XMIMetamodelLoader();
-			Metamodel MM = loader.load("./WebContent/samples/uml.ecore");
+			Metamodel MM = loader.load("./WebContent/samples/Archimate.ecore");
 			if (MM != null)
 			{
-				System.out.println(MM.getReferencedModel() + "ds");
+				System.out.println(MM.getReferencedModel());
 			}
 		}
 		catch(Exception e)
