@@ -149,7 +149,7 @@ public class Color
 	
 	public static void main (String args[])
 	{
-		Color C = new Color(255,255,255,"Col");
+		Color C = new Color(29,120,204,"Col");
 		System.out.println(C.getHex());
 	}
 }

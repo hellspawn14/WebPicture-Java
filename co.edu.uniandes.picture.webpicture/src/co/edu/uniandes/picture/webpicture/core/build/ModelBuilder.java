@@ -91,14 +91,17 @@ public class ModelBuilder
 		//3. Insertar elemento root en el metamodelo 
 		metamodel.setRoot(root);
 		//4. Validar que los elementos de la paleta estan en el metamodelo
-		//4.1 Crear los elementos de la paleta 
+		//4.1 Validar los recursos de imagen de la paleta
+		//4.2 Crear los elementos de la paleta 
 		System.out.println(model.getGraphicalREpresentation().getToolsDefinition().getToolGroups().get(0));
 		
 		//5. Crea los elementos graficos del modelo 
+		//5.1 Cada elemento solo tiene una representacion a nivel de elemento 
 		//5.1 Crea los elementos internos 
 		//5.2 Crea las relaciones 
-		//6. Genera las reglas de union 
-		//7. 
+		//6. Agregar relaciones 
+		//7. Genera las reglas de union 
+		//7. Wizards  
 		return metamodel;
 	}
 	

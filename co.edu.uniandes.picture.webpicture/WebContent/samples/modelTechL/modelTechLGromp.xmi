@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="ASCII"?>
+<pictureDSL:Model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pictureDSL="http://www.edu.co/uniandes/enar/picture/PictureDSL">
+  <imports importedNamespace="/AMBIENTE/workspaceGReta/test_gromp_1/modelTechL/TechnologyLayerArch.ecore" name="MM"/>
+  <graphicalREpresentation name="test_gromp_1" referencePackage="technologyLayer">
+    <toolsDefinition>
+      <toolGroups name="ElementsPalette" description="Evaluation Elements"/>
+      <toolGroups name="persons_froup" description="Group of entities that are real persons"/>
+      <toolGroups name="ArchimatePalette" description="ArchimatePalette">
+        <buttons name="Artifact" description="Artifact" icon="/imagenes/ArtifactIcon.gif">
+          <metaConceptReference class="Artifact"/>
+        </buttons>
+        <buttons name="InfrastructureService" description="InfrastructureService" icon="/imagenes/InfrastructureServiceIcon.gif">
+          <metaConceptReference class="InfrastructureService"/>
+        </buttons>
+        <buttons name="InfrastructureInterface" description="InfrastructureInterface" icon="/imagenes/InfrastructureInterfaceIcon.gif">
+          <metaConceptReference class="InfrastructureInterface"/>
+        </buttons>
+        <buttons name="Node" description="Node" icon="/imagenes/NodeIcon.gif">
+          <metaConceptReference class="Node"/>
+        </buttons>
+        <buttons name="SystemSoftware" description="SystemSoftware" icon="/imagenes/SystemSoftwareIcon.gif">
+          <metaConceptReference class="SystemSoftware"/>
+        </buttons>
+        <buttons name="Device" description="Device" icon="/imagenes/DeviceIcon.gif">
+          <metaConceptReference class="Device"/>
+        </buttons>
+        <buttons name="CommunicationPath" description="CommunicationPath" icon="/imagenes/CommunicationPathIcon.gif">
+          <metaConceptReference class="CommunicationPath"/>
+        </buttons>
+        <buttons name="Network" description="Network" icon="/imagenes/NetworkIcon.gif">
+          <metaConceptReference class="Network"/>
+        </buttons>
+      </toolGroups>
+    </toolsDefinition>
+    <styleDefinition>
+      <styleElements xsi:type="pictureDSL:Color" name="black"/>
+      <styleElements xsi:type="pictureDSL:Color" name="white" red="255" green="255" blue="255"/>
+      <styleElements xsi:type="pictureDSL:Color" name="yellow" red="255" green="255"/>
+      <styleElements xsi:type="pictureDSL:Color" name="blue" blue="255"/>
+      <styleElements xsi:type="pictureDSL:Color" name="red" red="255"/>
+      <styleElements xsi:type="pictureDSL:Color" name="green" green="255"/>
+      <styleElements xsi:type="pictureDSL:LineStyle" name="BorderBlack1" width="1" lineType="dot" color="//@graphicalREpresentation/@styleDefinition/@styleElements.0"/>
+      <styleElements xsi:type="pictureDSL:LineStyle" name="BorderBlack3" width="3" color="//@graphicalREpresentation/@styleDefinition/@styleElements.0"/>
+      <styleElements xsi:type="pictureDSL:LineStyle" name="BorderBlack4" width="4" color="//@graphicalREpresentation/@styleDefinition/@styleElements.0"/>
+      <styleElements xsi:type="pictureDSL:LineStyle" name="BorderRed2" width="2" color="//@graphicalREpresentation/@styleDefinition/@styleElements.4"/>
+      <styleElements xsi:type="pictureDSL:Rounded" name="rectRounded10" rx="10" ry="10"/>
+      <styleElements xsi:type="pictureDSL:Ellipse" name="ellip" radiox="35" radioy="25"/>
+      <styleElements xsi:type="pictureDSL:RegularPolygon" name="deca" vertexCant="8" startAngle="90"/>
+      <styleElements xsi:type="pictureDSL:Color" name="Withe" red="255" green="255" blue="255"/>
+      <styleElements xsi:type="pictureDSL:Color" name="activeElementsColor" red="117" green="235" blue="235"/>
+      <styleElements xsi:type="pictureDSL:Color" name="pasiveElementsColor" red="116" green="232" blue="116"/>
+      <styleElements xsi:type="pictureDSL:Color" name="behaviorElementsColor" red="241" green="241" blue="181"/>
+      <styleElements xsi:type="pictureDSL:Color" name="greenTestXX" red="44" green="255" blue="45"/>
+      <styleElements xsi:type="pictureDSL:LineStyle" name="BorderBlackDot" width="1" lineType="dot" color="//@graphicalREpresentation/@styleDefinition/@styleElements.0"/>
+      <styleElements xsi:type="pictureDSL:LineStyle" name="BorderBlack2" width="2" color="//@graphicalREpresentation/@styleDefinition/@styleElements.0"/>
+    </styleDefinition>
+    <graphicalDefinition>
+      <elements xsi:type="pictureDSL:NodeElementDef" name="ArtifactDef" label="elementName" labelIcon="true" phantomN="true">
+        <referenceClass class="Artifact"/>
+        <labelPlacement internal="internal"/>
+        <size width="70" height="50"/>
+        <figure xsi:type="pictureDSL:ImageFigure" path="Concern1.svg"/>
+      </elements>
+      <elements xsi:type="pictureDSL:InterNodeDef" name="composedOfArtifactArtifactDef">
+        <referenceName class="Artifact.composedOfArtifactArtifact"/>
+        <layout xsi:type="pictureDSL:DefaultLayout" default="default"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="composesArtifactArtifactDef" label="composes" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Artifact.composesArtifactArtifact"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="aggregatesArtifactArtifactDef" label="aggregates" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Artifact.aggregatesArtifactArtifact"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="aggregatedByArtifactArtifactDef" label="aggregatedBy" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Artifact.aggregatedByArtifactArtifact"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="accessedByInfrastructureServiceArtifactDef" label="accessedBy" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Artifact.accessedByInfrastructureServiceArtifact"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="assignedToNodeArtifactDef" label="assignedTo" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Artifact.assignedToNodeArtifact"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeElementDef" name="InfrastructureServiceDef" label="elementName" labelIcon="true" phantomN="true">
+        <referenceClass class="InfrastructureService"/>
+        <labelPlacement internal="internal"/>
+        <size width="70" height="50"/>
+        <figure xsi:type="pictureDSL:ImageFigure" path="Concern1.svg"/>
+      </elements>
+      <elements xsi:type="pictureDSL:InterNodeDef" name="composedOfInfrastructureServiceInfrastructureServiceDef">
+        <referenceName class="InfrastructureService.composedOfInfrastructureServiceInfrastructureService"/>
+        <layout xsi:type="pictureDSL:DefaultLayout" default="default"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="composesInfrastructureServiceInfrastructureServiceDef" label="composes" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="InfrastructureService.composesInfrastructureServiceInfrastructureService"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="aggregatesInfrastructureServiceInfrastructureServiceDef" label="aggregates" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="InfrastructureService.aggregatesInfrastructureServiceInfrastructureService"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="aggregatedByInfrastructureServiceInfrastructureServiceDef" label="aggregatedBy" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="InfrastructureService.aggregatedByInfrastructureServiceInfrastructureService"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="accessesArtifactInfrastructureServiceDef" label="accesses" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="InfrastructureService.accessesArtifactInfrastructureService"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="assignedToInfrastructureInterfaceInfrastructureServiceDef" label="assignedTo" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="InfrastructureService.assignedToInfrastructureInterfaceInfrastructureService"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="realizedByNodeInfrastructureServiceDef" label="realizedBy" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="InfrastructureService.realizedByNodeInfrastructureService"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeElementDef" name="InfrastructureInterfaceDef" label="elementName" labelIcon="true" phantomN="true">
+        <referenceClass class="InfrastructureInterface"/>
+        <labelPlacement internal="internal"/>
+        <size width="70" height="50"/>
+        <figure xsi:type="pictureDSL:ImageFigure" path="Concern1.svg"/>
+      </elements>
+      <elements xsi:type="pictureDSL:InterNodeDef" name="composedOfInfrastructureInterfaceInfrastructureInterfaceDef">
+        <referenceName class="InfrastructureInterface.composedOfInfrastructureInterfaceInfrastructureInterface"/>
+        <layout xsi:type="pictureDSL:DefaultLayout" default="default"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="composesInfrastructureInterfaceInfrastructureInterfaceDef" label="composes" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="InfrastructureInterface.composesInfrastructureInterfaceInfrastructureInterface"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="aggregatesInfrastructureInterfaceInfrastructureInterfaceDef" label="aggregates" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="InfrastructureInterface.aggregatesInfrastructureInterfaceInfrastructureInterface"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="aggregatedByInfrastructureInterfaceInfrastructureInterfaceDef" label="aggregatedBy" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="InfrastructureInterface.aggregatedByInfrastructureInterfaceInfrastructureInterface"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="composesNodeInfrastructureInterfaceDef" label="composes" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="InfrastructureInterface.composesNodeInfrastructureInterface"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="assignedToInfrastructureServiceInfrastructureInterfaceDef" label="assignedTo" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="InfrastructureInterface.assignedToInfrastructureServiceInfrastructureInterface"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="usedByNodeInfrastructureInterfaceDef" label="usedBy" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="InfrastructureInterface.usedByNodeInfrastructureInterface"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeElementDef" name="NodeDef" label="elementName" labelIcon="true" phantomN="true">
+        <referenceClass class="Node"/>
+        <labelPlacement internal="internal"/>
+        <size width="70" height="50"/>
+        <figure xsi:type="pictureDSL:ImageFigure" path="Concern1.svg"/>
+      </elements>
+      <elements xsi:type="pictureDSL:InterNodeDef" name="composedOfNodeNodeDef">
+        <referenceName class="Node.composedOfNodeNode"/>
+        <layout xsi:type="pictureDSL:DefaultLayout" default="default"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="composesNodeNodeDef" label="composes" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Node.composesNodeNode"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="aggregatesNodeNodeDef" label="aggregates" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Node.aggregatesNodeNode"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="aggregatedByNodeNodeDef" label="aggregatedBy" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Node.aggregatedByNodeNode"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="associatedWithCommunicationPathNodeDef" label="associatedWith" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Node.associatedWithCommunicationPathNode"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="assignedToArtifactNodeDef" label="assignedTo" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Node.assignedToArtifactNode"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:InterNodeDef" name="composedOfInfrastructureInterfaceNodeDef">
+        <referenceName class="Node.composedOfInfrastructureInterfaceNode"/>
+        <layout xsi:type="pictureDSL:DefaultLayout" default="default"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="usesInfrastructureInterfaceNodeDef" label="uses" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Node.usesInfrastructureInterfaceNode"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="usesInfrastructureServiceNodeDef" label="uses" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Node.usesInfrastructureServiceNode"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeElementDef" name="SystemSoftwareDef" label="elementName" labelIcon="true" phantomN="true">
+        <referenceClass class="SystemSoftware"/>
+        <labelPlacement internal="internal"/>
+        <size width="70" height="50"/>
+        <figure xsi:type="pictureDSL:ImageFigure" path="Concern1.svg"/>
+      </elements>
+      <elements xsi:type="pictureDSL:InterNodeDef" name="composedOfSystemSoftwareSystemSoftwareDef">
+        <referenceName class="SystemSoftware.composedOfSystemSoftwareSystemSoftware"/>
+        <layout xsi:type="pictureDSL:DefaultLayout" default="default"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="composesSystemSoftwareSystemSoftwareDef" label="composes" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="SystemSoftware.composesSystemSoftwareSystemSoftware"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="aggregatesSystemSoftwareSystemSoftwareDef" label="aggregates" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="SystemSoftware.aggregatesSystemSoftwareSystemSoftware"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="aggregatedBySystemSoftwareSystemSoftwareDef" label="aggregatedBy" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="SystemSoftware.aggregatedBySystemSoftwareSystemSoftware"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="assignedToDeviceSystemSoftwareDef" label="assignedTo" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="SystemSoftware.assignedToDeviceSystemSoftware"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeElementDef" name="DeviceDef" label="elementName" labelIcon="true" phantomN="true">
+        <referenceClass class="Device"/>
+        <labelPlacement internal="internal"/>
+        <size width="70" height="50"/>
+        <figure xsi:type="pictureDSL:ImageFigure" path="Concern1.svg"/>
+      </elements>
+      <elements xsi:type="pictureDSL:InterNodeDef" name="composedOfDeviceDeviceDef">
+        <referenceName class="Device.composedOfDeviceDevice"/>
+        <layout xsi:type="pictureDSL:DefaultLayout" default="default"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="composesDeviceDeviceDef" label="composes" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Device.composesDeviceDevice"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="aggregatesDeviceDeviceDef" label="aggregates" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Device.aggregatesDeviceDevice"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="aggregatedByDeviceDeviceDef" label="aggregatedBy" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Device.aggregatedByDeviceDevice"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="associatedWithNetworkDeviceDef" label="associatedWith" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Device.associatedWithNetworkDevice"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="assignedToSystemSoftwareDeviceDef" label="assignedTo" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Device.assignedToSystemSoftwareDevice"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeElementDef" name="CommunicationPathDef" label="elementName" labelIcon="true" phantomN="true">
+        <referenceClass class="CommunicationPath"/>
+        <labelPlacement internal="internal"/>
+        <size width="70" height="50"/>
+        <figure xsi:type="pictureDSL:ImageFigure" path="Concern1.svg"/>
+      </elements>
+      <elements xsi:type="pictureDSL:InterNodeDef" name="composedOfCommunicationPathCommunicationPathDef">
+        <referenceName class="CommunicationPath.composedOfCommunicationPathCommunicationPath"/>
+        <layout xsi:type="pictureDSL:DefaultLayout" default="default"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="composesCommunicationPathCommunicationPathDef" label="composes" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="CommunicationPath.composesCommunicationPathCommunicationPath"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="aggregatesCommunicationPathCommunicationPathDef" label="aggregates" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="CommunicationPath.aggregatesCommunicationPathCommunicationPath"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="aggregatedByCommunicationPathCommunicationPathDef" label="aggregatedBy" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="CommunicationPath.aggregatedByCommunicationPathCommunicationPath"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="associatedWithNodeCommunicationPathDef" label="associatedWith" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="CommunicationPath.associatedWithNodeCommunicationPath"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="realizedByNetworkCommunicationPathDef" label="realizedBy" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="CommunicationPath.realizedByNetworkCommunicationPath"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeElementDef" name="NetworkDef" label="elementName" labelIcon="true" phantomN="true">
+        <referenceClass class="Network"/>
+        <labelPlacement internal="internal"/>
+        <size width="70" height="50"/>
+        <figure xsi:type="pictureDSL:ImageFigure" path="Concern1.svg"/>
+      </elements>
+      <elements xsi:type="pictureDSL:InterNodeDef" name="composedOfNetworkNetworkDef">
+        <referenceName class="Network.composedOfNetworkNetwork"/>
+        <layout xsi:type="pictureDSL:DefaultLayout" default="default"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="composesNetworkNetworkDef" label="composes" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Network.composesNetworkNetwork"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="aggregatesNetworkNetworkDef" label="aggregates" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Network.aggregatesNetworkNetwork"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="aggregatedByNetworkNetworkDef" label="aggregatedBy" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Network.aggregatedByNetworkNetwork"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="realizesCommunicationPathNetworkDef" label="realizes" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Network.realizesCommunicationPathNetwork"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+      <elements xsi:type="pictureDSL:NodeLineDef" name="associatedWithDeviceNetworkDef" label="associatedWith" style="//@graphicalREpresentation/@styleDefinition/@styleElements.6">
+        <referenceName class="Network.associatedWithDeviceNetwork"/>
+        <sourceDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+        <targetDecoration xsi:type="pictureDSL:DefaultLineDecoration" none="none"/>
+      </elements>
+    </graphicalDefinition>
+    <rulesDefinition/>
+    <interactionDefinition>
+      <interactionElements xsi:type="pictureDSL:ElementWizard" name="WizardForCreateBasicArtifact" title="ArtifactWizard" description="Create Artifact Wizard" defaultButtons="true">
+        <classReference class="Artifact"/>
+        <pages title="Artifact Attributes" description="Definie Artifact Attributes">
+          <attributes attribute="elementName" label="Name" defaultValue="Default Name"/>
+        </pages>
+      </interactionElements>
+      <interactionElements xsi:type="pictureDSL:ElementWizard" name="WizardForCreateBasicInfrastructureService" title="InfrastructureServiceWizard" description="Create InfrastructureService Wizard" defaultButtons="true">
+        <classReference class="InfrastructureService"/>
+        <pages title="InfrastructureService Attributes" description="Definie InfrastructureService Attributes">
+          <attributes attribute="elementName" label="Name" defaultValue="Default Name"/>
+        </pages>
+      </interactionElements>
+      <interactionElements xsi:type="pictureDSL:ElementWizard" name="WizardForCreateBasicInfrastructureInterface" title="InfrastructureInterfaceWizard" description="Create InfrastructureInterface Wizard" defaultButtons="true">
+        <classReference class="InfrastructureInterface"/>
+        <pages title="InfrastructureInterface Attributes" description="Definie InfrastructureInterface Attributes">
+          <attributes attribute="elementName" label="Name" defaultValue="Default Name"/>
+        </pages>
+      </interactionElements>
+      <interactionElements xsi:type="pictureDSL:ElementWizard" name="WizardForCreateBasicNode" title="NodeWizard" description="Create Node Wizard" defaultButtons="true">
+        <classReference class="Node"/>
+        <pages title="Node Attributes" description="Definie Node Attributes">
+          <attributes attribute="elementName" label="Name" defaultValue="Default Name"/>
+        </pages>
+      </interactionElements>
+      <interactionElements xsi:type="pictureDSL:ElementWizard" name="WizardForCreateBasicSystemSoftware" title="SystemSoftwareWizard" description="Create SystemSoftware Wizard" defaultButtons="true">
+        <classReference class="SystemSoftware"/>
+        <pages title="SystemSoftware Attributes" description="Definie SystemSoftware Attributes">
+          <attributes attribute="elementName" label="Name" defaultValue="Default Name"/>
+        </pages>
+      </interactionElements>
+      <interactionElements xsi:type="pictureDSL:ElementWizard" name="WizardForCreateBasicDevice" title="DeviceWizard" description="Create Device Wizard" defaultButtons="true">
+        <classReference class="Device"/>
+        <pages title="Device Attributes" description="Definie Device Attributes">
+          <attributes attribute="elementName" label="Name" defaultValue="Default Name"/>
+        </pages>
+      </interactionElements>
+      <interactionElements xsi:type="pictureDSL:ElementWizard" name="WizardForCreateBasicCommunicationPath" title="CommunicationPathWizard" description="Create CommunicationPath Wizard" defaultButtons="true">
+        <classReference class="CommunicationPath"/>
+        <pages title="CommunicationPath Attributes" description="Definie CommunicationPath Attributes">
+          <attributes attribute="elementName" label="Name" defaultValue="Default Name"/>
+        </pages>
+      </interactionElements>
+      <interactionElements xsi:type="pictureDSL:ElementWizard" name="WizardForCreateBasicNetwork" title="NetworkWizard" description="Create Network Wizard" defaultButtons="true">
+        <classReference class="Network"/>
+        <pages title="Network Attributes" description="Definie Network Attributes">
+          <attributes attribute="elementName" label="Name" defaultValue="Default Name"/>
+        </pages>
+      </interactionElements>
+      <statements classReference="Artifact">
+        <events>
+          <eventType xsi:type="pictureDSL:ElementEvent" create="create"/>
+          <instructions xsi:type="pictureDSL:WizardStart" wizard="//@graphicalREpresentation/@interactionDefinition/@interactionElements.0"/>
+        </events>
+      </statements>
+      <statements classReference="InfrastructureService">
+        <events>
+          <eventType xsi:type="pictureDSL:ElementEvent" create="create"/>
+          <instructions xsi:type="pictureDSL:WizardStart" wizard="//@graphicalREpresentation/@interactionDefinition/@interactionElements.1"/>
+        </events>
+      </statements>
+      <statements classReference="InfrastructureInterface">
+        <events>
+          <eventType xsi:type="pictureDSL:ElementEvent" create="create"/>
+          <instructions xsi:type="pictureDSL:WizardStart" wizard="//@graphicalREpresentation/@interactionDefinition/@interactionElements.2"/>
+        </events>
+      </statements>
+      <statements classReference="Node">
+        <events>
+          <eventType xsi:type="pictureDSL:ElementEvent" create="create"/>
+          <instructions xsi:type="pictureDSL:WizardStart" wizard="//@graphicalREpresentation/@interactionDefinition/@interactionElements.3"/>
+        </events>
+      </statements>
+      <statements classReference="SystemSoftware">
+        <events>
+          <eventType xsi:type="pictureDSL:ElementEvent" create="create"/>
+          <instructions xsi:type="pictureDSL:WizardStart" wizard="//@graphicalREpresentation/@interactionDefinition/@interactionElements.4"/>
+        </events>
+      </statements>
+      <statements classReference="Device">
+        <events>
+          <eventType xsi:type="pictureDSL:ElementEvent" create="create"/>
+          <instructions xsi:type="pictureDSL:WizardStart" wizard="//@graphicalREpresentation/@interactionDefinition/@interactionElements.5"/>
+        </events>
+      </statements>
+      <statements classReference="CommunicationPath">
+        <events>
+          <eventType xsi:type="pictureDSL:ElementEvent" create="create"/>
+          <instructions xsi:type="pictureDSL:WizardStart" wizard="//@graphicalREpresentation/@interactionDefinition/@interactionElements.6"/>
+        </events>
+      </statements>
+      <statements classReference="Network">
+        <events>
+          <eventType xsi:type="pictureDSL:ElementEvent" create="create"/>
+          <instructions xsi:type="pictureDSL:WizardStart" wizard="//@graphicalREpresentation/@interactionDefinition/@interactionElements.7"/>
+        </events>
+      </statements>
+    </interactionDefinition>
+  </graphicalREpresentation>
+</pictureDSL:Model>
