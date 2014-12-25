@@ -4,6 +4,7 @@ package co.edu.uniandes.picture.webpicture.graphical.shapes;
  * Representa una imagen cargada desde el picture como un elemento del modelo 
  * @author hellspawn
  * No tiene soporte de magnet
+ * Ver correcciones
  */
 public class Image extends Graph
 {

@@ -7,6 +7,7 @@ import co.edu.uniandes.picture.webpicture.graphical.shapes.style.Color;
  * Representa una imagen rectangular
  * @author hellspawn
  * No tiene soporte de magnet
+ * Ver correcciones
  */
 public class ImageShape extends Basic
 {
