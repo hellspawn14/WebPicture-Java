@@ -8,9 +8,7 @@ import co.edu.uniandes.picture.webpicture.graphical.shapes.style.Color;
  * @author hellspawn
  */
 public class RoundedRectangle extends Basic
-{
-
-	
+{	
 	//------------------------------------------------------------------
 	//Atributos
 	//------------------------------------------------------------------

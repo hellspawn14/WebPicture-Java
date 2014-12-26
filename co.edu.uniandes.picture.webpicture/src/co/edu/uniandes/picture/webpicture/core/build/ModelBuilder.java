@@ -43,7 +43,6 @@ public class ModelBuilder
 	public boolean validate(Model model, Metamodel metamodel, String directory)
 	{
 		boolean ans = false;
-		
 		//TODO -> Cada elemento del metamodelo tiene un nombre unico OK
 		//No todo lo que esta en el metamodelo debe ir en el picture
 		//2. Validar que las clases coincidan 
