@@ -117,6 +117,11 @@ public class Toolgroup {
 	// Metodos
 	// ------------------------------------------------------------------
 
+
+	/**
+	 * Retorna el codigo JavaScript para crear grupo de elementos y el paper que lo contiene
+	 * @return Codigo JavaScript para crear el contenedor
+	 */
 	public String generateScript() {
 		int groupHeight = 0;
 		if (icons.size() == 0) {
@@ -204,8 +209,7 @@ public class Toolgroup {
 	}
 
 	/**
-	 * @param groupId
-	 *            the groupId to set
+	 * @param groupId the groupId to set
 	 */
 	public void setGroupId(String groupId) {
 		this.groupId = groupId;
@@ -219,8 +223,7 @@ public class Toolgroup {
 	}
 
 	/**
-	 * @param name
-	 *            the name to set
+	 * @param name the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -234,8 +237,7 @@ public class Toolgroup {
 	}
 
 	/**
-	 * @param description
-	 *            the description to set
+	 * @param description the description to set
 	 */
 	public void setDescription(String description) {
 		this.description = description;
@@ -249,8 +251,7 @@ public class Toolgroup {
 	}
 
 	/**
-	 * @param height
-	 *            the height to set
+	 * @param height the height to set
 	 */
 	public void setHeight(int height) {
 		this.height = height;
@@ -264,8 +265,7 @@ public class Toolgroup {
 	}
 
 	/**
-	 * @param icons
-	 *            the icons to set
+	 * @param icons the icons to set
 	 */
 	public void setIcons(ArrayList<Icon> icons) {
 		this.icons = icons;
@@ -279,8 +279,7 @@ public class Toolgroup {
 	}
 
 	/**
-	 * @param groupHead
-	 *            the groupHead to set
+	 * @param groupHead the groupHead to set
 	 */
 	public void setGroupHead(String groupHead) {
 		this.groupHead = groupHead;
@@ -294,8 +293,7 @@ public class Toolgroup {
 	}
 
 	/**
-	 * @param paperId
-	 *            the paperId to set
+	 * @param paperId the paperId to set
 	 */
 	public void setPaperId(String paperId) {
 		this.paperId = paperId;
@@ -309,8 +307,7 @@ public class Toolgroup {
 	}
 
 	/**
-	 * @param graphId
-	 *            the graphId to set
+	 * @param graphId the graphId to set
 	 */
 	public void setGraphId(String graphId) {
 		this.graphId = graphId;
