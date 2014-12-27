@@ -37,6 +37,11 @@ public class Icon {
 	 * Ruta a la imagen del icono
 	 */
 	private String path;
+	
+	/**
+	 * Posición inicial en Y
+	 */
+	private int Y;
 
 	// ------------------------------------------------------------------
 	// Constructores
@@ -53,6 +58,7 @@ public class Icon {
 		this.label = label;
 		this.path = path;
 		this.id = DEFAULT_ID + this.toString().split("@")[this.toString().split("@").length - 1];
+		this.setY(0);
 	}
 
 	// ------------------------------------------------------------------
@@ -65,6 +71,7 @@ public class Icon {
 	 * @return Codigo JavaScript para crear el icono en el paper
 	 */
 	public String generateScript(int posY) {
+		setY(posY);
 		String ans = "var "
 				+ this.getId()
 				+ " = new joint.shapes.basic.Image({ position: { x: 10, y: "
@@ -133,5 +140,19 @@ public class Icon {
 	 */
 	public void setPath(String path) {
 		this.path = path;
+	}
+
+	/**
+	 * @return the y
+	 */
+	public int getY() {
+		return Y;
+	}
+
+	/**
+	 * @param y the y to set
+	 */
+	public void setY(int y) {
+		Y = y;
 	}
 }
