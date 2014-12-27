@@ -182,7 +182,6 @@ public class Toolgroup {
 			} else {
 				int ant = i - 1;
 				posY = icons.get(ant).getY() + ELEMENT_PADDING;
-				System.out.println(posY);
 			}
 			ans += icons.get(i).generateScript(posY) + this.getGraphId()
 					+ ".addCell(" + icons.get(i).getId() + ");";
