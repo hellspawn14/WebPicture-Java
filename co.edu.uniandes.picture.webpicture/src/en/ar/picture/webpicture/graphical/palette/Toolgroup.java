@@ -93,24 +93,17 @@ public class Toolgroup {
 
 	/**
 	 * Crea un nuevo grupo de herramientas del editor
-	 * 
-	 * @param name
-	 *            - Nombre del grupo
-	 * @param description
-	 *            - Descripción del grupo
+	 * @param name - Nombre del grupo
+	 * @param description - Descripción del grupo
 	 */
 	public Toolgroup(String name, String description) {
 		this.name = name;
 		this.description = description;
 		this.icons = new ArrayList<Icon>();
-		this.groupId = DEFAULT_ID
-				+ this.toString().split("@")[this.toString().split("@").length - 1];
-		this.groupHead = HEAD
-				+ this.toString().split("@")[this.toString().split("@").length - 1];
-		this.setPaperId(PAPER
-				+ this.toString().split("@")[this.toString().split("@").length - 1]);
-		this.setGraphId(GRAPH
-				+ this.toString().split("@")[this.toString().split("@").length - 1]);
+		this.groupId = DEFAULT_ID + this.toString().split("@")[this.toString().split("@").length - 1];
+		this.groupHead = HEAD + this.toString().split("@")[this.toString().split("@").length - 1];
+		this.setPaperId(PAPER + this.toString().split("@")[this.toString().split("@").length - 1]);
+		this.setGraphId(GRAPH + this.toString().split("@")[this.toString().split("@").length - 1]);
 	}
 
 	// ------------------------------------------------------------------
