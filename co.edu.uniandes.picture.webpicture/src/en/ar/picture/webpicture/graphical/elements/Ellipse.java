@@ -37,7 +37,7 @@ public class Ellipse extends Basic {
 				+ this.getWidth() + ", height: " + this.getHeight()
 				+ "}, attrs: { circle: { fill: '" + this.getColor().getHex()
 				+ "', opacity: " + this.getOpacity() + ",magnet: true, type: '"
-				+ this.getType() + "',}, text: { text: '" + this.getLabel()
+				+ this.getType() + "'," + this.getBorder().getGenScript() + "}, text: { text: '" + this.getLabel()
 				+ "', fill: 'black', 'ref-y': " + this.getRefY() + "},},});";
 		return ans;
 	}
