@@ -31,7 +31,6 @@ public class Image extends Graph {
 	public Image(int height, int width, String type, String label,String labelPlacement, boolean phantom, String path) {
 		super(height, width, type, label, labelPlacement, phantom);
 		this.path = path;
-		
 	}
 
 	// ------------------------------------------------------------------
@@ -65,8 +64,7 @@ public class Image extends Graph {
 	}
 
 	/**
-	 * @param path
-	 *            the path to set
+	 * @param path the path to set
 	 */
 	public void setPath(String path) {
 		this.path = path;
