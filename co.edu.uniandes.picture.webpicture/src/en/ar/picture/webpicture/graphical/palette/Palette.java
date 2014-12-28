@@ -2,6 +2,8 @@ package en.ar.picture.webpicture.graphical.palette;
 
 import java.util.ArrayList;
 
+import en.ar.picture.webpicture.graphical.icons.Icon;
+
 
 /**
  * Representa la paleta de elementos del editor 
@@ -51,6 +53,19 @@ public class Palette {
 			ans += toolgroups.get(i).generateScript();
 		}
 		return ans;
+	}
+	
+	public static void main (String args[])
+	{
+		Palette P = new Palette("Batman");
+		Toolgroup T = new Toolgroup("Batman costumes", "A set of Batman costumes");
+		Icon I1 = new Icon("A", "Adam West", "http://static.tvtropes.org/pmwiki/pub/images/batman60s.jpg");
+		Icon I2 = new Icon("B", "Nolan", "http://cdn-static.denofgeek.com/sites/denofgeek/files/styles/article_main_half/public/rises-main.jpg?itok=aYAmDbuM");
+		T.getIcons().add(I1);
+		T.getIcons().add(I2);
+		P.getToolgroups().add(T);
+		System.out.println(P.generateScript());
+		//public Icon(String type, String label, String path) {
 	}
 
 	// ------------------------------------------------------------------
