@@ -23,6 +23,17 @@ public abstract class Graph {
 	 * Indicador de posición externa del texto del elemento
 	 */
 	public final static String EXTERNAL = "external";
+	
+	/**
+	 * Valor por defecto para posición externa del label 
+	 */
+	public final static int REF_EXTERNAL_Y = -10;
+			
+	/**
+	 * Valor por defecto para posición interna del label 
+	 */
+	public final static double REF_INTERNAL_Y = 0.5;
+	
 
 	// ------------------------------------------------------------------
 	// Atributos
