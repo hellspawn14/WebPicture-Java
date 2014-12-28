@@ -36,12 +36,12 @@ public class Toolgroup {
 	/**
 	 * Espacio por defecto entre cada elemento del grupo
 	 */
-	public final static int ELEMENT_PADDING = 90;
+	public final static int ELEMENT_PADDING = 60;
 
 	/**
 	 * Factor de escala para la altura del grupo
 	 */
-	public final static int SCALE_FACTOR = 100;
+	public final static int SCALE_FACTOR = 70;
 
 	// ------------------------------------------------------------------
 	// Atributos
