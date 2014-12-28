@@ -2,7 +2,6 @@ package en.ar.picture.webpicture.graphical.elements;
 
 /**
  * Es la representación grafica en el modelo de un elemento
- * 
  * @author hellspawn
  */
 public abstract class Graph {
