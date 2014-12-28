@@ -34,6 +34,16 @@ public abstract class Graph {
 	 */
 	public final static double REF_INTERNAL_Y = 0.5;
 	
+	/**
+	 * Valor de transparencia si phantom es true 
+	 */
+	public final static double PHANTOM_T = 0.5;
+	
+	/**
+	 * Valor de transparencia si phantom es false 
+	 */
+	public final static double PHANTOM_F = 1;
+	
 
 	// ------------------------------------------------------------------
 	// Atributos
@@ -73,6 +83,17 @@ public abstract class Graph {
 	 * Indicador de transparencia
 	 */
 	private boolean phantom;
+	
+	/**
+	 * Valor de transparencia para el elemento 
+	 */
+	private double opacity;
+	
+	/**
+	 * Posición del label en el eje Y
+	 */
+	private double refY;
+	
 
 	// ------------------------------------------------------------------
 	// Constructores
@@ -94,6 +115,17 @@ public abstract class Graph {
 		this.label = label;
 		this.phantom = phantom;
 		this.labelPlacement = labelPlacement;
+		this.id = DEFAULT_ID + this.toString().split("@")[this.toString().split("@").length - 1];
+		if (phantom){
+			setOpacity(PHANTOM_T);
+		}else{
+			setOpacity(PHANTOM_F);
+		}
+		if (labelPlacement.equals(EXTERNAL)) {
+			setRefY(REF_EXTERNAL_Y);
+		} else {
+			setRefY(REF_INTERNAL_Y);
+		}
 	}
 
 	// ------------------------------------------------------------------
@@ -206,5 +238,33 @@ public abstract class Graph {
 	 */
 	public void setPhantom(boolean phantom) {
 		this.phantom = phantom;
+	}
+
+	/**
+	 * @return the opacity
+	 */
+	public double getOpacity() {
+		return opacity;
+	}
+
+	/**
+	 * @param opacity the opacity to set
+	 */
+	public void setOpacity(double opacity) {
+		this.opacity = opacity;
+	}
+
+	/**
+	 * @return the refY
+	 */
+	public double getRefY() {
+		return refY;
+	}
+
+	/**
+	 * @param refY the refY to set
+	 */
+	public void setRefY(double refY) {
+		this.refY = refY;
 	}
 }
