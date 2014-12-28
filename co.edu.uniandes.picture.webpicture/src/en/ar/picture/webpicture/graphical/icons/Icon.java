@@ -76,7 +76,7 @@ public class Icon {
 				+ this.getId()
 				+ " = new joint.shapes.basic.Image({ position: { x: 10, y: "
 				+ posY
-				+ " }, size: { width: 100,height: 100 }, attrs: { text: { text: '"
+				+ " }, size: { width: 50,height: 50 }, attrs: { text: { text: '"
 				+ this.getLabel() + "', }, image: { type: '" + this.getType() + "'" + ", 'xlink:href': '" 
 				+ this.getPath() + 
 				"', width: 100, height: 100,}, },});";
