@@ -31,15 +31,16 @@ public abstract class Shape extends Graph{
 	 * @param labelPlacement - Posición del texto
 	 * @param phantom - Indicador de transparencia
 	 */
-	public Shape(int height, int width, String type, String label, String labelPlacement, boolean phantom)
-	{
+	public Shape(int height, int width, String type, String label, String labelPlacement, boolean phantom, Color color, Border border){
 		super(height, width, type, label, labelPlacement, phantom);
+		this.setColor(color);
+		this.setBorder(border);
 	}
 
 	// ------------------------------------------------------------------
 	// Getters & Setters 
 	// ------------------------------------------------------------------
-
+	
 	/**
 	 * @return the color
 	 */
