@@ -23,7 +23,7 @@ public class Image extends Graph {
 	 * @param height - Alto del elemento
 	 * @param width - Ancho del elemento
 	 * @param type - Clase representada
-	 * @param label- Etiqueta/Texto del elemento
+	 * @param label - Etiqueta/Texto del elemento
 	 * @param labelPlacement - Posición del texto
 	 * @param phantom - Indicador de transparencia
 	 * @param path - Ruta a la imagen
