@@ -4,30 +4,25 @@ import en.ar.picture.webpicture.graphical.style.Border;
 import en.ar.picture.webpicture.graphical.style.Color;
 
 /**
- * Representa la especificación de un rectangulo con imagen
+ * Representa la especificación de un poligono SVG con imagen
  * @author hellspawn
  */
-public class IconRectangle extends Figure {
+public class IconPolygon extends Figure {
 	// ------------------------------------------------------------------
 	// Atributos
 	// ------------------------------------------------------------------
 
 	/**
-	 * Radio X
+	 * SVG path del elemento
 	 */
-	private int rx;
-
-	/**
-	 * Radio Y
-	 */
-	private int ry;
+	private String svgPath;
 
 	// ------------------------------------------------------------------
 	// Constructores
 	// ------------------------------------------------------------------
 
 	/**
-	 * Crea un rectangulo con imagen para representar el elemento
+	 * Crea una elipse con imagen para representar el elemento
 	 * @param height - Alto del elemento
 	 * @param width - Ancho del elemento
 	 * @param type - Clase representada
@@ -41,13 +36,15 @@ public class IconRectangle extends Figure {
 	 * @param iconHeight - Alto del icono
 	 * @param iconRefX - Posición en X con respecto al contenedor
 	 * @param iconRefY - Posición en Y con respecto al contenedor
-	 * @param rx - Radio X
-	 * @param ry - Radio Y
+	 * @param svgPath - SVG path del elemento
 	 */
-	public IconRectangle(int height, int width, String type, String label,String labelPlacement, boolean phantom, Color color, Border border, String iconPath, int iconWidth, int iconHeight, int iconRefX, int iconRefY, int rx, int ry) {
-		super(height, width, type, label, labelPlacement, phantom, color, border, iconPath, iconWidth, iconHeight, iconRefX, iconRefY);
-		this.rx = rx;
-		this.ry = ry;
+	public IconPolygon(int height, int width, String type, String label,
+			String labelPlacement, boolean phantom, Color color, Border border,
+			String iconPath, int iconWidth, int iconHeight, double iconRefX,
+			double iconRefY, String svgPath) {
+		super(height, width, type, label, labelPlacement, phantom, color,
+				border, iconPath, iconWidth, iconHeight, iconRefX, iconRefY);
+		this.setSvgPath(svgPath);
 	}
 
 	// ------------------------------------------------------------------
@@ -58,17 +55,18 @@ public class IconRectangle extends Figure {
 	public String generateScript() {
 		String ans = "var "
 				+ this.getId()
-				+ " = new joint.shapes.org.Member({ position: { x: 100, y: 100 },size: { width: "
+				+ " = new joint.shapes.poly.Polygon({ position: { x: 100, y: 100 }, size: { width: "
 				+ this.getWidth() + ", height: " + this.getHeight()
-				+ "}, attrs: { '.card': { fill: '" + this.getColor().getHex()
-				+ "', magnet: true, type: '" + this.getType() + "', rx: "
-				+ this.getRx() + ", ry: " + this.getRy() + ","
+				+ "}, attrs: { '.contenedor': { fill: '"
+				+ this.getColor().getHex() + "', magnet: true, type: '"
+				+ this.getType() + "', d: '" + this.getSvgPath() + "', "
 				+ this.getBorder().getGenScript()
-				+ "}, image: {'xlink:href': '" + this.getIconPath()
-				+ "', 'width': " + this.getIconWidth() + ", 'height': "
-				+ this.getIconHeight() + ", 'ref-x': " + this.getIconRefX()
-				+ ", 'ref-y': " + this.getIconRefY() + "},'.name': { text: '"
-				+ this.getLabel() + "', 'ref-y': " + this.getRefY() + "},}});";
+				+ "}, image: { 'xlink:href': '" + this.getIconPath()
+				+ "', 'ref-x': " + this.getIconRefX() + ", 'ref-y': "
+				+ this.getIconRefY() + ", 'width': " + this.getIconWidth()
+				+ ", 'height': " + this.getIconHeight()
+				+ ", }, '.name': { text: '" + this.getLabel() + "', 'ref-y': "
+				+ this.getRefY() + "},}});";
 		return ans;
 	}
 
@@ -77,30 +75,16 @@ public class IconRectangle extends Figure {
 	// ------------------------------------------------------------------
 
 	/**
-	 * @return the rx
+	 * @return the svgPath
 	 */
-	public int getRx() {
-		return rx;
+	public String getSvgPath() {
+		return svgPath;
 	}
 
 	/**
-	 * @param rx the rx to set
+	 * @param svgPath the svgPath to set
 	 */
-	public void setRx(int rx) {
-		this.rx = rx;
-	}
-
-	/**
-	 * @return the ry
-	 */
-	public int getRy() {
-		return ry;
-	}
-
-	/**
-	 * @param ry the ry to set
-	 */
-	public void setRy(int ry) {
-		this.ry = ry;
+	public void setSvgPath(String svgPath) {
+		this.svgPath = svgPath;
 	}
 }
