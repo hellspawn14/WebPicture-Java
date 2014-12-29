@@ -4,13 +4,13 @@ import co.edu.uniandes.picture.webpicture.graphical.shapes.style.Border;
 import co.edu.uniandes.picture.webpicture.graphical.shapes.style.Color;
 
 /**
- * Representa una forma basica 
+ * Representa la especificacion para construir una forma  
  * @author hellspawn
  */
 public abstract class Shape extends Graph 
 {
 
-	//------------------------------------------------------------------
+	// ------------------------------------------------------------------
 	//Atributos
 	//------------------------------------------------------------------
 	
