@@ -75,7 +75,7 @@ public class IconRectangle extends Figure {
 	public static void main(String args[]) {
 		Color fondo = new Color(234, 14, 22, "?");
 		Color bod = new Color(0, 234, 255, "T");
-		Border B = new Border(bod, 2, "dashdotdot");
+		Border B = new Border(bod, 2, "dashdotdot", "borde");
 		IconRectangle I = new IconRectangle(
 				500,
 				500,
