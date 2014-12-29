@@ -82,6 +82,11 @@ public class Border {
 	 * Script generado a partir de la especificacion de picture
 	 */
 	private String genScript;
+	
+	/**
+	 * Nombre del borde
+	 */
+	private String name;
 
 	//------------------------------------------------------------------
 	// Constructores
@@ -92,12 +97,14 @@ public class Border {
 	 * @param borderColor - Color del borde
 	 * @param width - Grosor del borde
 	 * @param borderStyle - Estilo del borde
+	 * @param name - Nombre del borde
 	 */
-	public Border(Color borderColor, int width, String borderStyle) {
+	public Border(Color borderColor, int width, String borderStyle, String name) {
 		this.borderColor = borderColor;
 		this.width = width;
 		this.borderStyle = borderStyle;
 		this.setGenScript(generateScript());
+		this.setName(name);
 	}
 
 	//------------------------------------------------------------------
@@ -187,6 +194,20 @@ public class Border {
 	 */
 	public void setGenScript(String genScript) {
 		this.genScript = genScript;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }
