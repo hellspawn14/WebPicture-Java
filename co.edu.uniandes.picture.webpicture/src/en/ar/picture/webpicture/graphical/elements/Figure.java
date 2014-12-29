@@ -58,13 +58,13 @@ public abstract class Figure extends Shape {
 	 * @param iconRefX - Posición en X con respecto al contenedor
 	 * @param iconRefY - Posición en Y con respecto al contenedor
 	 */
-	public Figure(int height, int width, String type, String label, String labelPlacement, boolean phantom, Color color, Border border, String iconPath, int iconWidth, int iconHeight, int iconRefX, int iconRefY) {
+	public Figure(int height, int width, String type, String label, String labelPlacement, boolean phantom, Color color, Border border, String iconPath, int iconWidth, int iconHeight, double iconRefX, double iconRefY) {
 		super(height, width, type, label, labelPlacement, phantom, color, border);
 		this.iconPath = iconPath;
 		this.iconWidth = iconWidth;
 		this.iconHeight = iconHeight;
-		this.iconRefX = iconRefX / this.getWidth();
-		this.iconRefY = iconRefY / this.getHeight();
+		this.iconRefX = iconRefX/this.getWidth();
+		this.iconRefY = iconRefY/this.getHeight();
 	}
 
 	// ------------------------------------------------------------------

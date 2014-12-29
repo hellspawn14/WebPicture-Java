@@ -86,7 +86,7 @@ public class IconRectangle extends Figure {
 				fondo,
 				B,
 				"https://cdn3.iconfinder.com/data/icons/business-101-1/512/Pie-2-512.png",
-				100, 100, 200, 200, 0, 0);
+				100, 100, 250, 250, 0, 0);
 		System.out.println(I.generateScript());
 	}
 
