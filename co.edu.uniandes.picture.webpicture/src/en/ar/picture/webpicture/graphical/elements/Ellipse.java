@@ -18,8 +18,10 @@ public class Ellipse extends Basic {
 	 * @param width - Ancho del elemento
 	 * @param type - Clase representada
 	 * @param label - Etiqueta/Texto del elemento
-	 * @param labelPlacement - Posición del texto
+	 * @param labelPlacement- Posición del texto
 	 * @param phantom - Indicador de transparencia
+	 * @param color - Color del elemento 
+	 * @param border - Borde del elemento 
 	 */
 	public Ellipse(int height, int width, String type, String label, String labelPlacement, boolean phantom, Color color, Border border) {
 		super(height, width, type, label, labelPlacement, phantom, color, border);

@@ -34,6 +34,8 @@ public class Rectangle extends Basic {
 	 * @param label - Etiqueta/Texto del elemento
 	 * @param labelPlacement - Posición del texto
 	 * @param phantom - Indicador de transparencia
+	 * @param color - Color del elemento 
+	 * @param border - Borde del elemento 
 	 * @param rx - Radio X
 	 * @param ry - Radio Y
 	 */
