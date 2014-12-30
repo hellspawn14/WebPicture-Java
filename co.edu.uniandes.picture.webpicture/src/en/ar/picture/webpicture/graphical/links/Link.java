@@ -8,31 +8,31 @@ import en.ar.picture.webpicture.graphical.style.Border;
  */
 public class Link {
 	// ------------------------------------------------------------------
-	// Atributos   
+	// Atributos
 	// ------------------------------------------------------------------
-	
+
 	/**
-	 * Borde del link 
+	 * Borde del link
 	 */
 	private Border border;
-	
+
 	/**
-	 * Texto/etiqueta del link 
+	 * Texto/etiqueta del link
 	 */
-	private String label; 
-	
+	private String label;
+
 	/**
 	 * Terminación del origen
 	 */
 	private Decoration srcDecoration;
-	
+
 	/**
-	 * Terminación del objetivo 
+	 * Terminación del objetivo
 	 */
 	private Decoration trgDecoration;
-	
+
 	/**
-	 * Script generado para crear el link 
+	 * Script generado para crear el link
 	 */
 	private String genScript;
 
@@ -41,36 +41,45 @@ public class Link {
 	// ------------------------------------------------------------------
 
 	/**
-	 * Crea un nuevo enlace para los elementos del modelo 
-	 * @param border - Borde del link 
-	 * @param label - Texto/etiqueta  
-	 * @param srcDecoration - Decoración del origen 
+	 * Crea un nuevo enlace para los elementos del modelo
+	 * @param border - Borde del link
+	 * @param label - Texto/etiqueta
+	 * @param srcDecoration - Decoración del origen
 	 * @param trgDecoration - Decoración del objetivo
 	 */
-	public Link(Border border, String label, Decoration srcDecoration, Decoration trgDecoration) {
+	public Link(Border border, String label, Decoration srcDecoration,
+			Decoration trgDecoration) {
 		this.border = border;
 		this.label = label;
 		this.srcDecoration = srcDecoration;
 		this.trgDecoration = trgDecoration;
 		this.genScript = generateScript();
 	}
-	
+
 	// ------------------------------------------------------------------
-	// Metodos   
+	// Metodos
 	// ------------------------------------------------------------------
 
 	/**
-	 * Retorna el script de creación del elemento segun la especificación del Picture
-	 * @return - Script de creación del elemento 
+	 * Retorna el script de creación del elemento segun la especificación del
+	 * Picture
+	 * @return - Script de creación del elemento
 	 */
-	public String generateScript()
-	{
-		String ans = "oldLink.attr({'.connection': {" + this.getBorder().getGenScript() + " }, '.marker-source': { " + this.getSrcDecoration().getGenScript() + "},'.marker-target': {" + this.getTrgDecoration().getGenScript() + "},}); oldLink.label(0, { position: .5, attrs: { text: { text: '" + this.getLabel() + "', 'font-family': 'Arial, helvetica, sans-serif', 'font-size': 14, }}});";
+	public String generateScript() {
+		String ans = "oldLink.attr({'.connection': {"
+				+ this.getBorder().getGenScript()
+				+ " }, '.marker-source': { "
+				+ this.getSrcDecoration().getGenScript()
+				+ "},'.marker-target': {"
+				+ this.getTrgDecoration().getGenScript()
+				+ "},}); oldLink.label(0, { position: .5, attrs: { text: { text: '"
+				+ this.getLabel()
+				+ "', 'font-family': 'Arial, helvetica, sans-serif', 'font-size': 14, }}});";
 		return ans;
 	}
-	
+
 	// ------------------------------------------------------------------
-	// Getters & Setters  
+	// Getters & Setters
 	// ------------------------------------------------------------------
 
 	/**
@@ -95,7 +104,8 @@ public class Link {
 	}
 
 	/**
-	 * @param label the label to set
+	 * @param label
+	 *            the label to set
 	 */
 	public void setLabel(String label) {
 		this.label = label;
