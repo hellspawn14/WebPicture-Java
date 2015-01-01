@@ -5,7 +5,6 @@
 <link rel="icon" href="resources/res/siteIcon.png" type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Index web site for WebPicture online DSL model editor">
-
 <head>
     <title>Create new editor</title>
     <link rel="icon" href="resources/res/siteIcon.png" type="image/x-icon">
@@ -24,9 +23,7 @@
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="resources/pure-css/css/layouts/headers.css">
 </head>
-
 <body>
-
     <div class="header">
         <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed" style="background-color:#181818">
             <a class="pure-menu-heading" href="welcome">
@@ -34,12 +31,11 @@
             </a>
         </div>
     </div>
-
     <div class="splash-container" style="background-color:#FFFFFF; height:100%">
         <header>
             <p style="visibility:hidden">I bet you can't see me</p>
         </header>
-
+        <form id="createEditorForm" name="createEditorForm" action="create_editor" method="post" enctype="multipart/form-data">
         <div style="text-align:center; height:100%">
             <div style="height:50%">
                 <div class="pure-g">
@@ -69,38 +65,38 @@
             <div style="height:50%">
                 <div class="pure-g">
                     <div class="pure-u-1-3" style="text-align:center; height:100%;border-right:1px solid #808080">
-                        <p style="text-align:center">Upload a picture file</p>
-                        <input id="uploadEcore" type="file" class="custom-file-input" accept=".ecore" style="margin-left:100px" />
+                        <p style="text-align:center">Upload an ecore file</p>
+                        <input id="uploadEcore" name="uploadEcore" type="file" class="custom-file-input" accept=".ecore" style="margin-left:100px" />
                     </div>
                     <div class="pure-u-1-3" style="text-align:center; height:100%; border-right:1px solid #808080">
                         <p style="text-align:center">Upload a picture file</p>
-                        <input id="uploadPicture" type="file" class="custom-file-input" accept=".picture" style="margin-left:100px" >
+                        <input id="uploadPicture" name="uploadPicture" type="file" class="custom-file-input" accept=".picture" style="margin-left:100px" >
                         <p id="folderText" style="text-align:center">Upload aditional resources</p>
-                        <input id="uploadExtras" type="file" class="custom-file-input" accept="image/*" style="margin-left:100px" >
-                        
+                        <input id="uploadExtras" name="uploadExtras" type="file" class="custom-file-input" accept="image/*" multiple style="margin-left:100px" >
                     </div>
                     <div class="pure-u-1-3" style="text-align:center; height:auto">
-                        <form class="pure-form pure-form-stacked">
-                            <fieldset>
+                        <div class="pure-form pure-form-stacked">
+                            
                                 <div class="pure-g">
                                     <div class="pure-u-1 pure-u-md-1-2">
-                                        <input id="dName" type="text" placeholder="Editor name">
+                                        <input id="dName" name="dName" type="text" placeholder="Editor name">
                                     </div>
                                     <div class="pure-u-1 pure-u-md-1-2">
-                                        <input id="dAuthor" type="text" placeholder="Author">
+                                        <input id="dAuthor" name="dAuthor" type="text" placeholder="Author">
                                     </div>
                                 </div>
-                                    <textArea id="dDescription" type="text" class="pure-input-1-2" placeholder="Editor description" style="width:100%"></textArea>
-
-                            </fieldset>
-                        </form>
-                        <button type="submit" class="button-success pure-button" onclick="createEditor()">Generate editor</button>
+                                    <textArea id="dDescription" name="dDescription" type="text" class="pure-input-1-2" placeholder="Editor description" style="width:100%"></textArea>
+                        	
+                        </div>
+                        <button type="button" class="button-success pure-button" onclick="createEditor()">Generate editor</button>
                     </div>
                 </div>
             </div>
         </div>
+        </form>
     </div>
-
+  
+    
     <div class="content-wrapper">
         <p class="hero-tagline" style="text-align:center; background-color:#1D78CC;color:white"><i class="fa fa-angle-down"></i> Help</p>
         <div class="content">
@@ -111,8 +107,6 @@
             <h3 class="content-subhead" style="text-align:center">
         		<i class="fa fa-check-circle"></i> Getting everything you need
         	</h3>
-
-
             <h3 class="content-subhead">
         		<i class="fa fa-sitemap"></i> Building the metamodel
         	</h3>
@@ -157,8 +151,8 @@
         var nPicture = $("#uploadPicture").val();
         var nExtras = $("#uploadExtras").val();
         
-        
-        //Verificar que los archivos requeridos esten 
+ 
+        //Verificar los archivos requeridos  
         if (nEcore == '' || nPicture == '')
         {
             if(nEcore == '')
@@ -171,7 +165,19 @@
             }
             throw new Error("No model / no picture file");
         }
-        
+        else
+        {
+        	if(endsWith(nEcore, '.ecore') == false)
+        	{
+        		bootbox.alert("WebPicture requieres an ecore file", function () {});
+        		throw new Error("No model / no picture file");
+        	}
+        	if(endsWith(nPicture, '.picture') == false)
+        	{
+        		bootbox.alert("WebPicture requieres a picture file", function () {});
+        		throw new Error("No model / no picture file");
+        	}
+        }
         //Verificar que los campos requeridos esten llenos
         var dName = $("#dName").val().trim();
         var dAuthor = $("#dAuthor").val().trim();
@@ -181,8 +187,18 @@
             bootbox.alert("All fields in inforation secction are mandatory", function () {});
         }
         //Crear editor
-
+        else
+        {
+        	var form = $('#createEditorForm');
+        	form.submit();
+        	
+        }
     }
+    
+    function endsWith(str, suffix) {
+        return str.indexOf(suffix, str.length - suffix.length) !== -1;
+    }
+    
 </script>
 
 </html>
