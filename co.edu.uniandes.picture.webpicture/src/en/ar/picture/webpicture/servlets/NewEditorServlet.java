@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
@@ -100,19 +99,20 @@ public class NewEditorServlet extends HttpServlet {
 	 * Responde las llamadas desde el JSP
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		getParameters(request);
 		fileManager = webpicture.getFileManager(request.getServletContext().getRealPath("/"));
 		dir = fileManager.makeDir();
-		uploadFile(request, dir);
+		getParameters(request, dir);
 		webpicture.createEditor(dName, dDescription, dAuthor, dir);
 	}
 
 	/**
-	 * Obtiene los parametros textuales del request
+	 * Obtiene los parametros del request
 	 * @param request - Peticion http
 	 */
-	public void getParameters(HttpServletRequest request) {
+	private void getParameters(HttpServletRequest request, String dir) {
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+		String fileName = "";
+		String fName = "";
 		if (isMultipart) {
 			try {
 				List<FileItem> items = uploader.parseRequest(request);
@@ -129,6 +129,20 @@ public class NewEditorServlet extends HttpServlet {
 						} else if (name.equals("dAuthor")) {
 							dAuthor = value;
 						}
+					}else{
+						fileName = item.getName();
+						fName = "->" + fileName + "<-";
+						if (fileName != null && fName.equals("-><-") == false
+								&& fName.equals("->null<-") == false) {
+							if (fileName.endsWith(ECORE)) {
+								fileManager.uploadMetamodel(dir, item);
+							} else if (fileName.endsWith(PICTURE)) {
+								fileManager
+										.uploadGraphicalRepresentation(dir, item);
+							} else {
+								fileManager.uploadImage(dir, item);
+							}
+						}
 					}
 				}
 			} catch (Exception e) {
@@ -137,41 +151,6 @@ public class NewEditorServlet extends HttpServlet {
 		}
 	}
 
-	/**
-	 * Carga los archivos desde la pagina
-	 * @param request - Petición HTTP
-	 * @param dir - Directorio base del editor a crear
-	 * @throws IOException
-	 * @throws ServletException
-	 */
-	private void uploadFile(HttpServletRequest request, String dir) throws IOException, ServletException {
-		String fileName = "";
-		String fName = "";
-		try {
-			List<FileItem> fileItemsList = uploader.parseRequest(request);
-			Iterator<FileItem> fileItemsIterator = fileItemsList.iterator();
-			while (fileItemsIterator.hasNext()) {
-				FileItem fileItem = fileItemsIterator.next();
-				fileName = fileItem.getName();
-				fName = "->" + fileName + "<-";
 
-				if (fileName != null && fName.equals("-><-") == false
-						&& fName.equals("->null<-") == false) {
-					if (fileName.endsWith(ECORE)) {
-						fileManager.uploadMetamodel(dir, fileItem);
-					} else if (fileName.endsWith(PICTURE)) {
-						fileManager
-								.uploadGraphicalRepresentation(dir, fileItem);
-					} else {
-						fileManager.uploadImage(dir, fileItem);
-					}
-				}
-			}
-		} catch (FileUploadException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 }
