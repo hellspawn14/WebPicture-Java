@@ -327,6 +327,57 @@ public class EditorDAO
 	}
 	
 	/**
+	 * Retorna una lista con todos los editores disponibles 
+	 * @return - Lista con todos los editores disponibles
+	 */
+	public ArrayList <Editor> getAllEditors()
+	{
+		ArrayList <Editor> ans = new ArrayList <Editor>();
+		Statement S = null;
+		ResultSet RS = null;
+		try
+		{
+			connectToDB();
+			String query = "SELECT * FROM WebPicture.Editors;";
+			S = DBConnection.createStatement();
+			RS = S.executeQuery(query);
+			
+			//Atributos del editor
+			int id = 0;
+			String name = "TO - SET";
+			String description = "TO - SET";
+			String author = "TO - SET";
+			String path = "TO - SET";
+			Date created = null;
+			Editor E = null;		
+			
+			//Hay multiples entradas en el RS
+			while (RS.next()) 
+			{
+				id = RS.getInt("idEditor");
+				name = RS.getString("Name");
+				description = RS.getString("Description");
+				author = RS.getString("Author");
+				path = RS.getString("Path");
+				created = dateParser.stringToDate(RS.getString("Created"));
+				E = new Editor(id, name, description, author, path, created);
+				ans.add(E);
+			}
+			return ans;			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			close(S, RS, DBConnection);
+		}
+		return null;
+	}
+
+	
+	/**
 	 * Cierra las conexiones con la base de datos
 	 * @param S - Statement
 	 * @param RS - ResultSet 
