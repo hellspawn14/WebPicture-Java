@@ -8,11 +8,7 @@ import java.util.ArrayList;
  * @author hellspawn
  */
 public class Editor 
-{
-	//------------------------------------------------------------------
-	//Constantes
-	//------------------------------------------------------------------
-	
+{	
 	//------------------------------------------------------------------
 	//Atributos
 	//------------------------------------------------------------------
@@ -48,11 +44,6 @@ public class Editor
 	private Date created;
 	
 	/**
-	 * Fecha de modificación 
-	 */
-	private Date lastModified;
-	
-	/**
 	 * Diagramas del editor
 	 */
 	private ArrayList <Diagram> diagrams;
@@ -69,9 +60,8 @@ public class Editor
 	 * @param author - Autor/Responsable
 	 * @param path - Ruta del editor 
 	 * @param created - Fecha de creacion del editor
-	 * @param lastModified - Fecha de modificacion 
 	 */
-	public Editor(int id, String name, String description, String author, String path, Date created, Date lastModified)
+	public Editor(int id, String name, String description, String author, String path, Date created)
 	{
 		this.id = id;
 		this.name = name;
@@ -79,27 +69,19 @@ public class Editor
 		this.author = author;
 		this.path = path;
 		this.created = created;
-		this.lastModified = lastModified;
 		diagrams = new ArrayList <Diagram>();
 	}
 
 	//------------------------------------------------------------------
-	//Metodos
-	//------------------------------------------------------------------
-	
-	
-	//------------------------------------------------------------------
 	//Getters & Setters
 	//------------------------------------------------------------------
 	
-
 	/**
 	 * @return the id
 	 */
 	public int getId() {
 		return id;
 	}
-
 
 	/**
 	 * @param id the id to set
@@ -108,14 +90,12 @@ public class Editor
 		this.id = id;
 	}
 
-
 	/**
 	 * @return the name
 	 */
 	public String getName() {
 		return name;
 	}
-
 
 	/**
 	 * @param name the name to set
@@ -124,14 +104,12 @@ public class Editor
 		this.name = name;
 	}
 
-
 	/**
 	 * @return the description
 	 */
 	public String getDescription() {
 		return description;
 	}
-
 
 	/**
 	 * @param description the description to set
@@ -140,14 +118,12 @@ public class Editor
 		this.description = description;
 	}
 
-
 	/**
 	 * @return the author
 	 */
 	public String getAuthor() {
 		return author;
 	}
-
 
 	/**
 	 * @param author the author to set
@@ -156,14 +132,12 @@ public class Editor
 		this.author = author;
 	}
 
-
 	/**
 	 * @return the path
 	 */
 	public String getPath() {
 		return path;
 	}
-
 
 	/**
 	 * @param path the path to set
@@ -172,7 +146,6 @@ public class Editor
 		this.path = path;
 	}
 
-
 	/**
 	 * @return the created
 	 */
@@ -180,28 +153,11 @@ public class Editor
 		return created;
 	}
 
-
 	/**
 	 * @param created the created to set
 	 */
 	public void setCreated(Date created) {
 		this.created = created;
-	}
-
-
-	/**
-	 * @return the lastModified
-	 */
-	public Date getLastModified() {
-		return lastModified;
-	}
-
-
-	/**
-	 * @param lastModified the lastModified to set
-	 */
-	public void setLastModified(Date lastModified) {
-		this.lastModified = lastModified;
 	}
 
 	/**

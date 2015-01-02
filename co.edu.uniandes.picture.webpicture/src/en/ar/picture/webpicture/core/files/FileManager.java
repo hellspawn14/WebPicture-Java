@@ -192,19 +192,22 @@ public class FileManager
 	public synchronized void deleteDir(String path)
 	{
 		File F = new File(path);
-		File[] files = F.listFiles();
-		for(File f: files) 
+		if (F.exists())
 		{
-            if(f.isDirectory()) 
-            {
-            	deleteDir(f.getAbsolutePath());
-            }
-            else 
-            {
-                f.delete();
-            }
-        }
-		F.delete();
+			File[] files = F.listFiles();
+			for(File f: files) 
+			{
+	            if(f.isDirectory()) 
+	            {
+	            	deleteDir(f.getAbsolutePath());
+	            }
+	            else 
+	            {
+	                f.delete();
+	            }
+	        }
+			F.delete();
+		}
 	}
 	
 	/**

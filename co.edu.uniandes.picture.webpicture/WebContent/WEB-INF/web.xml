@@ -24,6 +24,7 @@
 		<servlet-name>webPictureActions.jsp</servlet-name>
 		<url-pattern>/webpicture</url-pattern>
 	</servlet-mapping>
+	<!-- Mapeo del JSP -->
 	<servlet>
 		<servlet-name>createEditor.jsp</servlet-name>
 		<jsp-file>/html/createEditor.jsp</jsp-file>
@@ -32,6 +33,16 @@
 		<servlet-name>createEditor.jsp</servlet-name>
 		<url-pattern>/new_editor</url-pattern>
 	</servlet-mapping>
+	<!-- Mapeo del manejador -->
+	<servlet>
+		<servlet-name>newEditor</servlet-name>
+		<servlet-class>en.ar.picture.webpicture.servlets.NewEditorServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>newEditor</servlet-name>
+		<url-pattern>/create_editor</url-pattern>
+	</servlet-mapping>
+	<!-- Mapeo del JSP -->
 	<servlet>
 		<servlet-name>reviewEditors.jsp</servlet-name>
 		<jsp-file>/html/reviewEditors.jsp</jsp-file>
@@ -39,6 +50,15 @@
 	<servlet-mapping>
 		<servlet-name>reviewEditors.jsp</servlet-name>
 		<url-pattern>/all_editors</url-pattern>
+	</servlet-mapping> 
+	<!-- Mapeo del manejador -->
+	<servlet>
+		<servlet-name>availableEditors</servlet-name>
+		<servlet-class>en.ar.picture.webpicture.servlets.ReviewEditorsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>availableEditors</servlet-name>
+		<url-pattern>/available_editors</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>reviewModels.jsp</servlet-name>
@@ -48,17 +68,19 @@
 		<servlet-name>reviewModels.jsp</servlet-name>
 		<url-pattern>/all_diagrams</url-pattern>
 	</servlet-mapping>
+	<!-- Mapeo del servlet generado -->
 	<servlet>
 		<servlet-name>newDiagram.jsp</servlet-name>
-		<jsp-file>/html/newDiagram.jsp</jsp-file>
+		<servlet-class>en.ar.picture.webpicture.servlets.NewDiagramServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>newDiagram.jsp</servlet-name>
 		<url-pattern>/new_diagram</url-pattern>
 	</servlet-mapping>
+	<!-- Mapeo de servlet generado -->
 	<servlet>
 		<servlet-name>editorDetail.jsp</servlet-name>
-		<jsp-file>/html/editorDetail.jsp</jsp-file>
+		<servlet-class>en.ar.picture.webpicture.servlets.EditorInformationServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>editorDetail.jsp</servlet-name>
@@ -80,4 +102,8 @@
 		<servlet-name>errorReport.jsp</servlet-name>
 		<url-pattern>/error</url-pattern>
 	</servlet-mapping>
+	<!--  <context-param>
+		<param-name>tempfile.dir</param-name>
+		<param-value>tmpfiles</param-value>
+	</context-param>-->
 </web-app>

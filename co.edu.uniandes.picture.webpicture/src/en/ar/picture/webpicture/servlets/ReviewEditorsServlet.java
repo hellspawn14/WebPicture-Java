@@ -12,7 +12,6 @@ import en.ar.picture.webpicture.core.Webpicture;
 
 /**
  * Servlet para atender las solicitudes de control de editores
- * 
  * @author hellspawn
  */
 @SuppressWarnings("serial")
@@ -35,6 +34,7 @@ public class ReviewEditorsServlet extends HttpServlet {
 	 */
 	public void init() throws ServletException {
 		webpicture = Webpicture.getInstance();
+		System.out.println("Eliminar");
 	}
 
 	// ------------------------------------------------------------------
@@ -44,8 +44,7 @@ public class ReviewEditorsServlet extends HttpServlet {
 	/**
 	 * Responde las llamadas desde el JSP
 	 */
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int editorId = Integer.parseInt(request.getParameter("editor"));
 		Editor toDelete = webpicture.getEditorById(editorId);
 		if (toDelete != null) {

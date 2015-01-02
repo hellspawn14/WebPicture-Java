@@ -59,7 +59,6 @@ public class EditorInformationServlet extends HttpServlet {
 	 * Responde las llamadas desde el JSP
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		int editorId = Integer.parseInt(request.getParameter("editor"));
 		Editor E = webpicture.getEditorById(editorId);
 		ArrayList<Diagram> diagrams = webpicture.getAllDiagramsForEditor(E);
@@ -84,6 +83,12 @@ public class EditorInformationServlet extends HttpServlet {
 				+ "<div id='diagrams' class='pure-u-2-3' style='text-align:center; height:100%; overflow-y: auto'> <div class='hero-titles'><h3 class='hero-tagline' style='text-align:center; margin-top:50px'>Available diagrams</h3> </div> <!-- Inicio plantilla de celda de tabla para un editor-->" 
 				+ strDiagrams 
 				+ "<!-- Fin plantilla--> <!-- Fin acceso a diagramas existentes --> </div></div><div class='footer l-box is-center' style='background-color:#181818; margin-top:0px'><p>All rights reserved Uniandes 2014</p><p>Universidad de los Andes - Computer engineering department - Engineering Faculty</p></div><!-- Script de referencia para llamar la funcion de acuerdo al comando y al editor seleccionado--></body></html>";
+		
+		
+		
+		
+		
 		out.println(html);
+		out.close();
 	}
 }

@@ -35,6 +35,7 @@
         </div>
     </div>
     <div class="pure-g">
+    	<!-- Informacion basica del editor -->
         <div class="pure-u-1-2" style="text-align:center;border-right:1px solid #808080; height:100%; background-color: #F0F0F0 ;">
             <div class="hero-titles">
                 <h3 class="hero-tagline" style="text-align:center; margin-top:50px">Create new diagram</h3>

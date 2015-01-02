@@ -94,43 +94,6 @@
             <div id="pad1" style="height:2px">
             </div>
             <!-- Fin plantilla-->
-
-
-            <!-- Inicio plantilla de celda de tabla para un editor-->
-            <div id="diagram2" class="pure-g" style="border-top:1px solid #808080; border-bottom:1px solid #808080">
-                <!-- Preview del editor (icono por defecto) -->
-                <div class="pure-u-1-6" style="text-align:center">
-                    <img class="pure-img-responsive" src="resources/res/projectModel2.png" style="width:120px;height:120px" />
-                </div>
-                <!-- Información basica del editor -->
-                <div class="pure-u-5-6" style="text-align:left">
-                    <div class="pure-g">
-                        <div class="pure-u-5-6" style="text-align:left">
-                            <i class="fa fa-bookmark-o" style="margin-left:10px"></i> Name: Archimate application for AndiAsistencia
-                            <br>
-                            <i class="fa fa-user" style="margin-left:10px"></i> Author: Will Anderson
-                            <br>
-                            <i class="fa fa-ellipsis-h" style="margin-left:10px"></i> Description: Application model as-is model for Andi asistencia
-                            <br>
-                            <i class="fa fa-calendar" style="margin-left:10px"></i> Created: 2014/11/28 22:30:54
-                            <br>
-                            <i class="fa fa-calendar" style="margin-left:10px"></i> Last modified: 2014/11/28 22:30:54
-                            <br>
-                        </div>
-                        <div class="pure-u-1-6" style="text-align:left">
-                            <button type="submit" class="button-secondary pure-button" style="width:100%;height:65px" onclick="getSelectedActionForModel('newModel', 2)"><i class="fa fa-pencil-square-o" style="margin-left:10px"></i>
-                            </button>
-
-                            <button type="submit" class="button-error pure-button" style="width:100%; height:65px" onclick="getSelectedActionForModel('delete', 2)"><i class="fa fa-times" style="margin-left:10px"></i>
-                            </button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="pad2" style="height:2px">
-            </div>
-            <!-- Fin plantilla-->
             <!-- Fin acceso a diagramas existentes -->
         </div>
     </div>
@@ -156,10 +119,10 @@
                             label: "Yes",
                             className: "btn-primary",
                             callback: function () {
-                                $('#diagram' + model).fadeOut(500, function () {
+                                $('#diagram_' + model).fadeOut(500, function () {
                                     $(this).remove();
                                 });
-                                $('#pad' + model).fadeOut(500, function () {
+                                $('#pad_' + model).fadeOut(500, function () {
                                     $(this).remove();
                                 });
                                 checkState();

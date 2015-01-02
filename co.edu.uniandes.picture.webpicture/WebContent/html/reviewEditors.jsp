@@ -65,32 +65,31 @@
 				<h3 class="hero-tagline"
 					style="text-align: center; margin-top: 50px">Available editors</h3>
 			</div>
-			<form id="reviewEditorsForm" name="reviewEditorsForm"
-				action="available_editors" method="post">
+			<form id="reviewEditorsForm" name="reviewEditorsForm" method="post" action="NO_ACTION">
 				<%
 					Webpicture webpicture = Webpicture.getInstance();
-									DateParser dateParser = webpicture.getDateParser();
-									Editor current = null;
-									ArrayList <Editor> availableEditors = webpicture.getAllEditors();
-									String cnt = "";
-									if (availableEditors.isEmpty())
-									{
-										cnt = "<div class=" + '"' + "hero-titles" + '"' + ">" + "\n" + "<h3 class=" + '"' + "marketing-header" + '"' + " style=" + '"' + "text-align:center; margin-top:50px" + '"' + ">" + "There's no available editors to display" + "</h3>" + "\n" + "</div";
+											DateParser dateParser = webpicture.getDateParser();
+											Editor current = null;
+											ArrayList <Editor> availableEditors = webpicture.getAllEditors();
+											String cnt = "";
+											if (availableEditors.isEmpty())
+											{
+												cnt = "<div class=" + '"' + "hero-titles" + '"' + ">" + "\n" + "<h3 class=" + '"' + "marketing-header" + '"' + " style=" + '"' + "text-align:center; margin-top:50px" + '"' + ">" + "There's no available editors to display" + "</h3>" + "\n" + "</div";
 				%>
 				<%=cnt%>
 				<%
 					}			
-									else 
-									{
-										for (int i = 0; i < availableEditors.size(); i++)
-										{
-											current = availableEditors.get(i);
-											cnt = current.toString(dateParser.dateToString(current.getCreated()));
+											else 
+											{
+												for (int i = 0; i < availableEditors.size(); i++)
+												{
+													current = availableEditors.get(i);
+													cnt = current.toString(dateParser.dateToString(current.getCreated()));
 				%>
 				<%=cnt%>
 				<%
 					}
-									}
+											}
 				%>
 				<input id="editor" type="hidden" value="" name="editor" />
 			</form>
@@ -106,20 +105,7 @@
 
 	<!-- Script de referencia para llamar la funcion de acuerdo al comando y al editor seleccionado-->
 	<script>
-		$('#reviewEditorsForm').on("submit", function(e) {
-			e.preventDefault();
-			$.ajax({
-				url : $(this).attr('action'),
-				type : $(this).attr('method'),
-				data : $(this).serialize(),
-				success : function(data) {
-
-				},
-				error : function(jXHR, textStatus, errorThrown) {
-					alert(errorThrown);
-				}
-			});
-		})
+		
 
 		function getSelectedActionForEditor(action, editor) {
 			if (action == 'delete') {
@@ -143,7 +129,7 @@
 										$("#editor").val(editor);
 
 										var form = $('#reviewEditorsForm');
-										form.submit();
+										deleteEditor(form);
 										checkState();
 									}
 								},
@@ -156,12 +142,26 @@
 								}
 							}
 						});
+			} else if (action == 'review') {
+				$("#editor").val(editor);
+				var form = $('#reviewEditorsForm');
+				reviewEditor(form);
+
+			} else if (action == 'newModel') {
+				$("#editor").val(editor);
+				var form = $('#reviewEditorsForm');
+				createModel(form);
+
 			}
 		}
 
 		function checkState() {
 			var elements = $("#editors > div").length;
-			if (elements == 3) {
+			console.log($("#editors > div").length);
+			
+			var el = $("#editors").html().trim().length == 1926;
+			
+			if (el) {
 				var msg = "<div class=" + '"' + "hero-titles" + '"' + ">"
 						+ "\n"
 						+ "<h3 class=" + '"' + "marketing-header" + '"' + " style=" + '"' + "text-align:center; margin-top:50px" + '"' + ">"
@@ -169,6 +169,71 @@
 						+ "\n" + "</div";
 				$('#editors').append(msg);
 			}
+		}
+		
+		function deleteEditor(form)
+		{
+			console.log("delete");
+			form.attr('action','available_editors');
+			form.on("submit", function(e) {
+				e.preventDefault();
+				$.ajax({
+					url: form.attr('action'),
+					type : form.attr('method'),
+					data : form.serialize(),
+					success : function(data) {
+						
+					},
+					error : function(jXHR, textStatus, errorThrown) {
+						alert(errorThrown);
+					}
+				});
+			});
+			form.submit(); 
+			location.reload();
+		}
+		
+		function reviewEditor(form)
+		{
+			console.log("review");
+			form.attr('action','editor_information');
+			
+			form.on("submit", function(e) {
+				$.ajax({
+					url: $(this).attr('action'),
+					type : $(this).attr('method'),
+					data : $(this).serialize(),
+					success : function(data) {
+
+					},
+					error : function(jXHR, textStatus, errorThrown) {
+						alert(errorThrown);
+					}
+				});
+				return true; 
+			});
+			form.submit();
+		}
+		
+		function createModel(form)
+		{
+			console.log("new model");
+			form.attr('action','new_diagram');
+			form.on("submit", function(e) {
+				$.ajax({
+					url: $(this).attr('action'),
+					type : $(this).attr('method'),
+					data : $(this).serialize(),
+					success : function(data) {
+
+					},
+					error : function(jXHR, textStatus, errorThrown) {
+						alert(errorThrown);
+					}
+				});
+				return true; 
+			});
+			form.submit();
 		}
 	</script>
 </body>
