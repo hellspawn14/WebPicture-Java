@@ -77,21 +77,20 @@ public class Webpicture
 	/**
 	 * Crea un nuevo editor 
 	 */
-	public void createEditor(String name, String description, String author, String path)
+	public synchronized void createEditor(String name, String description, String author, String path)
 	{
 		Date created = new Date();
 		Editor E = new Editor(0, name, description, author, path, created);
 		this.registerEditorInDB(E);
-		//public Editor(int id, String name, String description, String author, String path, Date created)
 	}
 	
-	public void createDiagram(Editor E)
+	public synchronized void createDiagram(Editor E)
 	{
 		
 	}
 	
 	
-	public void registerEditorInDB(Editor E)
+	public synchronized void registerEditorInDB(Editor E)
 	{
 		this.getEditorDAO().insertEditor(E);
 	}
@@ -100,12 +99,12 @@ public class Webpicture
 	 * Retorna una lista con todos los editores disponibles en el sistema
 	 * @return - Lista con todos los editores 
 	 */
-	public ArrayList <Editor> getAllEditors()
+	public synchronized ArrayList <Editor> getAllEditors()
 	{
 		return this.getEditorDAO().getAllEditors();
 	}
 	
-	public ArrayList <Diagram> getAllDiagrams()
+	public synchronized ArrayList <Diagram> getAllDiagrams()
 	{
 		return null;
 	}
@@ -115,7 +114,7 @@ public class Webpicture
 	 * @param E - Editor seleccionado 
 	 * @return Lista con todos los diagramas de un editor
 	 */
-	public ArrayList <Diagram> getAllDiagramsForEditor(Editor E)
+	public synchronized ArrayList <Diagram> getAllDiagramsForEditor(Editor E)
 	{
 		return E.getDiagrams();
 	}
@@ -124,10 +123,9 @@ public class Webpicture
 	 * Elimina un editor del sistema
 	 * @param E - Editor a eliminar 
 	 */
-	public void deleteEditor(Editor E)
+	public synchronized void deleteEditor(Editor E)
 	{
 		String dirToRemove = E.getPath();
-		System.out.println(dirToRemove);
 		fileManager.deleteDir(dirToRemove);
 		editorDAO.deleteEditor(E);
 	}
@@ -137,7 +135,7 @@ public class Webpicture
 	 * @param editorId - Identificador del editor 
 	 * @return Editor con identificador solicitado o null 
 	 */
-	public Editor getEditorById(int editorId)
+	public synchronized Editor getEditorById(int editorId)
 	{
 		return editorDAO.getEditorById(editorId);
 	}
