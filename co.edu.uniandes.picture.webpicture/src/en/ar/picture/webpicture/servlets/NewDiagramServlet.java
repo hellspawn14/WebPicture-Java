@@ -56,6 +56,8 @@ public class NewDiagramServlet extends HttpServlet{
 		Editor E = webpicture.getEditorById(editorId);
 		response.setContentType("text/html");
 		out = response.getWriter();
+		//Enviar el contenido 
+		
 		out.close();
 
 	}	

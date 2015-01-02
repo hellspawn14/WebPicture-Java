@@ -34,7 +34,6 @@ public class ReviewEditorsServlet extends HttpServlet {
 	 */
 	public void init() throws ServletException {
 		webpicture = Webpicture.getInstance();
-		System.out.println("Eliminar");
 	}
 
 	// ------------------------------------------------------------------
