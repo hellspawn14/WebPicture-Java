@@ -251,7 +251,7 @@ public class Editor {
 				+ '"'
 				+ "><i class='fa fa-file'></i> New diagram</button> <button type='button' class='button-error pure-button pure-input-1-2' onclick="
 				+ '"'
-				+ "getSelectedActionForEditor('deleteEditor', "
+				+ "getSelectedActionForEditor('delete', "
 				+ this.getId()
 				+ ")"
 				+ '"'
