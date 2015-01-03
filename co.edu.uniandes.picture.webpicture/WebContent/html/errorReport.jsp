@@ -48,7 +48,7 @@
             </div>
             <div style="margin-top:30%">
                 <h3 class="marketing-header">Picture file does not correspond to the model</h3>
-            <a href="createEditor.jsp" class="button-cta pure-button">Return</a>
+            <a href="new_editor" class="button-cta pure-button">Return</a>
             </div>
             
 

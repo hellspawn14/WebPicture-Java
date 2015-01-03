@@ -106,6 +106,9 @@
 	<!-- Script de referencia para llamar la funcion de acuerdo al comando y al editor seleccionado-->
 	<script>
 		
+	$(document).ready(function () {
+        $.ajaxSetup({ cache: false });
+    });
 
 		function getSelectedActionForEditor(action, editor) {
 			if (action == 'delete') {

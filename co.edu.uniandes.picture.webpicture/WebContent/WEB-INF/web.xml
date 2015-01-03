@@ -77,6 +77,15 @@
 		<servlet-name>newDiagram.jsp</servlet-name>
 		<url-pattern>/new_diagram</url-pattern>
 	</servlet-mapping>
+	<!-- Mapeo del manejador -->
+	<servlet>
+		<servlet-name>createDiagram</servlet-name>
+		<servlet-class>en.ar.picture.webpicture.servlets.CreateDiagramServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>createDiagram</servlet-name>
+		<url-pattern>/create_diagram</url-pattern>
+	</servlet-mapping>
 	<!-- Mapeo de servlet generado -->
 	<servlet>
 		<servlet-name>editorDetail.jsp</servlet-name>
@@ -85,6 +94,15 @@
 	<servlet-mapping>
 		<servlet-name>editorDetail.jsp</servlet-name>
 		<url-pattern>/editor_information</url-pattern>
+	</servlet-mapping>
+	<!-- Mapeo del manejador  -->
+	<servlet>
+		<servlet-name>reviewModelsForEditor.jsp</servlet-name>
+		<servlet-class>en.ar.picture.webpicture.servlets.ReviewModelsEditor</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>reviewModelsForEditor.jsp</servlet-name>
+		<url-pattern>/review_models_for_editor</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>editor.jsp</servlet-name>

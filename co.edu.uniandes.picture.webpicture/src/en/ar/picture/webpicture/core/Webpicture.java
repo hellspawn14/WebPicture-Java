@@ -1,5 +1,7 @@
 package en.ar.picture.webpicture.core;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -84,9 +86,22 @@ public class Webpicture
 		this.registerEditorInDB(E);
 	}
 	
-	public synchronized void createDiagram(Editor E)
+	
+	public synchronized void createDiagram(Diagram D, Editor E)
 	{
-		
+		//Crear el directorio del diagrama 
+		String editorPath = E.getPath();
+		String diagramPath = fileManager.makeDiagramDir(editorPath);
+		D.setPath(diagramPath);
+		//TODO - Implementar creacion del archivo de texto 
+		File file = new File("diagramPath");
+		try {
+			file.createNewFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		//Crear en db 
+		diagramDAO.insertDiagram(D, E);
 	}
 	
 	
@@ -104,9 +119,13 @@ public class Webpicture
 		return this.getEditorDAO().getAllEditors();
 	}
 	
+	/**
+	 * Retorna una lista con todos los diagramas disponibles 
+	 * @return Lista con todos los diagramas disponibles 
+	 */
 	public synchronized ArrayList <Diagram> getAllDiagrams()
 	{
-		return null;
+		return this.getDiagramDAO().getAllDiagrams();
 	}
 	
 	/**
@@ -116,7 +135,7 @@ public class Webpicture
 	 */
 	public synchronized ArrayList <Diagram> getAllDiagramsForEditor(Editor E)
 	{
-		return E.getDiagrams();
+		return diagramDAO.getDiagramByEditor(E);
 	}
 	
 	/**
@@ -138,6 +157,19 @@ public class Webpicture
 	public synchronized Editor getEditorById(int editorId)
 	{
 		return editorDAO.getEditorById(editorId);
+	}
+	
+	/**
+	 * Elimina un diagrama dado su identificador 
+	 * @param idDiagram - Identificador del diagrama
+	 */
+	public synchronized void deleteDiagram(int idDiagram)
+	{
+		Diagram D = diagramDAO.getDiagramById(idDiagram);
+		//TODO - Implementar borrado del directorio 
+		String dPath = D.getPath();
+		fileManager.deleteDir(dPath);
+		diagramDAO.deleteDiagram(D);
 	}
 
 	//------------------------------------------------------------------

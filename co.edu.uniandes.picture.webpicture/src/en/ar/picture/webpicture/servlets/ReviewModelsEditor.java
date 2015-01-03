@@ -44,6 +44,7 @@ public class ReviewModelsEditor extends HttpServlet{
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int editorId = Integer.parseInt(request.getParameter("editor"));
+		webpicture.deleteDiagram(editorId);
 	}
 
 }

@@ -195,13 +195,7 @@ public class Diagram {
 	 */
 	public String toString(String strCreation, String strModification) {
 		
-		String ans = "";
-		
-		
-		
-		
-		
-				/*"<div id='"
+		String ans = "<div id='"
 				+ DIAGRAM
 				+ this.id
 				+ "' class='pure-g' style='border-top:1px solid #808080; border-bottom:1px solid #808080'> <div class='pure-u-1-6' style='text-align:center'> <img class='pure-img-responsive' src='resources/res/projectModel2.png' style='width:120px;height:120px' /> </div> <div class='pure-u-5-6' style='text-align:left'> <div class='pure-g'> <div class='pure-u-5-6' style='text-align:left'> <i class='fa fa-bookmark-o' style='margin-left:10px'></i> Name: "
@@ -227,7 +221,7 @@ public class Diagram {
 				+ ")"
 				+ '"'
 				+ "><i class='fa fa-times' style='margin-left:10px'></i> </button></div></div></div></div> <div id='"
-				+ PAD + this.id + "' style='height:2px'></div>";*/
+				+ PAD + this.id + "' style='height:2px'></div>";
 		return ans;
 	}
 }

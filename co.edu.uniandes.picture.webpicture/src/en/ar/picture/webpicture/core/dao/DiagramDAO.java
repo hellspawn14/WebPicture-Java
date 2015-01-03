@@ -312,7 +312,7 @@ public class DiagramDAO
 		try
 		{
 			connectToDB();
-			String query = "SELECT * FROM WebPicture.Diagrams WHERE WebPicture.Diagrams.idEditor = " + E.getId() + ";";
+			String query = "SELECT * FROM WebPicture.Diagrams WHERE idEditor = " + E.getId() + ";";
 			S = DBConnection.createStatement();
 			RS = S.executeQuery(query);
 			

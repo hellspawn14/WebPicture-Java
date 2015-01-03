@@ -314,6 +314,19 @@ public class FileManager
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Crea un directorio para el diagrama 
+	 * @param basePath - Directorio base del editor 
+	 * @return - Ruta del diagrama creado 
+	 */
+	public synchronized String makeDiagramDir(String basePath)
+	{
+		String diagramPath = this.getRandomPath();
+		File F = new File(basePath + "/" + DIAGRAM_DIR + "/" + diagramPath);
+		F.mkdirs();
+		return basePath + "/" + diagramPath;
+	}
 
 
 	

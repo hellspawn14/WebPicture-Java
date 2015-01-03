@@ -34,6 +34,7 @@
             </a>
         </div>
     </div>
+    
     <div class="pure-g">
     	<!-- Informacion basica del editor -->
         <div class="pure-u-1-2" style="text-align:center;border-right:1px solid #808080; height:100%; background-color: #F0F0F0 ;">
@@ -56,27 +57,26 @@
             <div class="hero-titles">
                 <h3 class="hero-tagline" style="text-align:center; margin-top:50px">Diagram information</h3> 
             </div>
-
-            <form class="pure-form pure-form-aligned">
+            <form id="newDiagramForm" name="newDiagramForm" class="pure-form pure-form-aligned">
                 <fieldset>
                     <div class="pure-control-group">
                         <legend style="text-align:left; margin-left:10px">Name</legend>
-                        <input id="dName" type="text" placeholder="Diagram name">
+                        <input id="dName" name="dName" type="text" placeholder="Diagram name">
                     </div>
 
                     <div class="pure-control-group">
                         <legend style="text-align:left; margin-left:10px">Author</legend>
-                        <input id="dAuthor" type="text" placeholder="Author">
+                        <input id="dAuthor" name="dAuthor" type="text" placeholder="Author">
                     </div>
 
                     <div class="pure-control-group">
                         <legend style="text-align:left; margin-left:10px">Description</legend>
-                        <textArea id="dDescription" type="text" placeholder="Description" class="pure-input-1"></textArea>
+                        <textArea id="dDescription" name="dDescription" type="text" placeholder="Description" class="pure-input-1"></textArea>
                     </div>
+                    <input id="editor" type="hidden" value="" name="editor" />
                 </fieldset>
-                
             </form>
-            <button id="createDiagram" type="submit" class="pure-button pure-button-primary" style="margin-top:10px" onclick="createDiagram()">Create diagram</button>
+            <button id="createDiagram" type="button" class="pure-button pure-button-primary" style="margin-top:10px" onclick="createDiagram()">Create diagram</button>
         </div>
     </div>
 
@@ -90,16 +90,38 @@
         function createDiagram()
         {
             var idEditor = 1;
-            alert(idEditor);
-            var dName = $("#dName").val().trim();
-            var dAuthor = $("#dAuthor").val().trim();
-            var dDescription = $("#dDescription").val().trim();
-            if (dName == " " || dName == "" || dName == null || dDescription == " " || dDescription == "" || dDescription == null || dAuthor == " " || dAuthor == "" || dAuthor == null)
+            var dName = $('#dName').val().trim();
+            var dAuthor = $('#dAuthor').val().trim();
+            var dDescription = $('#dDescription').val().trim();
+            if (dName == ' ' || dName == '' || dName == null || dDescription == ' ' || dDescription == '' || dDescription == null || dAuthor == ' ' || dAuthor == '' || dAuthor == null)
             {
-                bootbox.alert("All fields are mandatory", function () {
+                bootbox.alert('All fields are mandatory', function () {
                 });
             }
-            //Crear editor
+          	//Crear editor
+            else
+            {
+            	$('#editor').val(idEditor);
+				var form = $('#newDiagramForm');
+				form.attr('action','editor_information');
+				form.on('submit', function(e) {
+					$.ajax({
+						url: $(this).attr('action'),
+						type : $(this).attr('method'),
+						data : $(this).serialize(),
+						success : function(data) {
+
+						},
+						error : function(jXHR, textStatus, errorThrown) {
+							alert(errorThrown);
+						}
+					});
+					return true; 
+				});
+				form.submit();
+				//console.log($("#editor").val() + " " + $("#dName").val() + " " + $("#dAuthor").val() + " " + $("dDescription").val());
+            }
+            
         }
     </script>
 

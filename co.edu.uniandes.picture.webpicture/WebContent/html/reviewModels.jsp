@@ -1,3 +1,7 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="en.ar.picture.webpicture.core.Diagram"%>
+<%@page import="en.ar.picture.webpicture.core.util.DateParser"%>
+<%@page import="en.ar.picture.webpicture.core.Webpicture"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <! DOCTYPE html>
 <meta charset="UTF-8">
@@ -46,42 +50,36 @@
             <div class="hero-titles">
                 <h3 class="hero-tagline" style="text-align:center; margin-top:50px">Available diagrams</h3>
             </div>
-            <!-- Inicio plantilla de celda de tabla para un editor-->
-            <div id="diagram1" class="pure-g" style="border-top:1px solid #808080; border-bottom:1px solid #808080">
-                <!-- Preview del editor (icono por defecto) -->
-                <div class="pure-u-1-6" style="text-align:center">
-                    <img class="pure-img-responsive" src="resources/res/projectModel2.png" style="width:120px;height:120px" />
-                </div>
-                <!-- Información basica del editor -->
-                <div class="pure-u-5-6" style="text-align:left">
-                    <div class="pure-g">
-                        <div class="pure-u-5-6" style="text-align:left">
-                            <i class="fa fa-bookmark-o" style="margin-left:10px"></i> Name: Archimate application for AndiAsistencia
-                            <br>
-                            <i class="fa fa-user" style="margin-left:10px"></i> Author: Will Anderson
-                            <br>
-                            <i class="fa fa-ellipsis-h" style="margin-left:10px"></i> Description: Application model as-is model for Andi asistencia
-                            <br>
-                            <i class="fa fa-calendar" style="margin-left:10px"></i> Created: 2014/11/28 22:30:54
-                            <br>
-                            <i class="fa fa-calendar" style="margin-left:10px"></i> Last modified: 2014/11/28 22:30:54
-                            <br>
-                        </div>
-                        <div class="pure-u-1-6" style="text-align:left">
-                            <button type="submit" class="button-secondary pure-button" style="width:100%;height:65px" onclick="getSelectedActionForModel('editDiagram', 1)"><i class="fa fa-pencil-square-o" style="margin-left:10px"></i>
-                            </button>
+            <form id="reviewDiagramsForm" name="reviewDiagramsForm" method="post" action="NO_ACTION">
 
-                            <button type="submit" class="button-error pure-button" style="width:100%; height:65px" onclick="getSelectedActionForModel('delete', 1)"><i class="fa fa-times" style="margin-left:10px"></i>
-                            </button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="pad1" style="height:2px">
-            </div>
-            <!-- Fin plantilla-->
-            <!-- Fin acceso a editores existentes -->
+			<%
+					Webpicture webpicture = Webpicture.getInstance();
+					DateParser dateParser = webpicture.getDateParser();
+					Diagram currentDiagram = null;
+					ArrayList <Diagram> availableDiagrams = webpicture.getAllDiagrams();
+					String cnt = "";
+					if (availableDiagrams.isEmpty())
+					{
+						cnt = "<div class=" + '"' + "hero-titles" + '"' + ">" + "\n" + "<h3 class=" + '"' + "marketing-header" + '"' + " style=" + '"' + "text-align:center; margin-top:50px" + '"' + ">" + "There's no available diagrams to display" + "</h3>" + "\n" + "</div";
+			%>
+			<%=cnt%>
+			<%
+					}			
+											else 
+											{
+												for (int i = 0; i < availableDiagrams.size(); i++)
+												{
+													currentDiagram = availableDiagrams.get(i);
+													cnt = currentDiagram.toString(dateParser.dateToString(currentDiagram.getCreated()), dateParser.dateToString(currentDiagram.getLastModified()));
+				%>
+				<%=cnt%>
+				<%
+					}
+											}
+				%>
+			
+            <input id="editor" type="hidden" value="" name="editor" />
+            </form>
         </div>
     </div>
 
@@ -95,9 +93,7 @@
     <!-- Script de referencia para llamar la funcion de acuerdo al comando y al editor seleccionado-->
     <script>
         function getSelectedActionForModel(action, model) {
-            alert("model: " + action + " for " + model);
             if (action == 'delete') {
-
                 bootbox.dialog({
                     message: "Selected item will be deleted, would you like to continue?",
                     buttons: {
@@ -105,13 +101,33 @@
                             label: "Yes",
                             className: "btn-primary",
                             callback: function () {
-                                $('#diagram' + model).fadeOut(500, function () {
+                                $('#diagram_' + model).fadeOut(500, function () {
                                     $(this).remove();
                                 });
-                                $('#pad' + model).fadeOut(500, function () {
+                                $('#pad_' + model).fadeOut(500, function () {
                                     $(this).remove();
                                 });
                                 checkState();
+                                $("#editor").val(model);
+                                console.log($("#editor").val());
+                				var form = $('#reviewDiagramsForm');
+                				form.attr('action','review_models_for_editor');
+                				form.on("submit", function(e) {
+                					e.preventDefault();
+                					$.ajax({
+                						url: form.attr('action'),
+                						type : form.attr('method'),
+                						data : form.serialize(),
+                						success : function(data) {
+                							
+                						},
+                						error : function(jXHR, textStatus, errorThrown) {
+                							alert(errorThrown);
+                						}
+                					});
+                				});
+                				form.submit(); 
+                				location.reload();
                             }
                         },
                         danger: {
@@ -123,6 +139,10 @@
                         }
                     }
                 });
+            }
+            //Editar diagrama
+            else{
+            	
             }
         }
 
