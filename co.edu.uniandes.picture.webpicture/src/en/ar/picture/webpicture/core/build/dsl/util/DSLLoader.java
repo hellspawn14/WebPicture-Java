@@ -1,4 +1,4 @@
-package en.ar.picture.webpicture.core.dsl.util;
+package en.ar.picture.webpicture.core.build.dsl.util;
 
 import java.util.Iterator;
 

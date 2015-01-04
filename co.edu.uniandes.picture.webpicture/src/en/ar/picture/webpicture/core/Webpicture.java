@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
+import en.ar.picture.webpicture.core.build.dsl.util.DSLLoader;
+import en.ar.picture.webpicture.core.build.metamodel.util.XMIMetamodelLoader;
 import en.ar.picture.webpicture.core.dao.EditorDAO;
 import en.ar.picture.webpicture.core.dao.DiagramDAO;
 import en.ar.picture.webpicture.core.files.FileManager;
@@ -44,6 +46,16 @@ public class Webpicture
 	 * Instancia de acceso a los diagramas en DB
 	 */
 	private DiagramDAO diagramDAO;
+	
+	/**
+	 * Instancia del modulo de carga del modelo del lenguaje Picture
+	 */
+	private DSLLoader pictureLoader;
+	
+	/**
+	 * Instancia del modulo de carga del metamodelo ecore
+	 */
+	private XMIMetamodelLoader ecoreLoader;
 	
 	//------------------------------------------------------------------
 	//Constructores 
@@ -227,5 +239,33 @@ public class Webpicture
 	 */
 	public void setDiagramDAO(DiagramDAO diagramDAO) {
 		this.diagramDAO = diagramDAO;
+	}
+
+	/**
+	 * @return the pictureLoader
+	 */
+	public DSLLoader getPictureLoader() {
+		return pictureLoader;
+	}
+
+	/**
+	 * @param pictureLoader the pictureLoader to set
+	 */
+	public void setPictureLoader(DSLLoader pictureLoader) {
+		this.pictureLoader = pictureLoader;
+	}
+
+	/**
+	 * @return the ecoreLoader
+	 */
+	public XMIMetamodelLoader getEcoreLoader() {
+		return ecoreLoader;
+	}
+
+	/**
+	 * @param ecoreLoader the ecoreLoader to set
+	 */
+	public void setEcoreLoader(XMIMetamodelLoader ecoreLoader) {
+		this.ecoreLoader = ecoreLoader;
 	}	
 }
