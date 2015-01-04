@@ -1,7 +1,7 @@
 package co.edu.uniandes.picture.webpicture.metamodel;
 
 /**
- * Representa un enlace entre dos elementos de la paleta 
+ * Representa una relación entre dos elementos de la paleta 
  * @author hellspawn
  */
 public class Metalink 

@@ -1,0 +1,5 @@
+importMetamodel "modelTechL/TechnologyLayerArch.ecore" as MM
+importPicture "/AMBIENTE/workspaceGReta/STH_GR_2/model/demo_organizationConcerns.picture" as stakeHolders
+importPicture "/AMBIENTE/workspaceGReta/ArchimateV2/model/ArchimateSvg.picture" as archimate
+
+setRoot ArchimateModel

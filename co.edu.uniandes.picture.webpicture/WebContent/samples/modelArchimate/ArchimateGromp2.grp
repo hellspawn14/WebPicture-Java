@@ -1,0 +1,51 @@
+importMetamodel "modelArchimate/Archimate.ecore" as MM
+importPicture "/AMBIENTE/workspaceGReta/test_gromp_1/modelArchimate/linksNuevos.xmi" as before
+importPicture "/AMBIENTE/workspaceGReta/test_gromp_1/modelBLayer/BusinessLayerGromp.xmi" as business
+importPicture "/AMBIENTE/workspaceGReta/test_gromp_1/modelAppLayer/APPLayerGromp.xmi" as appL
+importPicture "/AMBIENTE/workspaceGReta/test_gromp_1/modelTechL/modelTechLGromp.xmi" as techL
+
+
+/*
+Graphical representation GrompNewElements{
+	reference package motivational
+	
+	root MotivationalModel
+	
+	Palette for MotivationalModel{
+		Tool group MotivationalExtension {
+			description "Entities for motivational extention"
+			Creation button for class StakeHolder{
+				name "StakeHolder"
+				description "StakeHolder"
+				icon "/imagenes/StakeHolderIcon.gif"
+			}
+		}
+	}
+	Style definition {
+		Color black2 (0, 0, 1)
+			Line style BorderBlack1 {
+			width 1
+			type solid
+			color black2
+		}
+	}	
+	Graphical definition {
+		
+		Node_line influeencesTest for reference bau.ddf {
+		 label "influences" 
+		 style BorderBlack1 
+		 source decoration none 
+		 target decoration arrow 
+	}		
+		
+	}
+	Rules definition {		
+	}
+	
+	Interaction definition {
+		Interaction elements {			
+		}
+		Statements {		
+		}	
+	}
+}*/

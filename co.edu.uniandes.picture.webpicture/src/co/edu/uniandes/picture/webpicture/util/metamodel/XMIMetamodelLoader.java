@@ -54,7 +54,8 @@ public class XMIMetamodelLoader
 			
 			//Obtiene el nombre del modelo
 			String modelName = doc.getDocumentElement().getAttribute("name");
-			//System.out.println(ecore.getName());
+			System.out.println(modelName);
+			System.out.println(ecore.getName());
 			//Genera el modelo vacio 
 			Metamodel metamodel = new Metamodel(modelName, ecore.getName());
 			
@@ -173,7 +174,7 @@ public class XMIMetamodelLoader
 		try
 		{//Archimate.ecore
 			XMIMetamodelLoader loader = new XMIMetamodelLoader();
-			Metamodel MM = loader.load("./WebContent/samples/ApplicationLayerArch.ecore");
+			Metamodel MM = loader.load("./WebContent/samples/modelAppLayer/ApplicationLayerArch.ecore");
 			if (MM != null)
 			{
 				System.out.println(MM.getReferencedModel());

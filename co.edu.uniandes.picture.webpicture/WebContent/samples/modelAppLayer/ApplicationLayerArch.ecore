@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="applicationLayer"
+    nsURI="http://uniandes.edu.co/metamodels/applicationLayer" nsPrefix="applicationLayer">
+  <eClassifiers xsi:type="ecore:EClass" name="ArchimateModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//ArchimateElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArchimateElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataObject" eSuperTypes="#//ArchimateElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOfDataObjectDataObject"
+        upperBound="-1" eType="#//DataObject" containment="true" eOpposite="#//DataObject/composesDataObjectDataObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composesDataObjectDataObject"
+        eType="#//DataObject" eOpposite="#//DataObject/composedOfDataObjectDataObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatesDataObjectDataObject"
+        upperBound="-1" eType="#//DataObject" eOpposite="#//DataObject/aggregatedByDataObjectDataObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatedByDataObjectDataObject"
+        eType="#//DataObject" eOpposite="#//DataObject/aggregatesDataObjectDataObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accessedByApplicationFunctionDataObject"
+        upperBound="-1" eType="#//ApplicationFunction" eOpposite="#//ApplicationFunction/accessesDataObjectApplicationFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accessedByApplicationServiceDataObject"
+        upperBound="-1" eType="#//ApplicationService" eOpposite="#//ApplicationService/accessesDataObjectApplicationService"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationService" eSuperTypes="#//ArchimateElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOfApplicationServiceApplicationService"
+        upperBound="-1" eType="#//ApplicationService" containment="true" eOpposite="#//ApplicationService/composesApplicationServiceApplicationService"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composesApplicationServiceApplicationService"
+        eType="#//ApplicationService" eOpposite="#//ApplicationService/composedOfApplicationServiceApplicationService"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatesApplicationServiceApplicationService"
+        upperBound="-1" eType="#//ApplicationService" eOpposite="#//ApplicationService/aggregatedByApplicationServiceApplicationService"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatedByApplicationServiceApplicationService"
+        eType="#//ApplicationService" eOpposite="#//ApplicationService/aggregatesApplicationServiceApplicationService"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="realizedByApplicationFunctionApplicationService"
+        upperBound="-1" eType="#//ApplicationFunction" eOpposite="#//ApplicationFunction/realizesApplicationServiceApplicationFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="usedByApplicationFunctionApplicationService"
+        upperBound="-1" eType="#//ApplicationFunction" eOpposite="#//ApplicationFunction/usesApplicationServiceApplicationFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignedToApplicationInterfaceApplicationService"
+        upperBound="-1" eType="#//ApplicationInterface" eOpposite="#//ApplicationInterface/assignedToApplicationServiceApplicationInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accessesDataObjectApplicationService"
+        upperBound="-1" eType="#//DataObject" eOpposite="#//DataObject/accessedByApplicationServiceDataObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationFunction" eSuperTypes="#//ArchimateElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOfApplicationFunctionApplicationFunction"
+        upperBound="-1" eType="#//ApplicationFunction" containment="true" eOpposite="#//ApplicationFunction/composesApplicationFunctionApplicationFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composesApplicationFunctionApplicationFunction"
+        eType="#//ApplicationFunction" eOpposite="#//ApplicationFunction/composedOfApplicationFunctionApplicationFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatesApplicationFunctionApplicationFunction"
+        upperBound="-1" eType="#//ApplicationFunction" eOpposite="#//ApplicationFunction/aggregatedByApplicationFunctionApplicationFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatedByApplicationFunctionApplicationFunction"
+        eType="#//ApplicationFunction" eOpposite="#//ApplicationFunction/aggregatesApplicationFunctionApplicationFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="triggeredByApplicationFunctionApplicationFunction"
+        upperBound="-1" eType="#//ApplicationFunction" eOpposite="#//ApplicationFunction/triggersToApplicationFunctionApplicationFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="triggersToApplicationFunctionApplicationFunction"
+        upperBound="-1" eType="#//ApplicationFunction" eOpposite="#//ApplicationFunction/triggeredByApplicationFunctionApplicationFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flowsToApplicationFunctionApplicationFunction"
+        upperBound="-1" eType="#//ApplicationFunction" eOpposite="#//ApplicationFunction/flowsFromApplicationFunctionApplicationFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flowsFromApplicationFunctionApplicationFunction"
+        upperBound="-1" eType="#//ApplicationFunction" eOpposite="#//ApplicationFunction/flowsToApplicationFunctionApplicationFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="realizesApplicationServiceApplicationFunction"
+        eType="#//ApplicationService" eOpposite="#//ApplicationService/realizedByApplicationFunctionApplicationService"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignedToApplicationComponentApplicationFunction"
+        upperBound="-1" eType="#//ApplicationComponent" eOpposite="#//ApplicationComponent/assignedToApplicationFunctionApplicationComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="usesApplicationServiceApplicationFunction"
+        upperBound="-1" eType="#//ApplicationService" eOpposite="#//ApplicationService/usedByApplicationFunctionApplicationService"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accessesDataObjectApplicationFunction"
+        upperBound="-1" eType="#//DataObject" eOpposite="#//DataObject/accessedByApplicationFunctionDataObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationInteraction" eSuperTypes="#//ApplicationFunction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOfApplicationInteractionApplicationInteraction"
+        upperBound="-1" eType="#//ApplicationInteraction" containment="true" eOpposite="#//ApplicationInteraction/composesApplicationInteractionApplicationInteraction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composesApplicationInteractionApplicationInteraction"
+        eType="#//ApplicationInteraction" eOpposite="#//ApplicationInteraction/composedOfApplicationInteractionApplicationInteraction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatesApplicationInteractionApplicationInteraction"
+        upperBound="-1" eType="#//ApplicationInteraction" eOpposite="#//ApplicationInteraction/aggregatedByApplicationInteractionApplicationInteraction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatedByApplicationInteractionApplicationInteraction"
+        eType="#//ApplicationInteraction" eOpposite="#//ApplicationInteraction/aggregatesApplicationInteractionApplicationInteraction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationInterface" eSuperTypes="#//ArchimateElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOfApplicationInterfaceApplicationInterface"
+        upperBound="-1" eType="#//ApplicationInterface" containment="true" eOpposite="#//ApplicationInterface/composesApplicationInterfaceApplicationInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composesApplicationInterfaceApplicationInterface"
+        eType="#//ApplicationInterface" eOpposite="#//ApplicationInterface/composedOfApplicationInterfaceApplicationInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatesApplicationInterfaceApplicationInterface"
+        upperBound="-1" eType="#//ApplicationInterface" eOpposite="#//ApplicationInterface/aggregatedByApplicationInterfaceApplicationInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatedByApplicationInterfaceApplicationInterface"
+        eType="#//ApplicationInterface" eOpposite="#//ApplicationInterface/aggregatesApplicationInterfaceApplicationInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composesApplicationComponentApplicationInterface"
+        eType="#//ApplicationComponent" eOpposite="#//ApplicationComponent/composedOfApplicationInterfaceApplicationComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="usedByApplicationComponentApplicationInterface"
+        upperBound="-1" eType="#//ApplicationComponent" eOpposite="#//ApplicationComponent/usesApplicationInterfaceApplicationComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignedToApplicationServiceApplicationInterface"
+        upperBound="-1" eType="#//ApplicationService" eOpposite="#//ApplicationService/assignedToApplicationInterfaceApplicationService"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationComponent" eSuperTypes="#//ArchimateElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOfApplicationComponentApplicationComponent"
+        upperBound="-1" eType="#//ApplicationComponent" containment="true" eOpposite="#//ApplicationComponent/composesApplicationComponentApplicationComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composesApplicationComponentApplicationComponent"
+        eType="#//ApplicationComponent" eOpposite="#//ApplicationComponent/composedOfApplicationComponentApplicationComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatesApplicationComponentApplicationComponent"
+        upperBound="-1" eType="#//ApplicationComponent" eOpposite="#//ApplicationComponent/aggregatedByApplicationComponentApplicationComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatedByApplicationComponentApplicationComponent"
+        eType="#//ApplicationComponent" eOpposite="#//ApplicationComponent/aggregatesApplicationComponentApplicationComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatedByApplicationCollaborationApplicationComponent"
+        eType="#//ApplicationCollaboration" eOpposite="#//ApplicationCollaboration/aggregatesApplicationComponentApplicationCollaboration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignedToApplicationFunctionApplicationComponent"
+        upperBound="-1" eType="#//ApplicationFunction" eOpposite="#//ApplicationFunction/assignedToApplicationComponentApplicationFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOfApplicationInterfaceApplicationComponent"
+        upperBound="-1" eType="#//ApplicationInterface" containment="true" eOpposite="#//ApplicationInterface/composesApplicationComponentApplicationInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="usesApplicationInterfaceApplicationComponent"
+        upperBound="-1" eType="#//ApplicationInterface" eOpposite="#//ApplicationInterface/usedByApplicationComponentApplicationInterface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationCollaboration" eSuperTypes="#//ApplicationComponent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composedOfApplicationCollaborationApplicationCollaboration"
+        upperBound="-1" eType="#//ApplicationCollaboration" containment="true" eOpposite="#//ApplicationCollaboration/composesApplicationCollaborationApplicationCollaboration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composesApplicationCollaborationApplicationCollaboration"
+        eType="#//ApplicationCollaboration" eOpposite="#//ApplicationCollaboration/composedOfApplicationCollaborationApplicationCollaboration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatesApplicationCollaborationApplicationCollaboration"
+        upperBound="-1" eType="#//ApplicationCollaboration" eOpposite="#//ApplicationCollaboration/aggregatedByApplicationCollaborationApplicationCollaboration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatedByApplicationCollaborationApplicationCollaboration"
+        eType="#//ApplicationCollaboration" eOpposite="#//ApplicationCollaboration/aggregatesApplicationCollaborationApplicationCollaboration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatesApplicationComponentApplicationCollaboration"
+        upperBound="-1" eType="#//ApplicationComponent" eOpposite="#//ApplicationComponent/aggregatedByApplicationCollaborationApplicationComponent"/>
+  </eClassifiers>
+</ecore:EPackage>
