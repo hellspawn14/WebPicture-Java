@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
+import co.edu.uniandes.enar.picture.Model;
 import en.ar.picture.webpicture.core.build.dsl.util.DSLLoader;
+import en.ar.picture.webpicture.core.build.metamodel.Metamodel;
 import en.ar.picture.webpicture.core.build.metamodel.util.XMIMetamodelLoader;
 import en.ar.picture.webpicture.core.dao.EditorDAO;
 import en.ar.picture.webpicture.core.dao.DiagramDAO;
@@ -70,6 +72,8 @@ public class Webpicture
 		dateParser = new DateParser();
 		editorDAO = new EditorDAO(dateParser);
 		diagramDAO = new DiagramDAO(dateParser);
+		pictureLoader = new DSLLoader();
+		ecoreLoader = new XMIMetamodelLoader();
 	}
 	
 	/**
@@ -91,13 +95,41 @@ public class Webpicture
 	/**
 	 * Crea un nuevo editor 
 	 */
-	public synchronized void createEditor(String name, String description, String author, String path)
+	public synchronized void createEditor(String name, String description, String author, String path) throws Exception
 	{
 		Date created = new Date();
 		Editor E = new Editor(0, name, description, author, path, created);
+		
+		
+		//Directorio al archivo picture
+		
+		String picture = new File(E.getPath() + "/" + fileManager.PICTURE_LANG_DIRECTORY).listFiles()[0].getAbsolutePath();
+		try
+		{
+			Model langModel = pictureLoader.loadPicture(picture);
+		}
+		catch(Exception e)
+		{
+			throw e;
+		}
+		
+		//Directorio al archivo ecore
+		String ecore = new File(E.getPath() + "/" + fileManager.META_MODEL_DIRECTORY).listFiles()[0].getAbsolutePath();
+		
+		try
+		{
+			Metamodel metamodel = ecoreLoader.load(ecore);
+		}
+		catch(Exception e)
+		{
+			throw e;
+		}
+		
 		this.registerEditorInDB(E);
-	}
-	
+		fileManager.makeMeta(path, name, author, description, created);
+		
+		
+	}	
 	
 	public synchronized void createDiagram(Diagram D, Editor E)
 	{

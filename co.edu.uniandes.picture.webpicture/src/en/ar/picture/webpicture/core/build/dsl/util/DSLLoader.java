@@ -47,11 +47,11 @@ public class DSLLoader {
 		} else {
 			String mensajeException = "Your Picture file has some errors fix them and try again"
 					+ "\n";
-			for (Iterator<Diagnostic> iter = listaErrores.iterator(); iter
+			/*for (Iterator<Diagnostic> iter = listaErrores.iterator(); iter
 					.hasNext();) {
 				Diagnostic element = iter.next();
 				mensajeException += element.toString() + "\n";
-			}
+			}*/
 			throw new Exception(mensajeException);
 		}
 	}
