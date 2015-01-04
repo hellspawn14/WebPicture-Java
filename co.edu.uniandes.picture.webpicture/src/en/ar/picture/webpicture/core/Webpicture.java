@@ -110,7 +110,9 @@ public class Webpicture
 		}
 		catch(Exception e)
 		{
+			fileManager.deleteDir(E.getPath());
 			throw e;
+			
 		}
 		
 		//Directorio al archivo ecore
@@ -122,6 +124,7 @@ public class Webpicture
 		}
 		catch(Exception e)
 		{
+			fileManager.deleteDir(E.getPath());
 			throw e;
 		}
 		
