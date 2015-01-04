@@ -1,6 +1,5 @@
 package en.ar.picture.webpicture.core.build.dsl.util;
 
-import java.util.Iterator;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
