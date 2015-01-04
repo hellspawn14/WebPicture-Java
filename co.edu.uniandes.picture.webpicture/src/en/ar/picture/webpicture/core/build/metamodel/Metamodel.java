@@ -2,6 +2,7 @@ package en.ar.picture.webpicture.core.build.metamodel;
 
 import java.util.ArrayList;
 
+
 /**
  * Representa el metamodelo intermedio creado a partir del metamodelo cargado
  * por el usuario
@@ -66,35 +67,28 @@ public class Metamodel {
 			}
 		}
 	}
-
-	public static void main(String args[]) {
-		Metamodel MM = new Metamodel("MM");
-		Metaelement A = new Metaelement("A", null);
-		Metaelement B = new Metaelement("B", null);
-		Metalink AB = new Metalink("AB", A, B, false, 0, 0);
-		A.getReferences().add(AB);
-		Metaelement C = new Metaelement("C", A);
-		Metaelement D = new Metaelement("D", null);
-
-		Metalink CD = new Metalink("CD", C, D, false, 0, 0);
-		C.getReferences().add(CD);
-		Metaelement K = new Metaelement("K", C);
-		Metaelement E = new Metaelement("E", C);
-		Metaelement H = new Metaelement("H", null);
-		Metaelement I = new Metaelement("I", K);
-
-		Metalink KH = new Metalink("KH", K, H, false, 0, 0);
-		K.getReferences().add(KH);
-
-		MM.modelElements.add(A);
-		MM.modelElements.add(B);
-		MM.modelElements.add(C);
-		MM.modelElements.add(D);
-		MM.modelElements.add(K);
-		MM.modelElements.add(E);
-		MM.modelElements.add(H);
-		MM.modelElements.add(I);
-		MM.consolidateMetamodel();
+	
+	/**
+	 * Retorna un metaelemento dado su nombre
+	 * @param name - Es el nombre del metaelemento
+	 * @return Metaelement/null
+	 */
+	public Metaelement getMetaelementByName(String name)
+	{
+		Metaelement ans = null;
+		for (int i = 0; i < modelElements.size(); i++)
+		{
+			ans = modelElements.get(i);
+			if (ans.getName().equals(name))
+			{
+				return ans;
+			}
+			else
+			{
+				ans = null;
+			}
+		}
+		return ans;
 	}
 
 	// ------------------------------------------------------------------
@@ -127,5 +121,19 @@ public class Metamodel {
 	 */
 	public void setReferencedModel(String referencedModel) {
 		this.referencedModel = referencedModel;
+	}
+
+	/**
+	 * @return the modelElements
+	 */
+	public ArrayList<Metaelement> getModelElements() {
+		return modelElements;
+	}
+
+	/**
+	 * @param modelElements the modelElements to set
+	 */
+	public void setModelElements(ArrayList<Metaelement> modelElements) {
+		this.modelElements = modelElements;
 	}
 }
