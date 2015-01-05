@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import en.ar.picture.webpicture.core.build.metamodel.Metaelement;
 import en.ar.picture.webpicture.core.build.metamodel.Metalink;
 import en.ar.picture.webpicture.core.build.metamodel.Metamodel;
+import en.ar.picture.webpicture.graphical.elements.Ellipse;
+import en.ar.picture.webpicture.graphical.links.Decoration;
+import en.ar.picture.webpicture.graphical.links.Link;
+import en.ar.picture.webpicture.graphical.style.Border;
+import en.ar.picture.webpicture.graphical.style.Color;
 
 /**
  * Generador de las reglas de sustitución de conexiones 
@@ -65,6 +70,11 @@ public class LinkStylingGenerator {
 					}
 				}
 			}
+		}
+		
+		for (int i = 0; i < metamodel.getModelElements().size(); i++)
+		{
+			Metaelement E = metamodel.getModelElements().get(i);
 			//Obtiene las relaciones simples
 			for (int j = 0; j < E.getReferences().size(); j++)
 			{
@@ -76,6 +86,9 @@ public class LinkStylingGenerator {
 				}
 			}
 		}
+		
+		
+		
 	}
 
 	// ------------------------------------------------------------------
