@@ -154,6 +154,10 @@ public class Metaelement {
 				}
 			}
 		}
+		if (ans.isEmpty() == false)
+		{
+			references.remove(A);
+		}
 		return ans;
 	}
 	
