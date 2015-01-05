@@ -134,6 +134,28 @@ public class Metaelement {
 		this.setReferences(ref);
 	}
 	
+	/**
+	 * Retorna una lista de todas las relaciones que tienen el mismo trg de la relacion ingresada 
+	 * Remueve la relación que cumpla la condición del arreglo original
+	 * @param A - Relación a comparar 
+	 * @return - Lista con las relaciones que cumplen la condicion 
+	 */
+	public ArrayList<Metalink> getMultipleReferences(Metalink A) {
+		ArrayList<Metalink> ans = new ArrayList<Metalink>();
+		Metalink B = null;
+		for (int i = 0; i < references.size(); i++) {
+			B = references.get(i);
+			if (!A.equals(B)) {
+				if (A.getTrg().equals(B.getTrg())) {
+					ans.add(A);
+					ans.add(B);
+					// Remueve el elemento con la misma relacion
+					references.remove(B);
+				}
+			}
+		}
+		return ans;
+	}
 	
 	// ------------------------------------------------------------------
 	// Getters & Setters
