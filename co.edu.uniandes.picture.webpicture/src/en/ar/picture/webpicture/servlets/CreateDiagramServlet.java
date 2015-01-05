@@ -16,6 +16,7 @@ import en.ar.picture.webpicture.core.Webpicture;
  * Servlet para recibir las solicitudes de creacion de diagramas
  * @author hellspawn 
  */
+@SuppressWarnings("serial")
 public class CreateDiagramServlet extends HttpServlet {
 	// ------------------------------------------------------------------
 	// Atributos
