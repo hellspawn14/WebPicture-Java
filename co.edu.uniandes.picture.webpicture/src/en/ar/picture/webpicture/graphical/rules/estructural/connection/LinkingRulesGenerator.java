@@ -2,16 +2,15 @@ package en.ar.picture.webpicture.graphical.rules.estructural.connection;
 
 import java.util.ArrayList;
 
+import en.ar.picture.webpicture.core.build.metamodel.Metamodel;
+
+
 /**
  * Generador de la regla de validacion de las conexiones entre los elementos del
  * editor
  * @author hellspawn
  */
 public class LinkingRulesGenerator {
-	// ------------------------------------------------------------------
-	// Constantes
-	// ------------------------------------------------------------------
-
 	// ------------------------------------------------------------------
 	// Atributos
 	// ------------------------------------------------------------------
@@ -20,6 +19,11 @@ public class LinkingRulesGenerator {
 	 * Reglas estructurales de conexion del editor
 	 */
 	private ArrayList<LinkingRuleDefinition> linkingRules;
+	
+	/**
+	 * Metamodelo generado a partir del ecore 
+	 */
+	private Metamodel metamodel;
 
 	// ------------------------------------------------------------------
 	// Constructores
@@ -28,8 +32,17 @@ public class LinkingRulesGenerator {
 	/**
 	 * Crea un nuevo generador de reglas estructurales
 	 */
-	public LinkingRulesGenerator() {
+	public LinkingRulesGenerator(Metamodel metamodel) {
 		linkingRules = new ArrayList<LinkingRuleDefinition>();
+		this.setMetamodel(metamodel);
+		for (int i = 0; i < metamodel.getModelElements().size(); i++)
+		{
+			for (int k = 0; k < metamodel.getModelElements().get(i).getReferences().size(); k++)
+			{
+				LinkingRuleDefinition L = new LinkingRuleDefinition(metamodel.getModelElements().get(i).getReferences().get(k));
+				getLinkingRules().add(L);
+			}
+		}
 	}
 
 	// ------------------------------------------------------------------
@@ -78,6 +91,20 @@ public class LinkingRulesGenerator {
 	 */
 	public void setLinkingRules(ArrayList<LinkingRuleDefinition> linkingRules) {
 		this.linkingRules = linkingRules;
+	}
+
+	/**
+	 * @return the metamodel
+	 */
+	public Metamodel getMetamodel() {
+		return metamodel;
+	}
+
+	/**
+	 * @param metamodel the metamodel to set
+	 */
+	public void setMetamodel(Metamodel metamodel) {
+		this.metamodel = metamodel;
 	}
 
 }
