@@ -2,7 +2,7 @@ package en.ar.picture.webpicture.core.build.metamodel;
 
 import java.util.ArrayList;
 
-import co.edu.uniandes.picture.webpicture.graphical.shapes.Graph;
+import en.ar.picture.webpicture.graphical.elements.Graph;
 import en.ar.picture.webpicture.graphical.icons.Icon;
 
 /**
@@ -92,6 +92,24 @@ public class Metaelement {
 		} else {
 			return this.getReferences();
 		}
+	}
+	
+	/**
+	 * Retorna un metalink dado su nombre 
+	 * @param name - Nombre del metalink 
+	 * @return Metalink encontrado o null 
+	 */
+	public Metalink getMetalinkByName(String name) {
+		Metalink ans = null;
+		for (int i = 0; i < references.size(); i++) {
+			ans = references.get(i);
+			if (ans.getName().equals(name)) {
+				return ans;
+			} else {
+				ans = null;
+			}
+		}
+		return ans;
 	}
 
 	/**
