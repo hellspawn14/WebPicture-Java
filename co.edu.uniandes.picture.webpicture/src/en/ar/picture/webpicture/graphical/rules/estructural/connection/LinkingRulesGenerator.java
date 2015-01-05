@@ -39,8 +39,11 @@ public class LinkingRulesGenerator {
 		{
 			for (int k = 0; k < metamodel.getModelElements().get(i).getReferences().size(); k++)
 			{
-				LinkingRuleDefinition L = new LinkingRuleDefinition(metamodel.getModelElements().get(i).getReferences().get(k));
-				getLinkingRules().add(L);
+				if (metamodel.getModelElements().get(i).getReferences().get(k).getGrpLink() != null)
+				{
+					LinkingRuleDefinition L = new LinkingRuleDefinition(metamodel.getModelElements().get(i).getReferences().get(k));
+					getLinkingRules().add(L);
+				}
 			}
 		}
 	}
