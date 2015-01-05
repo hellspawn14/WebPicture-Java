@@ -73,18 +73,13 @@ public class Metamodel {
 	 * @param name - Es el nombre del metaelemento
 	 * @return Metaelement/null
 	 */
-	public Metaelement getMetaelementByName(String name)
-	{
+	public Metaelement getMetaelementByName(String name) {
 		Metaelement ans = null;
-		for (int i = 0; i < modelElements.size(); i++)
-		{
+		for (int i = 0; i < modelElements.size(); i++) {
 			ans = modelElements.get(i);
-			if (ans.getName().equals(name))
-			{
+			if (ans.getName().equals(name)) {
 				return ans;
-			}
-			else
-			{
+			} else {
 				ans = null;
 			}
 		}
