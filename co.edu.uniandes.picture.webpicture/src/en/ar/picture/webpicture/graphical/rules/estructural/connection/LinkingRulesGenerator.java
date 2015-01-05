@@ -30,7 +30,8 @@ public class LinkingRulesGenerator {
 	// ------------------------------------------------------------------
 
 	/**
-	 * Crea un nuevo generador de reglas estructurales
+	 * Crea un nuevo generador de reglas estructurales 
+	 * Ignora los elementos que tienen relacion de contenencia 
 	 */
 	public LinkingRulesGenerator(Metamodel metamodel) {
 		linkingRules = new ArrayList<LinkingRuleDefinition>();
@@ -39,8 +40,11 @@ public class LinkingRulesGenerator {
 		{
 			for (int k = 0; k < metamodel.getModelElements().get(i).getReferences().size(); k++)
 			{
-				LinkingRuleDefinition L = new LinkingRuleDefinition(metamodel.getModelElements().get(i).getReferences().get(k));
-				getLinkingRules().add(L);	
+				if (metamodel.getModelElements().get(i).getReferences().get(k).isContaintment() == false)
+				{
+					LinkingRuleDefinition L = new LinkingRuleDefinition(metamodel.getModelElements().get(i).getReferences().get(k));
+					getLinkingRules().add(L);
+				}
 			}
 		}
 	}
