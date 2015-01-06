@@ -99,7 +99,7 @@ public class Webpicture
 	{
 		Date created = new Date();
 		Editor E = new Editor(0, name, description, author, path, created);
-		
+		System.out.println(path);
 		
 		//Directorio al archivo picture
 		

@@ -27,6 +27,8 @@ public class XMIMetamodelLoader {
 	 * Genera un metamodelo base construido a partir del metamodelo cargado
 	 * @param path - Directorio en el que se encuentra el metamodelo
 	 * @return Metamodel metamodelo base generado para iniciar la validacion
+	 * @throws Exception - En el caso de que exista algun elemento con nombre repetido
+	 * en el metamodelo 
 	 */
 	public Metamodel load(String path) throws Exception {
 		try {
