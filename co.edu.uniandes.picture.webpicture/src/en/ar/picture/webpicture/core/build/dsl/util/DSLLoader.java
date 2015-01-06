@@ -20,6 +20,44 @@ import com.google.inject.Injector;
  */
 public class DSLLoader {
 	// ------------------------------------------------------------------
+	// Atributos
+	// ------------------------------------------------------------------
+
+	/**
+	 * Injector del metamodelo 
+	 */
+	private Injector injector; 
+	
+	/**
+	 * Conjunto de recursos de XText 
+	 */
+	private XtextResourceSet resourceSet;
+	
+	/**
+	 * Recursos del modelo 
+	 */
+	private Resource resource;
+	
+	
+	
+	// ------------------------------------------------------------------
+	// Constructores
+	// ------------------------------------------------------------------
+
+	/**
+	 * Crea un nuevo cargador del lenguaje
+	 * Soluciona el problema de multiples threads cada vez que se carga un recurso del lenguaje
+	 */
+	public DSLLoader()
+	{
+		injector = new co.edu.uniandes.enar.PictureStandaloneSetup().createInjectorAndDoEMFRegistration();
+		resourceSet = injector.getInstance(XtextResourceSet.class);
+		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL,Boolean.TRUE);
+	}
+	
+	
+	
+	// ------------------------------------------------------------------
 	// Metodos
 	// ------------------------------------------------------------------
 
@@ -30,13 +68,7 @@ public class DSLLoader {
 	 * devuelve la lista de los errores
 	 */
 	public Model loadPicture(String path) throws Exception {
-		Injector injector = new co.edu.uniandes.enar.PictureStandaloneSetup()
-				.createInjectorAndDoEMFRegistration();
-		XtextResourceSet resourceSet = injector
-				.getInstance(XtextResourceSet.class);
-		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL,
-				Boolean.TRUE);
-		Resource resource = resourceSet.getResource(URI.createURI(path), true);
+		resource = resourceSet.getResource(URI.createURI(path), true);
 		Model model = (ModelImpl) resource.getContents().get(0);
 
 		// Valida el modelo y busca errores
