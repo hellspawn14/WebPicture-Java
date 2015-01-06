@@ -3,7 +3,6 @@ package en.ar.picture.webpicture.graphical.palette.drag;
 import java.util.ArrayList;
 
 import en.ar.picture.webpicture.graphical.palette.Palette;
-import en.ar.picture.webpicture.graphical.palette.Toolgroup;
 
 /**
  * Generador de declaraciones de eventos de drag and drop para la paleta de
