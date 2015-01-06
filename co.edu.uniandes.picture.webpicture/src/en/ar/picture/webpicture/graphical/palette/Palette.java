@@ -65,6 +65,14 @@ public class Palette {
 		T.getIcons().add(I2);
 		T.getIcons().add(I3);
 		P.getToolgroups().add(T);
+		Toolgroup T2 = new Toolgroup("Disfraces", "Disfraces de batman");
+		Icon I12 = new Icon ("A", "West", "http://www.blastr.com/sites/blastr/files/Adam%20West%20Batman.jpg");
+		Icon I22 = new Icon ("A", "Nolan", "http://static.comicvine.com/uploads/original/11119/111199816/4274393-4228925-4165782-5825568197-rumor.jpg");
+		Icon I32 = new Icon ("A", "Affleck", "http://cdn.bleedingcool.net/wp-content/uploads/2013/09/batman-affleck-600x860.jpg");
+		T2.getIcons().add(I12);
+		T2.getIcons().add(I22);
+		T2.getIcons().add(I32);
+		P.getToolgroups().add(T2);
 		System.out.println(P.generateScript());
 	}
 	
