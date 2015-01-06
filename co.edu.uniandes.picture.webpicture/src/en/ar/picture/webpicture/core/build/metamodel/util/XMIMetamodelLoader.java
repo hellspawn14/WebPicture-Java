@@ -147,7 +147,7 @@ public class XMIMetamodelLoader {
 				}
 			}
 			// Metamodelo construido
-			metamodel.consolidateMetamodel();
+			//No consolidar hasta tener el picture - metamodel.consolidateMetamodel();
 			return metamodel;
 		}
 
