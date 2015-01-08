@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="64" height="64" version="1.1">
+
+<ellipse rx="30" ry="30" cx="32" cy="32" stroke-width="2" stroke="RGB(233, 219, 48)" fill="RGB(255, 255, 0)"/>
+
+<image width="36" height="36" x="15" y="15" xlink:href="condicional.svg"/>
+
+</svg>

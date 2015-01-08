@@ -1,0 +1,606 @@
+import "/model/useCase.ecore"
+as MM
+Graphical representation UseCaseHeroku {
+	reference package useCaseMM
+	root UseCaseMM
+	Palette for UseCaseMM {
+		
+		Tool group HerokuPools {
+			description "HerokuPools"
+			
+				Creation button for class WebPool {
+					name "WebPool"
+					description "WebPool" 
+					icon "/imagenes/NodeIcon.gif"
+					}	
+				Creation button for class WorkerPool {
+					name "WorkerPool"
+					description "WorkerPool" 
+					icon "/imagenes/NodeIcon.gif"
+					}																
+			}			
+			
+		Tool group HerokuDinos{
+			description "HerokuDinos"
+			Creation button for class WebDino {
+					name "WebDino"
+					description "WebDino" 
+					icon "/imagenes/NodeIcon.gif"
+					}
+					
+			Creation button for class WorkerDino {
+					name "WorkerDino"
+					description "WorkerDino" 
+					icon "/imagenes/NodeIcon.gif"
+					}																
+			}	
+		
+		Tool group HerokuAMPQElements {
+			description "AMPQElements"			
+			Creation button for class AMPQQueue {
+					name "AMPQQueue"
+					description "AMPQQueue" 
+					icon "/imagenes/NodeIcon.gif"
+					}																			
+			}	
+			
+			Tool group HerokuExternalElements {
+			description "ExternalElements"			
+			Creation button for class Blob {
+					name "Blob"
+					description "Blob" 
+					icon "/imagenes/NodeIcon.gif"
+					}
+			Creation button for class RMDB {
+					name "RMDB"
+					description "RMDB" 
+					icon "/imagenes/NodeIcon.gif"
+					}																				
+			}
+			
+			Tool group HerokuRelations {
+			description "Associations"		
+			Creation button for class AssociationPS {
+					name "AssociationPS"
+					description "AssociationPS" 
+					icon "/imagenes/NodeIcon.gif"
+			}	
+			Creation button for class AssociationPQ {
+					name "AssociationPQ"
+					description "AssociationPQ" 
+					icon "/imagenes/NodeIcon.gif"
+			}	
+			
+				}		
+				
+			Tool group UseCaseElements {
+			description "UseCaseElements"		
+			Creation button for class UseCaseContainer {
+					name "UseCaseContainer"
+					description "UseCaseContainer" 
+					icon "/imagenes/NodeIcon.gif"
+			}
+			Creation button for class Procesor {
+					name "Procesor"
+					description "Procesor" 
+					icon "/imagenes/NodeIcon.gif"
+			}
+			Creation button for class Reader {
+					name "Reader"
+					description "Reader" 
+					icon "/imagenes/NodeIcon.gif"
+			}	
+			Creation button for class Writer {
+					name "Writer"
+					description "Writer" 
+					icon "/imagenes/NodeIcon.gif"
+			}
+			Creation button for class Push {
+					name "Push"
+					description "Push" 
+					icon "/imagenes/NodeIcon.gif"
+			}
+			Creation button for class Pop {
+					name "Pop"
+					description "Pop" 
+					icon "/imagenes/NodeIcon.gif"
+			}
+			Creation button for class Variable {
+					name "Variable"
+					description "Variable" 
+					icon "/imagenes/NodeIcon.gif"
+			}
+			Creation button for class Parameter {
+					name "Parameter"
+					description "Parameter" 
+					icon "/imagenes/NodeIcon.gif"
+			}
+			Creation button for class Start {
+					name "Start"
+					description "Start" 
+					icon "/imagenes/NodeIcon.gif"
+			}
+			Creation button for class End {
+					name "End"
+					description "End" 
+					icon "/imagenes/NodeIcon.gif"
+			}
+				}
+				
+				Tool group UseCaseRelations {
+			description "AssociationsUC"		
+			Creation button for class AssociationOO {
+					name "AssociationOO"
+					description "AssociationOO" 
+					icon "/imagenes/NodeIcon.gif"
+			}
+				}	
+				
+			Tool group IntermediateRelations {
+			description "IntermediateRelations"		
+			Creation button for class AssociationOEA {
+					name "AssociationOEA"
+					description "AssociationOEA" 
+					icon "/imagenes/NodeIcon.gif"
+			}
+				}			
+						
+		}
+	
+	Style definition {
+		
+		Color yellowBlack2 (233, 219, 48)
+		Color black ( 0 ,  0 ,  0 )
+		Color white ( 255 ,  255 ,  255 )
+		Color yellow ( 255 ,  255 ,  0 )
+		Color blue ( 0 ,  0 ,  255 )
+		Color red ( 254 ,  0 ,  0 )
+		Color green ( 0 ,  255 ,  0 )
+		Color greenDark ( 3 ,  129 ,  35 )
+		Color BlackRed(184 , 17 , 17)
+		Line style BorderRedBlack2{
+			width 2
+			type solid
+			color BlackRed
+		}		
+		
+		Line style BorderyellowBlack2{
+			width 2
+			type solid
+			color yellowBlack2
+		}
+		Line style BorderDarkGreen{
+			width 2
+			type solid
+			color greenDark
+		}
+		
+		Line style BorderYellow1 {
+			width 1
+			type solid
+			color yellow
+		}
+		
+		Line style BorderBlack1 {
+			width 1
+			type dot
+			color black
+		}
+		Line style BorderBlack3 {
+			width 3
+			type solid
+			color black
+		}
+		Line style BorderBlack4 {
+			width 4
+			type solid
+			color black
+		}
+		Line style BorderRed4 {
+			width 4
+			type solid
+			color red
+		}
+		Line style BorderRed2 {
+			width 2
+			type solid
+			color red
+		}
+		Rounded rectRounded10 {
+			radiox 10
+			radioy 10
+		}
+		Ellipse ellipseEvent {
+			proportion ( 30 ,  30 )
+		}
+		Regular polygon deca {
+			vertex quantity 8
+			start angle 90
+		}
+		Regular polygon cuadradro {
+			vertex quantity 4
+			start angle 90
+		}
+		Color Withe ( 255 ,  255 ,  255 )
+		Color activeElementsColor ( 117 ,  235 ,  235 )
+		Color techLayer ( 116 ,  232 ,  116 )
+		Color behaviorElementsColor ( 241 ,  241 ,  181 )
+		Color greenTestXX ( 44 ,  255 ,  45 )
+		Color laneColor (185, 249 , 249)
+		Color BlueChevere(3, 104, 154)
+		
+		Line style BorderBlueChevere{
+			width 1
+			type dot
+			color BlueChevere
+		}
+		
+		Line style BorderBlackDot {
+			width 1
+			type dot
+			color black
+		}
+		Line style BorderBlack2 {
+			width 2
+			type solid
+			color black
+		}
+	}
+	
+	
+	Graphical
+	definition {
+		
+		Node_element WebPoolDefinition
+		for class WebPool{
+		label Name	
+			label icon false
+			label placement internal
+			size ( 260 ,  410 )
+				Image figure{
+				image path "pool.svg"
+			}
+			
+			phantom false
+		}
+		
+		Node_element WorkerPoolDefinition
+		for class WorkerPool{
+		label Name	
+			label icon false
+			label placement internal
+			size ( 260 , 410 )
+				Image figure{
+				image path "pool.svg"
+			}
+			phantom false
+		}
+		
+		Node_element WebDinoDefinition
+		for class WebDino{
+		label Name	
+			label icon false
+			label placement internal
+			size ( 100 ,  110 )
+				Image figure{
+				image path "sweb.svg"
+			}
+			phantom false
+		}
+		
+		Node_element WorkerDinoDefinition
+		for class WorkerDino{
+		label Name	
+			label icon false
+			label placement internal
+			size ( 100 ,  110 )
+				Image figure{
+				image path "sworker.svg"
+			}
+			phantom false
+		}
+		
+		Node_element BlobDefinition
+		for class Blob{
+		label Name	
+			label icon false
+			label placement internal
+			size ( 100 ,  110 )
+				Image figure{
+				image path "databaseFiles.svg"
+			}
+			phantom false
+		}
+		
+		Node_element RMDBDefinition
+		for class RMDB {
+		label Name	
+			label icon false
+			label placement internal
+			size ( 100 ,  110 )
+				Image figure{
+				image path "database.svg"
+			}
+			phantom false
+		}
+		
+		Node_element AMPQQueueDefinition
+		for class AMPQQueue {
+		label Name	
+			label icon false
+			label placement internal
+			size ( 150 ,  60 )
+				Image figure{
+				image path "cilindro.svg"
+			}
+			phantom false
+		}
+		
+		Node_element UseCaseContainerDefinition
+		for class UseCaseContainer {
+		label Name	
+			label icon false
+			label placement internal
+			size ( 800 , 243)
+			Image figure{
+				image path "useCase.svg"
+			}
+			phantom false
+		}
+		
+		Node_element VarDefinition
+		for class Variable {
+		label Name	
+			label icon false
+			label placement internal
+			size ( 47 , 40)
+			Image figure{
+				image path "variable.svg"
+			}
+			phantom false
+		}
+		
+		Node_element ParamDefinition
+		for class Parameter {
+		label Name	
+			label icon false
+			label placement internal
+			size ( 45 , 38)
+			Image figure{
+				image path "parameter.svg"
+			}
+			phantom false
+		}
+		
+		//Cambiar imagen!!!
+		Node_element ProcesorDefinition
+		for class Procesor {
+		label Name	
+			label icon false
+			label placement internal
+			size ( 148 , 86)
+			Image figure{
+				image path "procesor.svg"
+			}
+			phantom false
+		}
+		
+		Node_element ReaderDefinition
+		for class Reader {
+		label Name	
+			label icon false
+			label placement internal
+			size ( 148 , 86)
+			Image figure{
+				image path "reader.svg"
+			}
+			phantom false
+		}
+		
+			Node_element WriterDefinition
+		for class Writer {
+		label Name	
+			label icon false
+			label placement internal
+			size ( 148 , 86)
+			Image figure{
+				image path "writer.svg"
+			}
+			phantom false
+		}
+		
+		Node_element PushDefinition
+		for class Push {
+		label Name	
+			label icon false
+			label placement internal
+				size ( 148 , 86)
+			Image figure{
+				image path "push.svg"
+			}
+			phantom false
+		}
+		
+		Node_element PopDefinition
+		for class Pop {
+		label Name	
+			label icon false
+			label placement internal
+		size ( 148 , 86)
+			Image figure{
+				image path "pop.svg"
+			
+			}
+			phantom false
+		}
+		
+	Node_element StartDefinition
+		for class Start {
+		label Name	
+			label icon false
+			label placement internal
+			size ( 13 , 12)
+			Image figure{
+				image path "inicio.svg"
+			
+			}
+			phantom false
+		}
+		
+	Node_element EndDefinition
+		for class End {
+		label Name	
+			label icon false
+			label placement internal
+			size ( 13 , 12)
+			Image figure{
+				image path "fin.svg"
+			
+			}
+			phantom false
+		}	
+	
+	Node_link AssociationConnector1 for class AssociationPQ{
+		label connectorName
+		style Line style  lineConnectorAssociation
+		{
+			width 2
+			type solid
+			color black
+			
+		}
+		source decoration none
+		target decoration arrow
+		source reference <- SourceC
+		target reference  <- TargetC
+	}
+			
+		Node_link AssociationConnector2 for class AssociationPS{
+		label connectorName
+		style Line style  lineConnectorAssociation
+		{
+			width 2
+			type solid
+			color black
+			
+		}
+		source decoration none
+		target decoration arrow
+		source reference <- SourceC
+		target reference  <- TargetC
+	}
+	
+		Node_link AssociationConnector22 for class AssociationPQ{
+		label connectorName
+		style Line style  lineConnectorAssociation
+		{
+			width 2
+			type solid
+			color black
+			
+		}
+		source decoration none
+		target decoration arrow
+		source reference <- SourceC
+		target reference  <- TargetC
+	}
+
+	Node_link AssociationConnector3 for class AssociationOO{
+		label connectorName
+		style Line style  lineConnectorAssociation
+		{
+			width 2
+			type dot
+			color black
+			
+		}
+		source decoration none
+		target decoration arrow
+		source reference <- SourceC
+		target reference  <- TargetC
+	}
+
+		Node_link AssociationConnector6 for class AssociationOEA{
+		label connectorName
+		style Line style  lineConnectorAssociation
+		{
+			width 2
+			type dash
+			color black
+			
+		}
+		source decoration none
+		target decoration arrow
+		source reference <- SourceC
+		target reference  <- TargetC
+	}
+		
+		Internal_node webDinoDef
+		for reference WebPool.haveWebDinos {
+			layout default layout
+		}	
+		Internal_node workerDinoDef
+		for reference WorkerPool.haveWorkerDinos {
+			layout default layout
+		}
+		
+		//Definicion Operaciones
+		Internal_node opertationsDef
+		for reference UseCaseContainer.haveUseCaseElements {
+			layout default layout
+		}
+		
+		//Internal_node procesorDef
+		//for reference UseCaseContainer.haveOProcesor {
+			//layout default layout
+		//}
+		//Internal_node readerDef
+		//for reference UseCaseContainer.haveOReader {
+		//	layout default layout
+		//}
+		//Internal_node writerDef
+		//for reference UseCaseContainer.haveOWriter {
+		//	layout default layout
+		//}
+		//Internal_node pushDef
+		//for reference UseCaseContainer.haveOPush {
+		//	layout default layout
+		//}		
+		//Internal_node popDef
+		//for reference UseCaseContainer.haveOPop {
+		//	layout default layout
+		//}	
+		
+		
+		//Internal_node varDef
+		//for reference UseCaseContainer.haveVariables {
+			//layout default layout
+		//}	
+		//Internal_node parameterDef
+		//for reference UseCaseContainer.haveParameters {
+			//layout default layout
+		//}	
+		//Internal_node startDef
+		//for reference UseCaseContainer.haveStart {
+			//layout default layout
+		//}	
+		//Internal_node endDef
+		//for reference UseCaseContainer.haveEnd {
+			//layout default layout
+		//}	
+		
+			
+		
+	}
+	
+	Rules definition {
+	}
+	Interaction definition {
+		Interaction elements {
+
+		}
+		Statements {
+
+		} 
+	}
+}

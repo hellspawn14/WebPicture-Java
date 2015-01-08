@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="118" height="67" version="1.1">
+
+<rect rx="10" ry="10" x="1" y="1" width="116" height="65" stroke-width="2" stroke="RGB(0, 0, 0)" fill="RGB(116, 232, 116)"/>
+
+<image width="16" height="16" x="99" y="2" xlink:href="SystemSWIcon.svg"/>
+
+</svg>

@@ -1,0 +1,1684 @@
+	import "/model/BusinessLayerArch.ecore" as MM
+
+
+	Graphical representation ArchimateExtendidoBusinessLayer 
+	{
+		reference package businessLayer 
+		root  ArchimateModel
+		
+		Palette for ArchimateModel {
+			
+			Tool group ArchimateBusinessPalette {
+				description "Business Elements"				
+				
+				Tool group StructuralConceptsBusiness {
+					description "Structural Elements"
+					
+								Creation button for class Organization {
+						name "Organization"
+						description "Organization"
+						icon "/imagenes/Organization.gif"
+					}
+						Creation button for class BusinessActor {
+						name "BusinessActor"
+						description "BusinessActor"
+						icon "/images/actor.gif"
+					}
+						Creation button for class BusinessRole {
+						name "BusinessRole"
+						description "BusinessRole"
+						icon "/imagenes/BusinessRoleIcon.gif"
+					}
+					Creation button for class BusinessCollaboration {
+						name "BusinessCollaboration"
+						description "BusinessCollaboration"
+						icon "/imagenes/BusinessCollaborationIcon.gif"
+					}
+					Creation button for class BusinessInterface {
+						name "BusinessInterface"
+						description "BusinessInterface"
+						icon "/imagenes/BusinessInterfaceIcon.gif"
+					}
+						Creation button for class Location {
+						name "Location"
+						description "Location"
+						icon "/imagenes/LocationIcon.gif"
+					}
+									Creation button for class BusinessObject {
+						name "BusinessObject"
+						description "BusinessObject"
+						icon "/imagenes/BusinessObjectIcon.gif"
+					}
+				}
+				Tool group BehavioralConceptsBusiness {
+					description "Behavioral Elements"
+				
+					Creation button for class BusinessService {
+						name "BusinessService"
+						description "BusinessService"
+						icon "/imagenes/BusinessServiceIcon.gif"
+					}
+					Creation button for class BusinessProcess {
+						name "BusinessProcess"
+						description "BusinessProcess"
+						icon "/imagenes/BusinessProcessIcon.gif"
+					}
+					Creation button for class BusinessFunction {
+						name "BusinessFunction"
+						description "BusinessFunction"
+						icon "/imagenes/BusinessFunctionIcon.gif"
+					}
+					Creation button for class BusinessInteraction {
+						name "BusinessInteraction"
+						description "BusinessInteraction"
+						icon "/imagenes/BusinessInteractionIcon.gif"
+					}
+					Creation button for class BusinessEvent {
+						name "BusinessEvent"
+						description "BusinessEvent"
+						icon "/imagenes/BusinessEventIcon.gif"
+					}
+					Creation button for class Activity {
+						name "Activity"
+						description "Activity"
+						icon "/imagenes/Activity.gif"
+					}		
+					Creation button for class ManualActivity {
+						name "ManualActivity"
+						description "ManualActivity"
+						icon "/imagenes/ManualActivity.gif"
+					}						
+					Creation button for class AutomaticActivity {
+						name "AutomaticActivity"
+						description "AutomaticActivity"
+						icon "/imagenes/AutomaticActivity.gif"
+					}
+					Creation button for class Task {
+						name "Task"
+						description "Task"
+						icon "/imagenes/Task.gif"
+					}
+						Creation button for class AssignedTask {
+						name "AssignedTask"
+						description "AssignedTask"
+						icon "/imagenes/AssignedTask.gif"
+					}
+				}
+				
+				Tool group InformationalConceptsBusiness {
+						description "Informational Elements"
+		   Creation button for class Value {
+				 	    name "Value"
+					description "Value"
+					icon "/imagenes/ValueIcon.gif"
+					}
+					Creation button for class Product {
+						name "Product"
+						description "Product"
+						icon "/imagenes/ProductIcon.gif"
+					}
+					Creation button for class Contract {
+						name "Contract"
+						description "Contract"
+						icon "/imagenes/ContractIcon.gif"
+					}					
+					Creation button for class Meaning {
+						name "Meaning"
+						description "Meaning"
+						icon "/imagenes/MeaningIcon.gif"
+					}
+					Creation button for class Representation {
+						name "Representation"
+						description "Representation"
+						icon "/imagenes/RepresentationIcon.gif"
+					}
+				}
+			}
+		}	
+		
+
+     	Style definition {
+			Color black (0, 0, 0)			
+			Color white (255, 255, 255)			
+			Color yellow (255, 255, 0)			
+			Color blue (0, 0, 255)			
+			Color red (255, 0, 0)			
+			Color green (0, 255, 0)		
+			Color Withe (255, 255, 255)			
+			Color BusinessColor (241, 241, 181)			
+			Color greenTestXX (44, 255, 45)	
+			
+			
+			Line style LineaSolidaSuave {
+				width 1
+				type solid
+				color black
+			}
+			Line style LineaSolidaMedia {
+				width 2
+				type solid
+				color black
+			}
+			Line style LineaSolidaPronunciada {
+				width 4
+				type solid
+				color black
+			}
+			Line style LineaPunteadaSeparadaSuave {
+				width 1
+				type dot
+				color black
+			}
+			Line style LineaPunteadaSeparadaMedia {
+				width 2
+				type dot
+				color black
+			}
+			Line style LineaPunteadaSeparadaPronunciada {
+				width 4
+				type dot
+				color black
+			}
+			Line style LineaPunteadaContinuaSuave {
+				width 1
+				type dashdot
+				color black
+			}
+			Line style LineaPunteadaContinuaMedia {
+				width 2
+				type dashdot
+				color black
+			}
+			Line style LineaPunteadaContinuaPronunciada {
+				width 4
+				type dashdot
+				color black
+			}
+
+		
+			Rounded rectRounded10 
+			{
+				radiox 10
+				radioy 10
+			}
+			Ellipse ellip {
+				proportion ( 22, 17)
+			}
+			Regular polygon deca {
+				vertex quantity 8
+				start angle 90
+			}
+		}
+
+		Graphical definition {
+					///////////////////////////////////////////////////////////	/////////////////////////	/////////////////////////	/////////////////////////	
+	/////////////////////////////////ELEMENTOS NUEVOS
+	//////////////////////////////	/////////////////////////	/////////////////////////	/////////////////////////	/////////////////////////		
+		
+				Node_element OrganizationDef for class Organization {
+				label elementName
+				label icon false
+				label placement external
+				size (60, 60)
+				Regular figure extends rectRounded10 {
+					background color BusinessColor
+					border LineaSolidaMedia
+					icon path "Organization.gif"
+					icon size ( 50 , 50)
+					icon position Point (30, 30)
+				}
+				phantom true
+			}
+			Node_line composesOrganizationOrganizationDef for reference Organization.composesOrganizationOrganization {
+				label "composes"
+				style LineaSolidaMedia
+				source decoration filled rhomb
+				target decoration none
+			}
+			Node_line aggregatesOrganizationOrganizationDef for reference Organization.aggregatesOrganizationOrganization {
+				label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+			Node_line OrganizationtasksDef for reference Organization.tasks {
+				label "task"
+				style LineaSolidaMedia
+	            source decoration none
+				target decoration arrow
+			}
+					Node_line OrganizationprocessesDef for reference Organization.processes {
+				label "processes"
+				style LineaSolidaMedia
+	            source decoration none
+				target decoration arrow
+			}
+					Node_line OrganizationrolesDef for reference Organization.roles {
+				label "roles"
+				style LineaSolidaMedia
+	            source decoration none
+				target decoration arrow
+			}	
+				Node_line OrganizationpersonsDef for reference Organization.persons {
+				label "persons"
+				style LineaSolidaMedia
+	            source decoration none
+				target decoration arrow
+			}
+			Node_line businessServicesDef for reference Organization.businessServices {
+				label "businessServices"
+				style LineaSolidaMedia
+	            source decoration none
+				target decoration arrow
+			}
+		Node_element TaskDef for class Task {
+				label elementName
+				label icon false
+				label placement external
+				size (60, 60)
+				Regular figure extends rectRounded10 {
+					background color BusinessColor
+					border LineaSolidaMedia
+					icon path "Task.gif"
+					icon size ( 50 , 50)
+					icon position Point (30, 30)
+				}
+				phantom true
+			}
+			Node_line composesTaskTaskDef for reference Task.composesTaskTask {
+				label "composes"
+				style LineaSolidaMedia
+				source decoration filled rhomb
+				target decoration none
+			}
+			Node_line aggregatesTaskTaskDef for reference Task.aggregatesTaskTask {
+				label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+					Node_line resposinblesDef for reference Task.resposinbles {
+				label "resposinbles"
+				style LineaSolidaMedia
+	            source decoration none
+				target decoration arrow
+			}
+					Node_line taskInstancesDef for reference Task.taskInstances {
+				label "taskInstances"
+				style LineaSolidaMedia
+	            source decoration none
+				target decoration arrow
+			}
+					Node_line supportsDef for reference Task.supports {
+				label "supports"
+				style LineaSolidaMedia
+	            source decoration none
+				target decoration arrow
+			}
+			
+			
+		Node_element AssignedTaskDef for class AssignedTask {
+				label elementName
+				label icon false
+				label placement external
+				size (60, 60)
+				Regular figure extends rectRounded10 {
+					background color BusinessColor
+					border LineaSolidaMedia
+					icon path "AssignedTask.gif"
+					icon size ( 50 , 50)
+					icon position Point (30, 30)
+				}
+				phantom true
+			}
+		Node_line composesAssignedTaskAssignedTaskDef for reference AssignedTask.composesAssignedTaskAssignedTask {
+				label "composes"
+				style LineaSolidaMedia
+				source decoration filled rhomb
+				target decoration none
+			}
+		Node_line aggregatesAssignedTaskAssignedTaskDef for reference AssignedTask.aggregatesAssignedTaskAssignedTask {
+				label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+		Node_element ActivityDef for class Activity {
+				label elementName
+				label icon false
+				label placement external
+				size (60, 60)
+				Regular figure extends rectRounded10 {
+					background color BusinessColor
+					border LineaSolidaMedia
+					icon path "Activity.gif"
+					icon size ( 50 , 50)
+					icon position Point (30, 30)
+				}
+				phantom true
+			}
+			Node_line composesActivityActivityDef for reference Activity.composesActivityActivity {
+				label "composes"
+				style LineaSolidaMedia
+				source decoration filled rhomb
+				target decoration none
+			}
+			Node_line aggregatesActivityActivityDef for reference Activity.aggregatesActivityActivity {
+				label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+				Node_line businessProcessprocessDef for reference Activity.businessProcessprocess {
+				label "businessProcessprocess"
+				style LineaSolidaMedia
+	            source decoration none
+				target decoration arrow
+			}
+				Node_line nextDef for reference Activity.next {
+				label "next"
+				style LineaSolidaMedia
+	            source decoration none
+				target decoration arrow
+			}
+				Node_line previousDef for reference Activity.previous {
+				label "previous"
+				style LineaSolidaMedia
+	            source decoration none
+				target decoration arrow
+			}
+			
+										Node_element ManualActivityDef for class ManualActivity {
+				label elementName
+				label icon false
+				label placement external
+				size (60, 60)
+				Regular figure extends rectRounded10 {
+					background color BusinessColor
+					border LineaSolidaMedia
+					icon path "ManualActivity.gif"
+					icon size ( 50 , 50)
+					icon position Point (30, 30)
+				}
+				phantom true
+			}
+			Node_line composesManualActivityManualActivityDef for reference ManualActivity.composesManualActivityManualActivity {
+				label "composes"
+				style LineaSolidaMedia
+				source decoration filled rhomb
+				target decoration none
+			}
+			Node_line aggregatesManualActivityManualActivityDef for reference ManualActivity.aggregatesManualActivityManualActivity {
+				label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+				
+			Node_element AutomaticActivityDef for class AutomaticActivity {
+				label elementName
+				label icon false
+				label placement external
+				size (60, 60)
+				Regular figure extends rectRounded10 {
+					background color BusinessColor
+					border LineaSolidaMedia
+					icon path "AutomaticActivity.gif"
+					icon size ( 50 , 50)
+					icon position Point (30, 30)
+				}
+				phantom true
+			}
+			Node_line composesAutomaticActivityAutomaticActivityDef for reference AutomaticActivity.composesAutomaticActivityAutomaticActivity {
+				label "composes"
+				style LineaSolidaMedia
+				source decoration filled rhomb
+				target decoration none
+			}
+			Node_line aggregatesAutomaticActivityAutomaticActivityDef for reference AutomaticActivity.aggregatesAutomaticActivityAutomaticActivity {
+				label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+				
+	///////////////////////////////////////////////////////////	/////////////////////////	/////////////////////////	/////////////////////////	
+	/////////////////////////////////ELEMENTOS ORIGINALES
+	//////////////////////////////	/////////////////////////	/////////////////////////	/////////////////////////	/////////////////////////		
+			Node_element ValueDef for class Value {
+				label elementName
+				label icon false
+				label placement external
+				size (60, 60)
+				Regular figure extends rectRounded10 {
+					background color BusinessColor
+					border LineaSolidaMedia
+					icon path "Value.gif"
+					icon size ( 50 , 50)
+					icon position Point (30, 30)
+				}
+				phantom true
+			}
+			Node_line composesValueValueDef for reference Value.composesValueValue {
+				label "composes"
+				style LineaSolidaMedia
+				source decoration filled rhomb
+				target decoration none
+			}
+			Node_line aggregatesValueValueDef for reference Value.aggregatesValueValue {
+				label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+			Node_line associatedWithProductValueDef for reference Value.associatedWithProductValue {
+				label "associatedWith"
+				style LineaSolidaMedia
+				source decoration none
+				target decoration none
+			}
+			Node_element ProductDef for class Product {
+				label elementName
+				label icon false
+				label placement internal
+				size (60, 60)
+				Regular figure extends rectRounded10 {
+					background color BusinessColor
+					border LineaSolidaMedia
+					icon path "Product.gif"
+					icon size ( 50 , 50)
+					icon position Point (30, 30)
+				}
+				phantom true
+			}
+			Node_line composesProductProductDef for reference Product.composesProductProduct {
+				label "composes"
+				style LineaSolidaMedia
+				source decoration filled rhomb
+				target decoration none
+			}
+			Node_line aggregatesProductProductDef for reference Product.aggregatesProductProduct {
+				label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+			Node_line associatedWithValueProductDef for reference Product.associatedWithValueProduct {
+				label "associatedWith"
+				style LineaSolidaMedia
+				source decoration none
+				target decoration none
+			}
+			Node_line aggregatesContractProductDef for reference Product.aggregatesContractProduct {
+				label "aggregates"
+				style LineaSolidaMedia
+				source decoration rhomb
+				target decoration none
+			}
+			Node_line aggregatesBusinessServiceProductDef for reference Product.aggregatesBusinessServiceProduct {
+				label "aggregates"
+				style LineaSolidaMedia
+				source decoration rhomb
+				target decoration none
+			}
+			Node_element MeaningDef for class Meaning {
+				label elementName
+				label icon false
+				label placement internal
+				size (60, 60)
+				Regular figure extends rectRounded10 {
+					background color BusinessColor
+					border LineaSolidaMedia
+					icon path "Meaning.gif"
+					icon size ( 50 , 50)
+					icon position Point (30, 30)
+				}
+				phantom true
+			}
+			Node_line composesMeaningMeaningDef for reference Meaning.composesMeaningMeaning {
+				label "composes"
+				style LineaSolidaMedia
+				source decoration filled rhomb
+				target decoration none
+			}
+			Node_line aggregatesMeaningMeaningDef for reference Meaning.aggregatesMeaningMeaning {
+				label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+			Node_line associatedWithBusinessObjectMeaningDef for reference Meaning.associatedWithBusinessObjectMeaning {
+				label "associatedWith"
+				style LineaSolidaMedia
+				source decoration none
+				target decoration none
+			}
+			Node_element RepresentationDef for class Representation {
+				label elementName
+				label icon false
+				label placement internal
+				size (60, 60)
+				Regular figure extends rectRounded10 {
+					background color BusinessColor
+					border LineaSolidaMedia
+				icon path "Representation.gif"
+					icon size ( 50 , 50)
+					icon position Point (30, 30)
+				}
+				phantom true
+			}
+			Node_line composesRepresentationRepresentationDef for reference Representation.composesRepresentationRepresentation {
+				label "composes"
+				style LineaSolidaMedia
+				source decoration filled rhomb
+				target decoration none
+			}
+			Node_line aggregatesRepresentationRepresentationDef for reference Representation.aggregatesRepresentationRepresentation {
+				label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+			Node_line realizesBusinessObjectRepresentationDef for reference Representation.realizesBusinessObjectRepresentation {
+				label "realizes"
+				style LineaPunteadaSeparadaPronunciada
+				source decoration none
+				target decoration arrow
+			}
+			Node_element BusinessObjectDef for class BusinessObject {
+				label elementName
+				label icon false
+				label placement internal
+				size (60, 60)
+				Regular figure extends rectRounded10 {
+					background color BusinessColor
+					border LineaSolidaMedia
+					icon path "BusinessObject.gif"
+					icon size ( 50 , 50)
+					icon position Point (30, 30)
+				}
+				phantom true
+			}
+
+			Node_line composesBusinessObjectBusinessObjectDef for reference BusinessObject.composesBusinessObjectBusinessObject {
+					label "composes"
+				style LineaSolidaMedia
+				source decoration filled rhomb
+				target decoration none
+			}
+			Node_line aggregatesBusinessObjectBusinessObjectDef for reference BusinessObject.aggregatesBusinessObjectBusinessObject {
+				label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+			Node_line associatedWithMeaningBusinessObjectDef for reference BusinessObject.associatedWithMeaningBusinessObject {
+					label "associatedWith"
+				style LineaSolidaMedia
+				source decoration none
+				target decoration none
+			}
+			Node_element ContractDef for class Contract {
+				label elementName
+				label icon false
+				label placement internal
+				size (60, 60)
+				Regular figure extends rectRounded10 {
+					background color BusinessColor
+					border LineaSolidaMedia
+					icon path "Contract.gif"
+					icon size ( 50 , 50)
+					icon position Point (30, 30)
+				}
+
+				phantom true
+			}
+			Node_element BusinessServiceDef for class BusinessService {
+				label elementName
+				label icon false
+				label placement internal
+				size (60, 60)
+				Regular figure extends rectRounded10 {
+					background color BusinessColor
+					border LineaSolidaMedia
+					icon path "BusinessService.gif"
+					icon size ( 50 , 50)
+					icon position Point (30, 30)
+				}
+				phantom true
+			}
+			Node_line composesBusinessServiceBusinessServiceDef for reference BusinessService.composesBusinessServiceBusinessService {
+					label "composes"
+				style LineaSolidaMedia
+				source decoration filled rhomb
+				target decoration none
+			}
+			Node_line aggregatesBusinessServiceBusinessServiceDef for reference BusinessService.aggregatesBusinessServiceBusinessService {
+				label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+			Node_line accessesBusinessObjectBusinessServiceDef for reference BusinessService.accessesBusinessObjectBusinessService {
+				label "accesses"
+				style LineaPunteadaContinuaMedia
+	            source decoration none
+				target decoration arrow
+			}
+			Node_element BusinessBehaviorElementDef for class BusinessBehaviorElement {
+				label elementName
+				label icon false
+				label placement internal
+				size (60, 60)
+				Regular figure extends rectRounded10 {
+				background color BusinessColor
+				border LineaSolidaMedia
+				icon path "BusinessBehaviorElement.gif"
+				icon size ( 50 , 50)
+				icon position Point (30, 30)
+				}
+				phantom true
+			}	
+		
+
+		Node_line composesBusinessBehaviorElementBusinessBehaviorElementDef for reference BusinessBehaviorElement.composesBusinessBehaviorElementBusinessBehaviorElement {
+					label "composes"
+				style LineaSolidaMedia
+				source decoration filled rhomb
+				target decoration none
+			}
+			Node_line aggregatesBusinessBehaviorElementBusinessBehaviorElementDef for reference BusinessBehaviorElement.aggregatesBusinessBehaviorElementBusinessBehaviorElement {
+				label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+			Node_line triggersToBusinessBehaviorElementBusinessBehaviorElementDef for reference BusinessBehaviorElement.triggersToBusinessBehaviorElementBusinessBehaviorElement {
+				label "triggers"
+				style LineaSolidaPronunciada
+				source decoration none
+				target decoration filled closed arrow
+			}
+			
+				Node_line flowsToBusinessBehaviorElementBusinessBehaviorElementDef for reference BusinessBehaviorElement.flowsToBusinessBehaviorElementBusinessBehaviorElement {
+				label "flowsTo"
+				style LineaPunteadaContinuaMedia
+				source decoration none
+				target decoration filled closed arrow
+			}
+
+			Node_line usesBusinessServiceBusinessBehaviorElementDef for reference BusinessBehaviorElement.usesBusinessServiceBusinessBehaviorElement {
+				label "uses"
+				style LineaSolidaSuave
+				source decoration none
+				target decoration arrow
+			}
+
+
+			Node_line realisesBusinessServiceBusinessBehaviorElementDef for reference BusinessBehaviorElement.realisesBusinessServiceBusinessBehaviorElement {
+				label "realizes"
+				style LineaPunteadaSeparadaPronunciada
+				source decoration none
+				target decoration arrow
+			}
+			Node_line triggersBusinessEventBusinessBehaviorElementDef for reference BusinessBehaviorElement.triggersBusinessEventBusinessBehaviorElement {
+				label "triggers"
+				style LineaSolidaPronunciada
+				source decoration none
+				target decoration filled closed arrow
+			}
+			Node_line accessesBusinessObjectBusinessBehaviorElementDef for reference BusinessBehaviorElement.accessesBusinessObjectBusinessBehaviorElement {
+				label "accesses"
+				style LineaPunteadaContinuaMedia
+	            source decoration none
+				target decoration arrow
+			}
+
+			Node_element BusinessProcessDef for class BusinessProcess {
+				label elementName
+				label icon false
+				label placement internal
+				size (60, 60)
+				Regular figure extends rectRounded10 {
+				background color BusinessColor
+				border LineaSolidaMedia
+				icon path "BusinessProcess.gif"
+				icon size ( 50 , 50)
+				icon position Point (30, 30)
+				}
+				phantom true
+			}
+			Node_element BusinessFunctionDef for class BusinessFunction {
+				label elementName
+				label icon false
+				label placement internal
+				size (60, 60)
+				Regular figure extends rectRounded10 {
+				background color BusinessColor
+				border LineaSolidaMedia
+				icon path "BusinessFunction.gif"
+				icon size ( 50 , 50)
+				icon position Point (30, 30)
+				}
+				phantom true
+			}
+			Node_element BusinessInteractionDef for class BusinessInteraction {
+				label elementName
+				label icon false
+				label placement internal
+				size (60, 60)
+				Regular figure extends rectRounded10 {
+				background color BusinessColor
+				border LineaSolidaMedia
+				icon path "BusinessInteraction.gif"
+				icon size ( 50 , 50)
+				icon position Point (30, 30)
+				}
+				phantom true
+			}
+			Node_element BusinessEventDef for class BusinessEvent {
+				label elementName
+				label icon false
+				label placement internal
+				size (60, 60)
+					Regular figure extends rectRounded10 {
+					background color BusinessColor
+					border LineaSolidaMedia
+				icon path "BusinessEvent.gif"	
+					icon size ( 50 , 50)
+					icon position Point (30, 30)
+				}
+				phantom true
+			}
+			Node_line composesBusinessEventBusinessEventDef for reference BusinessEvent.composesBusinessEventBusinessEvent {
+				label "composes"
+				style LineaSolidaMedia
+				source decoration filled rhomb
+				target decoration none
+			}
+			Node_line aggregatesBusinessEventBusinessEventDef for reference BusinessEvent.aggregatesBusinessEventBusinessEvent {
+				label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+			Node_line triggersBusinessBehaviorElementBusinessEventDef for reference BusinessEvent.triggersBusinessBehaviorElementBusinessEvent {
+				label "triggers"
+				style LineaSolidaPronunciada
+				source decoration none
+				target decoration filled closed arrow
+			}
+			Node_line accessedByBusinessObjectBusinessEventDef for reference BusinessEvent.accessesBusinessObjectBusinessEvent {
+				label "accesses"
+				style LineaPunteadaContinuaMedia
+	            source decoration none
+				target decoration arrow
+			}
+			Node_element LocationDef for class Location {
+				label elementName
+				label icon false
+				label placement internal
+				size (60, 60)
+					Regular figure extends rectRounded10 {
+					background color BusinessColor
+					border LineaSolidaMedia
+				icon path "Location.gif"	
+					icon size ( 50 , 50)
+					icon position Point (30, 30)
+				}
+				phantom true
+			}
+			Node_line composesLocationLocationDef for reference Location.composesLocationLocation {
+				label "composes"
+				style LineaSolidaMedia
+				source decoration filled rhomb
+				target decoration none
+			}
+			Node_line aggregatesLocationLocationDef for reference Location.aggregatesLocationLocation {
+				label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+			Node_line assignedToBusinessActorLocationDef for reference Location.assignedToBusinessActorLocation {
+			label "assignedTo"
+				style LineaSolidaSuave
+				source decoration square
+				target decoration square
+			}
+			Node_line assignedToBusinessObjectLocationDef for reference Location.assignedToBusinessObjectLocation {
+				label "assignedTo"
+				style LineaSolidaSuave
+				source decoration square
+				target decoration square
+			}
+			Node_line assignedToRepresentationLocationDef for reference Location.assignedToRepresentationLocation {
+				label "assignedTo"
+				style LineaSolidaSuave
+				source decoration square
+				target decoration square
+			}
+			Node_element BusinessInterfaceDef for class BusinessInterface {
+				label elementName
+				label icon false
+				label placement internal
+				size (60, 60)
+					Regular figure extends rectRounded10 {
+					background color BusinessColor
+					border LineaSolidaMedia
+				icon path "BusinessInterface.gif"	
+					icon size ( 50 , 50)
+					icon position Point (30, 30)
+				}
+				phantom true
+			}
+			Node_line composesBusinessInterfaceBusinessInterfaceDef for reference BusinessInterface.composesBusinessInterfaceBusinessInterface {
+				label "composes"
+				style LineaSolidaMedia
+				source decoration filled rhomb
+				target decoration none
+			}
+			Node_line aggregatesBusinessInterfaceBusinessInterfaceDef for reference BusinessInterface.aggregatesBusinessInterfaceBusinessInterface {
+				label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+			Node_line composesBusinessRoleBusinessInterfaceDef for reference BusinessInterface.composesBusinessRoleBusinessInterface {
+				label "composes"
+				style LineaSolidaMedia
+				source decoration filled rhomb
+				target decoration none
+			}
+			Node_line assignedToBusinessServiceBusinessInterfaceDef for reference BusinessInterface.assignedToBusinessServiceBusinessInterface {
+				label "assignedTo"
+				style LineaSolidaSuave
+				source decoration square
+				target decoration square
+			}
+			Node_element BusinessRoleDef for class BusinessRole {
+				label elementName
+				label icon false
+				label placement internal
+				size (60, 60)
+					Regular figure extends rectRounded10 {
+					background color BusinessColor
+					border LineaSolidaMedia
+				icon path "BusinessRole.gif"	
+					icon size ( 50 , 50)
+					icon position Point (30, 30)
+				}
+				phantom true
+			}
+			Node_line composesBusinessRoleBusinessRoleDef for reference BusinessRole.composesBusinessRoleBusinessRole {
+				label "composes"
+				style LineaSolidaMedia
+				source decoration filled rhomb
+				target decoration none
+			}
+			Node_line aggregatesBusinessRoleBusinessRoleDef for reference BusinessRole.aggregatesBusinessRoleBusinessRole {
+				label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+	
+			Node_line assignedToBusinessBehaviorElementBusinessRoleDef for reference BusinessRole.assignedToBusinessBehaviorElementBusinessRole {
+				label "assignedTo"
+				style LineaSolidaSuave
+				source decoration square
+				target decoration square
+			}
+			Node_line usesBusinessInterfaceBusinessRoleDef for reference BusinessRole.usesBusinessInterfaceBusinessRole {
+						label "uses"
+				style LineaSolidaSuave
+				source decoration none
+				target decoration arrow
+			}
+			Node_line usesBusinessServiceBusinessRoleDef for reference BusinessRole.usesBusinessServiceBusinessRole {
+				label "uses"
+				style LineaSolidaSuave
+				source decoration none
+				target decoration arrow
+			}
+			Node_element BusinessCollaborationDef for class BusinessCollaboration {
+				label elementName
+				label icon false
+				label placement internal
+				size (60, 60)
+					Regular figure extends rectRounded10 {
+					background color BusinessColor
+					border LineaSolidaMedia
+				icon path "BusinessCollaboration.gif"	
+					icon size ( 50 , 50)
+					icon position Point (30, 30)
+				}
+				phantom true
+			}
+			Node_line aggregatesBusinessActorBusinessCollaborationDef for reference BusinessCollaboration.aggregatesBusinessActorBusinessCollaboration {
+					label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+			Node_line aggregatesBusinessRoleBusinessCollaborationDef for reference BusinessCollaboration.aggregatesBusinessRoleBusinessCollaboration {
+					label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+			Node_element BusinessActorDef for class BusinessActor {
+				label elementName
+				label icon false
+				label placement internal
+				size (60, 60)
+					Regular figure extends rectRounded10 {
+					background color BusinessColor
+					border LineaSolidaMedia
+				icon path "BusinessActor.gif"	
+					icon size ( 50 , 50)
+					icon position Point (30, 30)
+				}
+				phantom true
+			}
+			Node_line composesBusinessActorBusinessActorDef for reference BusinessActor.composesBusinessActorBusinessActor {
+				label "composes"
+				style LineaSolidaMedia
+				source decoration filled rhomb
+				target decoration none
+			}
+			Node_line aggregatesBusinessActorBusinessActorDef for reference BusinessActor.aggregatesBusinessActorBusinessActor {
+				label "aggregates"
+				style LineaSolidaMedia
+	            source decoration rhomb
+				target decoration none
+			}
+			Node_line usesBusinessInterfaceBusinessActorDef for reference BusinessActor.usesBusinessInterfaceBusinessActor {
+					label "uses"
+				style LineaSolidaSuave
+				source decoration none
+				target decoration arrow
+			}
+			Node_line assignedToBusinessRoleBusinessActorDef for reference BusinessActor.assignedToBusinessRoleBusinessActor {
+				label "assignedTo"
+				style LineaSolidaSuave
+				source decoration square
+				target decoration square
+			}
+			Node_line assignedTasksDef for reference BusinessActor.assignedTasks {
+				label "assignedTasks"
+				style LineaSolidaSuave
+				source decoration square
+				target decoration square
+			}
+			Node_line usesBusinessServiceBusinessActorDef for reference BusinessActor.usesBusinessServiceBusinessActor {
+					label "uses"
+				style LineaSolidaSuave
+				source decoration none
+				target decoration arrow
+			}
+			
+			}
+		Rules definition  {
+			
+			
+		}
+
+		Interaction definition {
+			
+			Interaction elements {
+				
+/////////NUEVOS ///////NUEVOS/////////NUEVOS ///////NUEVOS/////////NUEVOS ///////NUEVOS/////////NUEVOS ///////NUEVOS/////////NUEVOS ///////NUEVOS
+/////////NUEVOS ///////NUEVOS/////////NUEVOS ///////NUEVOS/////////NUEVOS ///////NUEVOS/////////NUEVOS ///////NUEVOS/////////NUEVOS ///////NUEVOS/////////NUEVOS ///////NUEVOS
+				
+			Wizard WizardForCreateBasicActivity for context class Activity {
+					title "ActivityWizard"
+					description "Create Location Wizard"
+					type create
+					pages {
+						Page {
+							title "Activity Attributes"
+							description "Define Activity Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "Activity")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+
+					}
+					default buttons true
+				}
+				
+			Wizard WizardForCreateBasicAutomaticActivity for context class AutomaticActivity {
+					title "AutomaticActivityWizard"
+					description "Create Location Wizard"
+					type create
+					pages {
+						Page {
+							title "AutomaticActivity Attributes"
+							description "Define AutomaticActivity Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "AutomaticActivity")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+
+					}
+					default buttons true
+				}
+			Wizard WizardForCreateBasicManualActivity for context class ManualActivity {
+					title "ManualActivityWizard"
+					description "Create Location Wizard"
+					type create
+					pages {
+						Page {
+							title "ManualActivity Attributes"
+							description "Define ManualActivity Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "ManualActivity")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+
+					}
+					default buttons true
+				}
+				
+				
+				Wizard WizardForCreateBasicOrganization for context class Organization {
+					title "OrganizationWizard"
+					description "Create Organization Wizard"
+					type create
+					pages {
+						Page {
+							title "Organization Attributes"
+							description "Define Organization Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "Organization")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+
+					}
+					default buttons true
+				}
+				
+				  Wizard WizardForCreateBasicTask for context class Task {
+					title "TaskWizard"
+					description "Create Task Wizard"
+					type create
+					pages {
+						Page {
+							title "Task Attributes"
+							description "Define Task Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "Task")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+
+					}
+					default buttons true
+				}
+				
+			  Wizard WizardForCreateBasicAssignedTask for context class AssignedTask {
+					title "TaskWizard"
+					description "Create Task Wizard"
+					type create
+					pages {
+						Page {
+							title "Task Attributes"
+							description "Define Task Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "Task")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+
+					}
+					default buttons true
+				}
+				
+		
+
+				
+		
+//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN				//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN
+				//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN
+				Wizard WizardForCreateBasicBusinessProcess for context class BusinessProcess {
+					title "BusinessProcessWizard"
+					description "Create BusinessProcess Wizard"
+					type create
+					pages {
+						Page {
+							title "General Information"
+							description "Define General Information"
+							Attributes to show {
+								("elementName", "Name", textField, "Process_")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+					}
+					default buttons true
+				}
+
+				Wizard WizardForCreateBasicLocation for context class Location {
+					title "LocationWizard"
+					description "Create Location Wizard"
+					type create
+					pages {
+						Page {
+							title "Location Attributes"
+							description "Define Location Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "Location_")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+
+					}
+					default buttons true
+				}
+			
+				Wizard WizardForCreateBasicBusinessRole for context class BusinessRole {
+
+					title "ElementWizard"
+					description "Create Element Wizard"
+					type create
+					pages {
+						Page {
+							title "Element Attributes"
+							description "Define Element Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "Element")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+					}
+					default buttons true
+				}
+				
+				
+								Wizard WizardForCreateBasicBusinessActor for context class BusinessActor {
+
+					title "ElementWizard"
+					description "Create Element Wizard"
+					type create
+					pages {
+						Page {
+							title "Element Attributes"
+							description "Define Element Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "Element")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+					}
+					default buttons true
+				}
+								Wizard WizardForCreateBasicBusinessCollaboration for context class BusinessCollaboration {
+
+					title "ElementWizard"
+					description "Create Element Wizard"
+					type create
+					pages {
+						Page {
+							title "Element Attributes"
+							description "Define Element Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "Element")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+					}
+					default buttons true
+				}
+				
+								Wizard WizardForCreateBasicBusinessInterface for context class BusinessInterface {
+
+					title "ElementWizard"
+					description "Create Element Wizard"
+					type create
+					pages {
+						Page {
+							title "Element Attributes"
+							description "Define Element Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "Element")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+					}
+					default buttons true
+				}
+				
+								Wizard WizardForCreateBasicBusinessObject for context class BusinessObject {
+
+					title "ElementWizard"
+					description "Create Element Wizard"
+					type create
+					pages {
+						Page {
+							title "Element Attributes"
+							description "Define Element Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "Element")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+					}
+					default buttons true
+				}
+				
+								Wizard WizardForCreateBasicBusinessFunction for context class BusinessFunction {
+
+					title "ElementWizard"
+					description "Create Element Wizard"
+					type create
+					pages {
+						Page {
+							title "Element Attributes"
+							description "Define Element Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "Element")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+					}
+					default buttons true
+				}
+				
+								Wizard WizardForCreateBasicBusinessEvent for context class BusinessEvent {
+
+					title "ElementWizard"
+					description "Create Element Wizard"
+					type create
+					pages {
+						Page {
+							title "Element Attributes"
+							description "Define Element Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "Element")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+					}
+					default buttons true
+				}
+				
+								Wizard WizardForCreateBasicBusinessService for context class BusinessService {
+
+					title "ElementWizard"
+					description "Create Element Wizard"
+					type create
+					pages {
+						Page {
+							title "Element Attributes"
+							description "Define Element Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "Element")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+					}
+					default buttons true
+				}
+				
+							Wizard WizardForCreateBasicBusinessInteraction for context class BusinessInteraction {
+
+					title "ElementWizard"
+					description "Create Element Wizard"
+					type create
+					pages {
+						Page {
+							title "Element Attributes"
+							description "Define Element Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "Element")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+					}
+					default buttons true
+				}
+				
+					Wizard WizardForCreateBasicRepresentation for context class Representation {
+
+					title "ElementWizard"
+					description "Create Element Wizard"
+					type create
+					pages {
+						Page {
+							title "Element Attributes"
+							description "Define Element Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "Element")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+					}
+					default buttons true
+				}
+					Wizard WizardForCreateBasicValue for context class Value {
+
+					title "ElementWizard"
+					description "Create Element Wizard"
+					type create
+					pages {
+						Page {
+							title "Element Attributes"
+							description "Define Element Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "Element")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+					}
+					default buttons true
+				}
+					Wizard WizardForCreateBasicMeaning for context class Meaning {
+
+					title "ElementWizard"
+					description "Create Element Wizard"
+					type create
+					pages {
+						Page {
+							title "Element Attributes"
+							description "Define Element Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "Element")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+					}
+					default buttons true
+				}
+					Wizard WizardForCreateBasicContract for context class Contract {
+
+					title "ElementWizard"
+					description "Create Element Wizard"
+					type create
+					pages {
+						Page {
+							title "Element Attributes"
+							description "Define Element Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "Element")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+					}
+					default buttons true
+				}
+				
+			Wizard WizardForCreateBasicProduct for context class Product {
+
+					title "ElementWizard"
+					description "Create Element Wizard"
+					type create
+					pages {
+						Page {
+							title "Element Attributes"
+							description "Define Element Attributes"
+							Attributes to show {
+								("elementName", "Name", textField, "Element")
+								("description", "Description", textArea, "Insert Description...")
+							}
+							References to show {
+		
+							}
+							Additional buttons {
+		 
+							}
+						}
+					}
+					default buttons true
+				}
+				
+			}
+			Statements {
+				
+				
+////NUEVOS //////NUEVOS			////NUEVOS //////NUEVOS			////NUEVOS //////NUEVOS			////NUEVOS //////NUEVOS			////NUEVOS //////NUEVOS			////NUEVOS //////NUEVOS			
+	Actions for type Task {
+					on create do {
+						show wizard WizardForCreateBasicTask
+					}				
+				}
+			Actions for type Organization {
+					on create do {
+						show wizard WizardForCreateBasicOrganization
+					}				
+				}
+				Actions for type Activity {
+					on create do {
+						show wizard WizardForCreateBasicActivity
+					}				
+				}
+							Actions for type ManualActivity {
+					on create do {
+						show wizard WizardForCreateBasicManualActivity
+					}				
+				}
+		Actions for type AutomaticActivity {
+					on create do {
+						show wizard WizardForCreateBasicAutomaticActivity
+					}				
+				}
+					Actions for type AssignedTask {
+					on create do {
+						show wizard WizardForCreateBasicAssignedTask
+					}				
+				}
+				
+//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN//////////ESTOS YA ESTABAN
+				Actions for type BusinessProcess {
+					on create do {
+						show wizard WizardForCreateBasicBusinessProcess
+					}
+				}
+				Actions for type Location {
+					on mouse double click do {
+						show wizard WizardForCreateBasicLocation 
+					}				
+				}
+				Actions for type BusinessRole {
+					on create do {
+						show wizard WizardForCreateBasicBusinessRole
+					}				
+				}
+			Actions for type BusinessActor {
+					on mouse double click do {
+						show wizard WizardForCreateBasicBusinessActor
+					}				
+				}
+				Actions for type BusinessService {
+					on mouse double click do {
+						show wizard WizardForCreateBasicBusinessService
+					}				
+				}
+				Actions for type BusinessFunction {
+					on mouse double click do {
+						show wizard WizardForCreateBasicBusinessFunction
+					}				
+				}
+					Actions for type BusinessCollaboration {
+					on mouse double click do {
+						show wizard WizardForCreateBasicBusinessCollaboration
+					}				
+				}
+					Actions for type BusinessInterface {
+					on mouse double click do {
+						show wizard WizardForCreateBasicBusinessInterface
+					}				
+				}
+					Actions for type BusinessObject {
+					on mouse double click do {
+						show wizard WizardForCreateBasicBusinessObject
+					}				
+				}
+				
+				Actions for type BusinessEvent {
+					on mouse double click do {
+						show wizard WizardForCreateBasicBusinessEvent
+					}				
+				}
+				Actions for type BusinessInteraction {
+					on mouse double click do {
+						show wizard WizardForCreateBasicBusinessInteraction
+					}				
+				}
+				Actions for type Value {
+					on mouse double click do {
+						show wizard WizardForCreateBasicValue
+					}				
+				}
+				Actions for type Contract {
+					on mouse double click do {
+						show wizard WizardForCreateBasicContract 
+					}				
+				}
+				Actions for type Product {
+					on mouse double click do {
+						show wizard WizardForCreateBasicProduct
+					}				
+				}
+						Actions for type Meaning {
+					on mouse double click do {
+						show wizard WizardForCreateBasicMeaning
+					}				
+				}
+						Actions for type Representation {
+					on mouse double click do {
+						show wizard WizardForCreateBasicRepresentation
+					}				
+				}
+			}
+		}
+	}

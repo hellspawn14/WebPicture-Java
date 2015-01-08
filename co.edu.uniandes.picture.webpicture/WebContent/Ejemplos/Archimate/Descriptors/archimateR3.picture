@@ -1,0 +1,1261 @@
+import "/model/ArchimateRelations.ecore" as MM
+Graphical representation ArchimateEditor2 {
+	reference package archimateC3
+	root ArchimateModel
+	Palette for ArchimateModel {
+		
+		Tool group relationsGroup{
+			description "Connectors"
+			
+			Creation button for class Composition {
+				name "Composition"
+				description "Composition" icon
+				"/imagenes/CompositionIcon.gif"
+			}
+			Creation button for class Aggregation {
+				name "Aggregation"
+				description "Aggregation" icon
+				"/imagenes/AggregationIcon.gif"
+			}
+			
+			Creation button for class Access {
+				name "Access"
+				description "Access" icon
+				"/imagenes/AccessIcon.gif"
+			}
+
+			Creation button for class Association {
+				name "Association"
+				description "Association" icon
+				"/imagenes/AssociationIcon.gif"
+			}
+			Creation button for class Triggering {
+				name "Triggering"
+				description "Triggering" icon
+				"/imagenes/TriggeringIcon.gif"
+			}
+			Creation button for class Flow {
+				name "Flow"
+				description "Flow" icon
+				"/imagenes/FlowIcon.gif"
+			}
+			Creation button for class Specialization  {
+				name "Specialization"
+				description "Specialization" icon
+				"/imagenes/SpecializationIcon.gif"
+			}
+			Creation button for class Realization {
+				name "Realization"
+				description "Realization" icon
+				"/imagenes/RealizationIcon.gif"
+			}
+			Creation button for class Assignment {
+				name "Assignment"
+				description "Assignment" icon
+				"/imagenes/AssignmentIcon.gif"
+			}
+			Creation button for class UsedBy {
+				name "UsedBy"
+				description "UsedBy" icon
+				"/imagenes/UsedByIcon.gif"
+			}
+			Creation button for class Group {
+				name "Group"
+				description "Group" icon
+				"/imagenes/Group.gif"
+			}
+		}
+		
+		
+		Tool group AppPalette {
+			description "Application Layer"
+			Creation button for class ApplicationComponent {
+				name "ApplicationComponent"
+				description "ApplicationComponent" icon
+				"/imagenes/ApplicationComponentIcon.gif"
+			}
+			Creation button for class ApplicationCollaboration {
+				name "ApplicationCollaboration"
+				description "ApplicationCollaboration" icon
+				"/imagenes/ApplicationCollaborationIcon.gif"
+			}
+			Creation button for class ApplicationInterface {
+				name "ApplicationInterface"
+				description "ApplicationInterface" icon
+				"/imagenes/ApplicationInterfaceIcon.gif"
+			}
+			Creation button for class DataObject {
+				name "DataObject"
+				description "DataObject" icon "/imagenes/DataObjectIcon.gif"
+			}
+			Creation button for class ApplicationFunction {
+				name "ApplicationFunction"
+				description "ApplicationFunction" icon
+				"/imagenes/ApplicationFunctionIcon.gif"
+			}
+			Creation button for class ApplicationInteraction {
+				name "ApplicationInteraction"
+				description "ApplicationInteraction" icon
+				"/imagenes/ApplicationInteractionIcon.gif"
+			}
+			Creation button for class ApplicationService {
+				name "ApplicationService"
+				description "ApplicationService" icon
+				"/imagenes/ApplicationServiceIcon.gif"
+			}
+		}
+		Tool group ArchimatePalette {
+			description "Archimate Business Palette"
+			Creation button for class Product {
+				name "Product"
+				description "Product" icon "/imagenes/ProductIcon.gif"
+			}
+			Creation button for class Contract {
+				name "Contract"
+				description "Contract" icon "/imagenes/ContractIcon.gif"
+			}
+			Creation button for class Meaning {
+				name "Meaning"
+				description "Meaning" icon "/imagenes/MeaningIcon.gif"
+			}
+			Creation button for class Representation {
+				name "Representation"
+				description "Representation" icon "/imagenes/RepresentationIcon.gif"
+			}
+			Creation button for class BusinessObject {
+				name "BusinessObject"
+				description "BusinessObject" icon "/imagenes/BusinessObjectIcon.gif"
+			}
+			Creation button for class BusinessService {
+				name "BusinessService"
+				description "BusinessService" icon "/imagenes/BusinessServiceIcon.gif"
+			}
+			Creation button for class BusinessProcess {
+				name "BusinessProcess"
+				description "BusinessProcess" icon "/imagenes/BusinessProcessIcon.gif"
+			}
+			Creation button for class BusinessFunction {
+				name "BusinessFunction"
+				description "BusinessFunction" icon "/imagenes/BusinessFunctionIcon.gif"
+			}
+			Creation button for class BusinessInteraction {
+				name "BusinessInteraction"
+				description "BusinessInteraction" icon
+				"/imagenes/BusinessInteractionIcon.gif"
+			}
+			Creation button for class BusinessEvent {
+				name "BusinessEvent"
+				description "BusinessEvent" icon "/imagenes/BusinessEventIcon.gif"
+			}
+			Creation button for class Location {
+				name "Location"
+				description "Location" icon "/imagenes/LocationIcon.gif"
+			}
+			Creation button for class BusinessInterface {
+				name "BusinessInterface"
+				description "BusinessInterface" icon "/imagenes/BusinessInterfaceIcon.gif"
+			}
+			Creation button for class BusinessRole {
+				name "BusinessRole"
+				description "BusinessRole" icon "/imagenes/BusinessRoleIcon.gif"
+			}
+			Creation button for class BusinessCollaboration {
+				name "BusinessCollaboration"
+				description "BusinessCollaboration" icon
+				"/imagenes/BusinessCollaborationIcon.gif"
+			}
+			Creation button for class BusinessActor {
+				name "BusinessActor"
+				description "BusinessActor" icon "/images/actor.gif"
+			}
+		}
+		Tool group ElementsPalette {
+			description "Technology Elements"
+			Creation button for class Node {
+				name "Node"
+				description "Node" icon "/imagenes/NodeIcon.gif"
+			}
+			Creation button for class Device {
+				name "Device"
+				description "Device" icon "/imagenes/DeviceIcon.gif"
+			}
+			Creation button for class SystemSoftware {
+				name "SystemSoftware"
+				description "SystemSoftware" icon "/imagenes/SystemSoftwareIcon.gif"
+			}
+			Creation button for class InfrastructureInterface {
+				name "InfrastructureInterface"
+				description "InfrastructureInterface" icon
+				"/imagenes/InfrastructureInterfaceIcon.gif"
+			}
+			Creation button for class Network {
+				name "Network"
+				description "Network" icon "/imagenes/NetworkIcon.gif"
+			}
+			Creation button for class CommunicationPath {
+				name "CommunicationPath"
+				description "CommunicationPath" icon "/imagenes/CommunicationPathIcon.gif"
+			}
+			Creation button for class InfrastructureService {
+				name "InfrastructureService"
+				description "InfrastructureService" icon
+				"/imagenes/InfrastructureServiceIcon.gif"
+			}
+			Creation button for class Artifact {
+				name "Artifact"
+				description "Artifact" icon "/imagenes/ArtifactIcon.gif"
+			}
+		}
+		Tool group ElementsMPalette {
+			description "Motivational Elements"
+			Creation button for class Stakeholder {
+				name "Stakeholder"
+				description "Stakeholder" icon "/imagenes/Stakeholder.gif"
+			}
+			Creation button for class Driver {
+				name "Driver"
+				description "Driver" icon "/imagenes/Driver.gif"
+			}
+			Creation button for class Assessment {
+				name "Assessment"
+				description "Assessment" icon "/imagenes/Assessment.gif"
+			}
+			Creation button for class Goal {
+				name "Goal"
+				description "Goal" icon
+				"/imagenes/Goal.gif"
+			}
+			Creation button for class Requirement {
+				name "Requirement"
+				description "Requirement" icon "/imagenes/Requirement.gif"
+			}
+			Creation button for class Constraint {
+				name "Constraint"
+				description "Constraint" icon "/imagenes/Constraint.gif"
+			}
+			Creation button for class Principle {
+				name "Principle"
+				description "Principle" icon
+				"/imagenes/Principle.gif"
+			}			
+		}
+		Tool group ElementsIAMPalette {
+			description "Implementation & Migration"
+			Creation button for class WorkPackage {
+				name "WorkPackage"
+				description "WorkPackage" icon "/imagenes/WorkPackage.gif"
+			}
+			Creation button for class Deliverable {
+				name "Deliverable"
+				description "Deliverable" icon "/imagenes/Deliverable.gif"
+			}
+			Creation button for class Plateau {
+				name "Plateau"
+				description "Plateau" icon "/imagenes/Plateau.gif"
+			}
+			Creation button for class Gap {
+				name "Gap"
+				description "Gap" icon
+				"/imagenes/Gap.gif"
+			}
+			
+		}
+	}
+	Style definition {
+		Color black ( 0 ,  0 ,  0 )
+		Line style BorderBlack1 {
+			width 1
+			type dot
+			color black
+		}
+		Line style BorderBlackDash {
+			width 1
+			type dash
+			color black
+		}
+		Color white ( 255 ,  255 ,  255 )
+		Color yellow ( 255 ,  255 ,  0 )
+		Color blue ( 0 ,  0 ,  255 )
+		Color red ( 255 ,  0 ,  0 )
+		Color green ( 0 ,  255 ,  0 )
+		Line style BorderBlack3 {
+			width 3
+			type solid
+			color black
+		}
+		Line style BorderBlack4 {
+			width 4
+			type solid
+			color black
+		}
+		Line style BorderRed2 {
+			width 2
+			type solid
+			color red
+		}
+		Rounded rectRounded10 {
+			radiox 10
+			radioy 10
+		}
+		Rounded rectService {
+			radiox 29
+			radioy 45
+		}
+		Ellipse ellip {
+			proportion ( 35 ,  25 )
+		}
+		Regular polygon deca {
+			vertex quantity 8
+			start angle 90
+		}
+		Color Withe ( 255 ,  255 ,  255 )
+		Color AppLayerColor ( 117 ,  235 ,  235 )
+		Color pasiveElementsColor ( 116 ,  232 ,  116 )
+		Color behaviorElementsColor ( 241 ,  241 ,  181 )
+		Color greenTestXX ( 44 ,  255 ,  45 )
+		Line style BorderBlackDot {
+			width 1
+			type dot
+			color black
+		}
+		Line style BorderBlack2 {
+			width 2
+			type solid
+			color black
+		}
+		Line style Borderwhite {
+			width 2
+			type solid
+			color white
+		}
+		Rounded imageService {
+			radiox 29
+			radioy 45
+		}
+		Rounded cuadrado {
+			radiox 0
+			radioy 0
+		}
+		Ellipse ValueImage {
+			proportion ( 32 ,  19 )
+		}
+		Line style BorderWhite {
+			width 3
+			type solid
+			color Withe
+		}
+		Color BusinessColor ( 241 ,  241 ,  181 )
+		Line style BorderRedDot {
+			width 4
+			type dot
+			color red
+		}
+		Line style BorderBusinessColor {
+			width 3
+			type solid
+			color BusinessColor
+		}
+		Color activeElementsColor ( 117 ,  235 ,  235 )
+		Color techLayer ( 116 ,  232 ,  116 )
+		
+		//----------Connectors Styles
+		
+		Line style lineConnectorNormal{
+			width 2
+			type solid
+			color black
+		}
+		Line style lineRealization{
+			width 2
+			type dash
+			color black
+		}
+		Line style lineAccess{
+			width 2
+			type dot
+			color black
+		}
+		Line style lineFlow{
+			width 2
+			type dashdotdot
+			color black
+		}
+		Color PinkColor(254, 204, 255)
+		
+		Color purple(204, 204, 254)
+		
+		Color piel(255, 222, 226)
+	}
+	Graphical
+	definition {
+		//Connectors /*
+		/*'Node_link' name=ID 'for' referenceClass=ClassReference '{'
+		'label' label=ID
+		'style' style=LineStyle
+		'source' 'decoration' sourceDecoration=LineDecoration
+		'target' 'decoration' targetDecoration=LineDecoration
+		'source' 'reference' '<-' sourceReference=ID  
+		'target' 'reference' '<-' targetReference=ID
+	'}';*/
+	
+	/*Node_link CompositionConnector for class Composition{
+		label connectorName
+		style Line style  lineConnectorNormal
+		{
+			width 2
+			type solid
+			color black
+			
+		}
+		source decoration filled rhomb
+		target decoration none
+		source reference <- sourceC
+		target reference  <- targetC
+	}
+	
+	Node_link AggregationConnector for class Aggregation{
+		label connectorName
+		style Line style  lineConnectorNormalAggregation
+		{
+			width 2
+			type solid
+			color black
+			
+		}
+		source decoration rhomb
+		target decoration none
+		source reference <- sourceC
+		target reference  <- targetC
+	}
+	
+	
+	
+	
+	Node_link AssignmentConnector for class Assignment{
+		label connectorName
+		style Line style  lineConnectorNormalAssignmentn
+		{
+			width 2
+			type solid
+			color black
+			
+		}
+		source decoration filled square
+		target decoration filled square
+		source reference <- sourceC
+		target reference  <- targetC
+	}
+	
+	Node_link RealizationConnector for class Realization{
+		label connectorName
+		style Line style  lineConnectorRealization
+		{
+			width 2
+			type dash
+			color black
+			
+		}
+		source decoration none
+		target decoration closed arrow
+		source reference <- sourceC
+		target reference  <- targetC
+	}	
+	
+	
+	Node_link UsedByConnector for class UsedBy{
+		label connectorName
+		style Line style  lineConnectorUsedBy
+		{
+			width 2
+			type solid
+			color black
+			
+		}
+		source decoration none
+		target decoration arrow
+		source reference <- sourceC
+		target reference  <- targetC
+	}	
+	
+	Node_link AccessConnector for class Access{
+		label connectorName
+		style Line style  lineConnectorAccess
+		{
+			width 2
+			type dot
+			color black
+			
+		}
+		source decoration none
+		target decoration arrow
+		source reference <- sourceC
+		target reference  <- targetC
+	}	
+	
+	Node_link AssociationConnector for class Association{
+		label connectorName
+		style Line style  lineConnectorAssociation
+		{
+			width 2
+			type solid
+			color black
+			
+		}
+		source decoration none
+		target decoration none
+		source reference <- sourceC
+		target reference  <- targetC
+	}
+	
+	Node_link TriggeringConnector for class Triggering{
+		label connectorName
+		style Line style  lineConnectorTriggering
+		{
+			width 2
+			type solid
+			color black
+			
+		}
+		source decoration none
+		target decoration filled closed  arrow
+		source reference <- sourceC
+		target reference  <- targetC
+	}
+	
+		Node_link FlowConnector for class Flow{
+		label connectorName
+		style Line style  lineConnectorFlow
+		{
+			width 2
+			type dashdotdot
+			color black
+			
+		}
+		source decoration none
+		target decoration filled closed  arrow
+		source reference <- sourceC
+		target reference  <- targetC
+	}
+	
+	Node_link SpecializationConnector for class Specialization{
+		label connectorName
+		style Line style  lineConnectorSpecialization
+		{
+			width 2
+			type solid
+			color black
+			
+		}
+		source decoration none
+		target decoration closed  arrow
+		source reference <- sourceC
+		target reference  <- targetC
+	}*/
+	
+	Node_element GroupDef for class Group{
+		label groupName
+			label icon false
+			label placement internal
+			size ( 601 ,  251 )
+			Image figure {
+				image path "group.svg"
+				
+			}
+			phantom true
+	}
+	
+	Internal_node composedOfGroupDef
+		for reference Group.groupElements {
+			layout default layout
+	}
+	// New elements:---------------------------------------------------------------------------------
+	
+	Node_element StakeholderDef
+		for class Stakeholder {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color PinkColor
+				border BorderBlack2 icon
+				path "iconiconroleIcon.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom true
+		}
+		
+		Node_element DriverDef
+		for class Driver {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color PinkColor
+				border BorderBlack2 icon
+				path "driverIcon.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom true
+		}
+			Node_element AssessmentDef
+		for class Assessment {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color PinkColor
+				border BorderBlack2 icon
+				path "AssessmentIcon.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom true
+		}
+			Node_element GoalDef
+		for class Goal {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color purple
+				border BorderBlack2 icon
+				path "GoalIcon.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom true
+		}
+		
+			Node_element RequirementDef
+		for class Requirement {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color purple
+				border BorderBlack2 icon
+				path "RequirementIcon.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom true
+		}
+		
+			Node_element ConstraintDef
+		for class Constraint {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color purple
+				border BorderBlack2 icon
+				path "ConstraintIcon.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom true
+		}
+		
+			Node_element PrincipleDef
+		for class Principle {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color purple
+				border BorderBlack2 icon
+				path "PrincipleIcon.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom true
+		}
+		//------------Implementation and Migration
+		
+			Node_element WorkPackageDef
+		for class WorkPackage {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color piel
+				border BorderBlack2 
+			}
+			phantom true
+		}
+		
+		
+		
+		Node_element DeliverableDef
+		for class Deliverable {
+			label elementName
+			label icon false
+			label placement external
+			size ( 65 ,  65 )
+			Regular figure extends cuadrado {
+				background color piel
+				border BorderWhite icon
+				path "iconiconrepresentation.svg" icon
+				size ( 64 ,  64 )
+				icon
+				position
+				Point ( 1 ,  1 )
+			}
+			phantom true
+		}
+		
+		Node_element PlateauDef
+		for class Plateau {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color purple
+				border BorderBlack2 icon
+				path "PlateauIcon.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom true
+		}
+		
+		Node_element GapDef
+		for class Gap {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color purple
+				border BorderBlack2 icon
+				path ".svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom true
+		}
+		
+		///////nodes--------------------------------------------------------------
+		Node_element ApplicationCollaborationDef
+		for class ApplicationCollaboration {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color AppLayerColor
+				border BorderBlack1 icon
+				path "iconiconcollaboarationIconF.svg" icon
+				size ( 24 ,  16 )
+				icon
+				position
+				Point ( 115 ,  2 )
+			}
+			phantom true
+		}
+		Node_element DataObjectDef
+		for class DataObject {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 70 ,  50 )
+			Image figure {
+				image path "iconDataObject.svg"
+			}
+			phantom true
+		}
+		Node_element ApplicationServiceDef
+		for class ApplicationService {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 92 ,  52 )
+			Regular figure extends rectService {
+				background color AppLayerColor
+				border BorderBlack2
+			}
+			phantom true
+		}
+		Node_element ApplicationFunctionDef
+		for class ApplicationFunction {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color AppLayerColor
+				border BorderBlack1 icon
+				path "iconiconfunctionIcon.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom true
+		}
+		Node_element ApplicationInteractionDef
+		for class ApplicationInteraction {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color AppLayerColor
+				border BorderBlack1 icon
+				path "iconiconInteractionIcon.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom true
+		}
+		Node_element ApplicationInterfaceDef
+		for class ApplicationInterface {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color AppLayerColor
+				border BorderBlack2 icon
+				path "iconiconInterfaceIcon.svg" icon
+				size ( 25 ,  16 )
+				icon
+				position
+				Point ( 114 ,  2 )
+			}
+			phantom true
+		}
+		Node_element ApplicationComponentDef
+		for class ApplicationComponent {
+			label elementName
+			label icon false
+			label placement external
+			size ( 100 ,  100 )
+			Regular figure extends rectRounded10 {
+				background color AppLayerColor
+				border Borderwhite icon
+				path "iconiconApplicationComponent.svg" icon
+				size ( 99 ,  99 )
+				icon
+				position
+				Point ( 1 ,  1 )
+			}
+			phantom true
+		}
+		Node_element ArchimateElementDef
+		for class ArchimateElement {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 70 ,  50 )
+			Regular figure extends rectRounded10 {
+				background color white
+				border BorderBlack2
+			}
+			phantom true
+		}
+		Node_element ProductDef
+		for class Product {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 64 ,  54 )
+			Image figure {
+				image path "iconiconProductImage.svg"
+			}
+			phantom false
+		}
+		Node_element MeaningDef
+		for class Meaning {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 67 ,  67 )
+			Regular figure extends rectRounded10 {
+				background color BusinessColor
+				border BorderWhite icon
+				path "iconiconCloud.svg" icon
+				size ( 64 ,  64 )
+				icon
+				position
+				Point ( 3 ,  3 )
+			}
+			phantom false
+		}
+		Node_element RepresentationDef
+		for class Representation {
+			label elementName
+			label icon false
+			label placement external
+			size ( 65 ,  65 )
+			Regular figure extends cuadrado {
+				background color BusinessColor
+				border BorderWhite icon
+				path "iconiconrepresentation.svg" icon
+				size ( 64 ,  64 )
+				icon
+				position
+				Point ( 1 ,  1 )
+			}
+			phantom true
+		}
+		
+		Node_element ContractDef
+		for class Contract {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 64 ,  54 )
+			Image figure {
+				image path "iconiconContractImage.svg"
+			}
+			phantom false
+		}
+		Node_element BusinessObjectDef
+		for class BusinessObject {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 64 ,  54 )
+			Image figure {
+				image path "iconiconProductImage.svg"
+			}
+			phantom false
+		}
+		Node_element BusinessServiceDef
+		for class BusinessService {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  62 )
+			Regular figure extends imageService {
+				background color BusinessColor
+				border BorderBlack1
+			}
+			phantom false
+		}
+		Node_element BusinessProcessDef
+		for class BusinessProcess {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color BusinessColor
+				border BorderBlack2 icon
+				path "iconiconProcessIcon2.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom true
+		}
+		Node_element BusinessFunctionDef
+		for class BusinessFunction {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color BusinessColor
+				border BorderBlack1 icon
+				path "iconiconfunctionIcon.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom true
+		}
+		Node_element BusinessInteractionDef
+		for class BusinessInteraction {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color BusinessColor
+				border BorderBlack1 icon
+				path "iconiconInteractionIcon.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom true
+		}
+		Node_element BusinessEventDef
+		for class BusinessEvent {
+			label elementName
+			label icon false
+			label placement external
+			size ( 85 ,  65 )
+			Image figure {
+				image path "iconiconeventFigure.svg"
+			}
+			phantom false
+		}
+		Node_element LocationDef
+		for class Location {
+			label elementName
+			label icon false
+			label placement external
+			size ( 56 ,  87 )
+			Regular figure extends rectRounded10 {
+				background color white
+				border BorderWhite icon
+				path "iconiconlocation.svg" icon
+				size ( 56 ,  87 )
+				icon
+				position
+				Point ( 1 ,  1 )
+			}
+			phantom true
+		}
+		Node_element BusinessInterfaceDef
+		for class BusinessInterface {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color BusinessColor
+				border BorderBlack2 icon
+				path "iconiconInterfaceIcon.svg" icon
+				size ( 25 ,  16 )
+				icon
+				position
+				Point ( 114 ,  2 )
+			}
+			phantom true
+		}
+		Node_element BusinessActorDef
+		for class BusinessActor {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color BusinessColor
+				border BorderBlack2 icon
+				path "iconiconActorIcon.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom true
+		}
+		Node_element BusinessCollaborationDef
+		for class BusinessCollaboration {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color BusinessColor
+				border BorderBlack1 icon
+				path "iconiconcollaboarationIconF.svg" icon
+				size ( 24 ,  16 )
+				icon
+				position
+				Point ( 114 ,  2 )
+			}
+			phantom true
+		}
+		Node_element BusinessRoleDef
+		for class BusinessRole {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  60 )
+			Regular figure extends rectRounded10 {
+				background color BusinessColor
+				border BorderBlack2 icon
+				path "iconiconroleIcon.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom true
+		}
+		Node_element NodeDef
+		for class Node {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  65 )
+			Regular figure extends rectRounded10 {
+				background color techLayer
+				border BorderBlack2 icon
+				path "iconiconNodeIcon.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom false
+		}
+		Node_element DeviceDef
+		for class Device {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  65 )
+			Regular figure extends rectRounded10 {
+				background color techLayer
+				border BorderBlack2 icon
+				path "iconicondeviceIIcon.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom false
+		}
+		Node_element SystemSoftwareDef
+		for class SystemSoftware {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  65 )
+			Regular figure extends rectRounded10 {
+				background color techLayer
+				border BorderBlack2 icon
+				path "iconiconSystemSWIcon.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom false
+		}
+		Node_element InfrastructureInterfaceDef
+		for class InfrastructureInterface {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  65 )
+			Regular figure extends rectRounded10 {
+				background color techLayer
+				border BorderBlack2 icon
+				path "iconiconinterfaceIconSmall.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom true
+		}
+		Node_element NetworkDef
+		for class Network {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  65 )
+			Regular figure extends rectRounded10 {
+				background color techLayer
+				border BorderBlack2 icon
+				path "iconiconNetworkIcon.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom true
+		}
+		Node_element CommunicationPathDef
+		for class CommunicationPath {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 70 ,  50 )
+			Regular figure extends rectRounded10 {
+				background color techLayer
+				border BorderBlack2 icon
+				path "iconiconComunicationPath.svg" icon
+				size ( 70 ,  50 )
+				icon
+				position
+				Point ( 1 ,  1 )
+			}
+			phantom true
+		}
+		Node_element InfrastructureServiceDef
+		for class InfrastructureService {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  65 )
+			Regular figure extends imageService {
+				background color techLayer
+				border BorderBlack2
+			}
+			phantom false
+		}
+		Node_element ArtifactDef
+		for class Artifact {
+			label elementName
+			label icon false
+			label placement internal
+			size ( 140 ,  65 )
+			Regular figure extends rectRounded10 {
+				background color techLayer
+				border BorderBlack2 icon
+				path "iconiconArtifactIcon.svg" icon
+				size ( 16 ,  16 )
+				icon
+				position
+				Point ( 123 ,  2 )
+			}
+			phantom false
+		}
+	}
+	Rules definition{
+		
+	}
+	
+	Interaction definition{
+		Interaction elements{
+			
+		}
+		Statements {
+			
+		}
+	}
+	
+		
+}

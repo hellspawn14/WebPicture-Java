@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="60"
+   height="80"
+   id="svg2">
+  <metadata
+     id="metadata15">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs13" />
+  <g
+     transform="translate(0,-1993)"
+     id="g4">
+    <g
+       transform="matrix(0.05198329,0,0,0.04005044,-7.984821,1992.3372)"
+       id="svg_1"
+       style="stroke-width:110.4016571;stroke-miterlimit:4;stroke-dasharray:none">
+      <path
+         d="M 739.08577,1838.814 C 700.08736,1639.8006 631.32759,1474.1864 548.04418,1320.6917 486.26903,1206.8353 414.70552,1101.7436 348.49088,991.33519 326.38713,954.47755 307.31147,915.53998 286.07188,877.28837 243.60276,800.80303 209.16955,712.12275 211.35759,597.08984 213.49533,484.69652 244.76469,394.53858 289.85541,320.82346 364.01643,199.58073 488.23877,100.17494 654.91513,74.051303 c 136.2782,-21.359061 264.04872,14.726705 354.65667,69.803867 74.0414,45.00837 131.379,105.12937 174.9628,175.98424 45.4911,73.95353 76.8168,161.32237 79.4445,275.28333 1.345,58.38604 -7.8518,112.45504 -20.808,157.30444 -13.1121,45.39642 -34.1999,83.34362 -52.9617,123.87713 -36.6243,79.12283 -82.5408,151.61959 -128.6216,224.15939 -137.25497,216.0647 -266.08178,436.4152 -322.50203,738.3503 z"
+         id="svg_2"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:67.94009399;stroke-miterlimit:4;stroke-dasharray:none" />
+      <circle
+         cx="734.54602"
+         cy="652.047"
+         r="183.33301"
+         id="svg_4"
+         style="fill:#fffffa;fill-opacity:1;fill-rule:evenodd;stroke-width:110.4016571;stroke-miterlimit:4;stroke-dasharray:none" />
+    </g>
+    <circle
+       cx="733.5"
+       cy="637"
+       r="136.20068"
+       transform="matrix(0.0560308,0,0,0.03660682,-10.05805,1994.3923)"
+       id="svg_5"
+       style="fill:#000000;stroke:#000000;stroke-width:110.4016571;stroke-miterlimit:4;stroke-dasharray:none" />
+  </g>
+</svg>

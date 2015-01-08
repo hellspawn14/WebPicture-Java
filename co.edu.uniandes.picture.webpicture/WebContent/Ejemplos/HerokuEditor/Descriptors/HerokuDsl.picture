@@ -1,0 +1,319 @@
+import "/model/HerokuMetamodel.ecore"
+as MM
+Graphical representation HerokuEditor {
+	reference package herokuMM
+	root HerokuMM
+	Palette for HerokuMM {
+		
+		Tool group HerokuPools {
+			description "HerokuPools"
+			
+				Creation button for class WebPool {
+					name "WebPool"
+					description "WebPool" 
+					icon "/imagenes/NodeIcon.gif"
+					}	
+				Creation button for class WorkerPool {
+					name "WorkerPool"
+					description "WorkerPool" 
+					icon "/imagenes/NodeIcon.gif"
+					}																
+			}			
+			
+		Tool group HerokuDinos{
+			description "HerokuDinos"
+			Creation button for class WebDino {
+					name "WebDino"
+					description "WebDino" 
+					icon "/imagenes/NodeIcon.gif"
+					}
+					
+			Creation button for class WorkerDino {
+					name "WorkerDino"
+					description "WorkerDino" 
+					icon "/imagenes/NodeIcon.gif"
+					}																
+			}	
+		
+		Tool group AMPQElements {
+			description "AMPQElements"			
+			Creation button for class AMPQQueue {
+					name "AMPQQueue"
+					description "AMPQQueue" 
+					icon "/imagenes/NodeIcon.gif"
+					}																			
+			}	
+			
+			Tool group ExternalElements {
+			description "ExternalElements"			
+			Creation button for class Blob {
+					name "Blob"
+					description "Blob" 
+					icon "/imagenes/NodeIcon.gif"
+					}
+			Creation button for class RMDB {
+					name "RMDB"
+					description "RMDB" 
+					icon "/imagenes/NodeIcon.gif"
+					}																				
+			}
+			
+			Tool group HerokuRelations {
+			description "Associations"		
+			Creation button for class AssociationPQ {
+					name "AssociationPQ"
+					description "AssociationPQ" 
+					icon "/imagenes/NodeIcon.gif"
+			}
+			Creation button for class AssociationPS {
+					name "AssociationPR"
+					description "AssociationPR" 
+					icon "/imagenes/NodeIcon.gif"
+			}	
+				}			
+		}
+	
+	Style definition {
+		
+		Color yellowBlack2 (233, 219, 48)
+		Color black ( 0 ,  0 ,  0 )
+		Color white ( 255 ,  255 ,  255 )
+		Color yellow ( 255 ,  255 ,  0 )
+		Color blue ( 0 ,  0 ,  255 )
+		Color red ( 254 ,  0 ,  0 )
+		Color green ( 0 ,  255 ,  0 )
+		Color greenDark ( 3 ,  129 ,  35 )
+		Color BlackRed(184 , 17 , 17)
+		Line style BorderRedBlack2{
+			width 2
+			type solid
+			color BlackRed
+		}		
+		
+		Line style BorderyellowBlack2{
+			width 2
+			type solid
+			color yellowBlack2
+		}
+		Line style BorderDarkGreen{
+			width 2
+			type solid
+			color greenDark
+		}
+		
+		Line style BorderYellow1 {
+			width 1
+			type solid
+			color yellow
+		}
+		
+		Line style BorderBlack1 {
+			width 1
+			type dot
+			color black
+		}
+		Line style BorderBlack3 {
+			width 3
+			type solid
+			color black
+		}
+		Line style BorderBlack4 {
+			width 4
+			type solid
+			color black
+		}
+		Line style BorderRed4 {
+			width 4
+			type solid
+			color red
+		}
+		Line style BorderRed2 {
+			width 2
+			type solid
+			color red
+		}
+		Rounded rectRounded10 {
+			radiox 10
+			radioy 10
+		}
+		Ellipse ellipseEvent {
+			proportion ( 30 ,  30 )
+		}
+		Regular polygon deca {
+			vertex quantity 8
+			start angle 90
+		}
+		Regular polygon cuadradro {
+			vertex quantity 4
+			start angle 90
+		}
+		Color Withe ( 255 ,  255 ,  255 )
+		Color activeElementsColor ( 117 ,  235 ,  235 )
+		Color techLayer ( 116 ,  232 ,  116 )
+		Color behaviorElementsColor ( 241 ,  241 ,  181 )
+		Color greenTestXX ( 44 ,  255 ,  45 )
+		Color laneColor (185, 249 , 249)
+		Color BlueChevere(3, 104, 154)
+		
+		Line style BorderBlueChevere{
+			width 1
+			type dot
+			color BlueChevere
+		}
+		
+		Line style BorderBlackDot {
+			width 1
+			type dot
+			color black
+		}
+		Line style BorderBlack2 {
+			width 2
+			type solid
+			color black
+		}
+	}
+	
+	
+	Graphical
+	definition {
+		
+		Node_element WebPoolDefinition
+		for class WebPool{
+		label Name	
+			label icon false
+			label placement internal
+			size ( 260 ,  410 )
+				Image figure{
+				image path "pool.svg"
+			}
+			phantom false
+		}
+		
+		Node_element WorkerPoolDefinition
+		for class WorkerPool{
+		label Name	
+			label icon false
+			label placement internal
+			size ( 260 , 410 )
+				Image figure{
+				image path "pool.svg"
+			}
+			phantom false
+		}
+		
+		Node_element WebDinoDefinition
+		for class WebDino{
+		label Name	
+			label icon false
+			label placement internal
+			size ( 100 ,  110 )
+				Image figure{
+				image path "sweb.svg"
+			}
+			phantom false
+		}
+		
+		Node_element WorkerDinoDefinition
+		for class WorkerDino{
+		label Name	
+			label icon false
+			label placement internal
+			size ( 100 ,  110 )
+				Image figure{
+				image path "sworker.svg"
+			}
+
+			phantom false
+		}
+		
+		Node_element BlobDefinition
+		for class Blob{
+		label Name	
+			label icon false
+			label placement internal
+			size ( 100 ,  110 )
+				Image figure{
+				image path "databaseFiles.svg"
+			}
+		phantom false
+		}
+		
+		Node_element RMDBDefinition
+		for class RMDB {
+		label Name	
+			label icon false
+			label placement internal
+			size ( 100 ,  110 )
+				Image figure{
+				image path "database.svg"
+			}
+
+			phantom false
+		}
+		
+		Node_element AMPQQueueDefinition
+		for class AMPQQueue {
+		label Name	
+			label icon false
+			label placement internal
+			size ( 150 ,  60 )
+				Image figure{
+				image path "cilindro.svg"
+			}
+			phantom false
+		}
+
+	Node_link AssociationConnector1 for class AssociationPQ{
+		label connectorName
+		style Line style  lineConnectorAssociation
+		{
+			width 2
+			type solid
+			color black
+			
+		}
+		source decoration none
+		target decoration arrow
+		source reference <- SourceC
+		target reference  <- TargetC
+	}
+			
+		Node_link AssociationConnector2 for class AssociationPS{
+		label connectorName
+		style Line style  lineConnectorAssociation
+		{
+			width 2
+			type solid
+			color black
+			
+		}
+		source decoration none
+		target decoration arrow
+		source reference <- SourceC
+		target reference  <- TargetC
+	}
+
+		
+		Internal_node webDinoDef
+		for reference WebPool.haveWebDinos {
+			layout default layout
+		}	
+		Internal_node workerDinoDef
+		for reference WorkerPool.haveWorkerDinos {
+			layout default layout
+		}		
+		
+		
+	}
+	
+	Rules definition {
+	}
+	Interaction definition {
+		Interaction elements {
+
+		}
+		Statements {
+
+		} 
+	}
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="66" height="66" version="1.1">
+
+<rect rx="0" ry="0" x="0" y="0" width="65" height="65" stroke-width="1" stroke="RGB(0, 0, 0)" fill="RGB(255, 255, 255)"/>
+
+<image width="64" height="64" x="1" y="1" xlink:href="iconrepresentation.svg"/>
+
+</svg>
