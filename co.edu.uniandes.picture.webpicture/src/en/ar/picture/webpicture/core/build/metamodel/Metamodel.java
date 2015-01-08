@@ -85,6 +85,26 @@ public class Metamodel {
 		}
 		return ans;
 	}
+	
+	/**
+	 * Retorna un metalink dado su nombre
+	 * @param name - Nombre del metalink
+	 * @return Metalink encontrado o null
+	 */
+	public Metalink getMetalinkByName(String name) {
+		Metalink ans = null;
+		Metaelement element = null;
+		for (int i = 0; i < modelElements.size(); i++) {
+			element = modelElements.get(i);
+			for (int k = 0; k < element.getReferences().size(); k++) {
+				ans = element.getReferences().get(k);
+				if (ans.getName().equals(name)) {
+					return ans;
+				}
+			}
+		}
+		return null;
+	}
 
 	// ------------------------------------------------------------------
 	// Getters & Setters

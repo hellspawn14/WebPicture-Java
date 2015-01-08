@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import en.ar.picture.webpicture.graphical.elements.Graph;
 import en.ar.picture.webpicture.graphical.icons.Icon;
-import en.ar.picture.webpicture.graphical.links.Link;
 
 /**
  * Representa un elemento del metamodelo
@@ -41,7 +40,7 @@ public class Metaelement {
 	private ArrayList <Metalink> ref;
 	
 	/**
-	 * Indica si el elemento se representa como un link
+	 * Indica si el elemento es un nodelink
 	 */
 	private boolean isNodeLink;
 	
@@ -59,11 +58,6 @@ public class Metaelement {
 	 * Representación grafica del elemento
 	 */
 	private Graph ghaph;
-	
-	/**
-	 * Representación grafica como link
-	 */
-	private Link link;
 
 	// ------------------------------------------------------------------
 	// Constructores
@@ -80,7 +74,6 @@ public class Metaelement {
 		this.references = new ArrayList<Metalink>();
 		this.inheritedReferences = new ArrayList<Metalink>();
 		this.ref = new ArrayList<Metalink>();
-		
 	}
 
 	// ------------------------------------------------------------------
@@ -286,20 +279,5 @@ public class Metaelement {
 	 */
 	public void setNodeLink(boolean isNodeLink) {
 		this.isNodeLink = isNodeLink;
-	}
-
-	/**
-	 * @return the link
-	 */
-	public Link getLink() {
-		return link;
-	}
-
-	/**
-	 * @param link the link to set
-	 */
-	public void setLink(Link link) {
-		this.link = link;
-	}
-		
+	}		
 }

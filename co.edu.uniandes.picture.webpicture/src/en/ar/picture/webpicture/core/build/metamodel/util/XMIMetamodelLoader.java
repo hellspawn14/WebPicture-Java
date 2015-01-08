@@ -149,7 +149,7 @@ public class XMIMetamodelLoader {
 				}
 			}
 			// Metamodelo construido
-			metamodel.consolidateMetamodel();
+			//metamodel.consolidateMetamodel();
 			return metamodel;
 		}
 
