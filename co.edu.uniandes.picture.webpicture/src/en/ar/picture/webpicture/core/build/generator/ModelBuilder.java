@@ -6,6 +6,7 @@ import java.util.Hashtable;
 
 import org.eclipse.emf.common.util.EList;
 
+import co.edu.uniandes.enar.picture.CreationButton;
 import co.edu.uniandes.enar.picture.Figure;
 import co.edu.uniandes.enar.picture.GraphicalElement;
 import co.edu.uniandes.enar.picture.InterNodeDef;
@@ -39,6 +40,7 @@ import en.ar.picture.webpicture.graphical.elements.IconRectangle;
 import en.ar.picture.webpicture.graphical.elements.Image;
 import en.ar.picture.webpicture.graphical.elements.Polygon;
 import en.ar.picture.webpicture.graphical.elements.Rectangle;
+import en.ar.picture.webpicture.graphical.icons.Icon;
 import en.ar.picture.webpicture.graphical.links.Decoration;
 import en.ar.picture.webpicture.graphical.links.Link;
 import en.ar.picture.webpicture.graphical.palette.Palette;
@@ -176,6 +178,11 @@ public class ModelBuilder {
 	 */
 	private Editor editor;
 	
+	/**
+	 * Paleta de elemeentos generado 
+	 */
+	private Palette palette; 
+	
 	
 	// ------------------------------------------------------------------
 	// Constructores
@@ -203,7 +210,7 @@ public class ModelBuilder {
 	 * @return - Metamodelo completo con la especificación del picture
 	 * @throws Exception - En el caso de: No se encuentra alguno de los archivos descritos en el picture 
 	 */
-	private Modeler buildEditorMetamodel() throws Exception{
+	private void buildEditorMetamodel() throws Exception{
 		//1. Verificar que el metamodelo y el picture se referencien 
 		String mmRefModel = metamodel.getReferencedModel();
 		String langRefModel = langModel.getGraphicalREpresentation().getReferencePackage();
@@ -225,21 +232,21 @@ public class ModelBuilder {
 		buildStyleForModel();
 		//5. Crear las representaciones graficas de los elementos 
 		buildGraphicalRepresentation();
+		//6. Crear los iconos dependiendo de las representaciones graficas (nodeElement y nodeLink) 
+		setPalette(buildEditorPalette());
 		
-		//5. Crear los iconos dependiendo de las representaciones graficas (nodeElement y nodeLink) 
+		//Generacion del editor 
+		//1. Codigo de la paleta 
+		//2. Codigo del paper principal -> Codigo reglas de conexion 
+		//3. Codigo drag and drop 
+		//4. Codigo reglas de sustitucion de links
+		//5. Codigo reglas de contenencia 
+		//6. Resto de las funciones 
+		//7. Script de conexion con el servidor 
 		
 		
-		
-		//6. Crear una paleta de elementos 
-		//Palette palette = buildEditorPalette();
-		//test();
-		
-		
-		
-		
-		
-		//metamodel.consolidateMetamodel();
-		return null;
+		System.out.println(palette.generateScript());
+		//8. Generar reglas 
 	}
 
 	/**
@@ -542,9 +549,8 @@ public class ModelBuilder {
 	 * Crea una paleta de elementos lista para generar el codigo 
 	 * @return - Paleta de elementos lista para generar el codigo 
 	 */
-	public Palette buildEditorPalette()
+	public Palette buildEditorPalette() throws Exception 
 	{
-		//TODO
 		String paletteName = langModel.getGraphicalREpresentation().getToolsDefinition().getName().getName();
 		Palette P = new Palette(paletteName);
 		
@@ -570,14 +576,68 @@ public class ModelBuilder {
 		for (int i = 0; i < groups.size(); i++)
 		{
 			TPicture = groups.get(i);
-			T = new Toolgroup(TPicture.getName(), TPicture.getDescription());
-			//Construir los iconos que componen el toolgroup 
+			//Crea el grupo si hay botones de creacion 
+			if (!TPicture.getButtons().isEmpty())
+			{
+				//Construir los iconos que componen el toolgroup
+				T = buildToolgroupFor(TPicture);
+				P.getToolgroups().add(T);
+			}
+			 
 		}
-		
-		
-		
-		
 		return P;
+	}
+	
+	/***
+	 * Retorna un toolgroup (en.ar.webpicture.picture.graphical.palette)
+	 * @param T - ToolGroup que describe un ToolGroup en el modelo del lenguaje 
+	 * @return - Nuevo Toolgroup con los iconos creados 
+	 * @throws Exception - En el caso de que no se encuentre la referencia a la clase 
+	 */
+	public Toolgroup buildToolgroupFor(ToolGroup T) throws Exception 
+	{
+		Toolgroup ans = new Toolgroup(T.getName(), T.getDescription());
+		Metaelement element = null; 
+		EList <CreationButton> buttons = T.getButtons(); 
+		CreationButton btn = null;
+		Icon icn = null; 
+		String icnPath = "";
+		for (int i = 0; i < buttons.size(); i++)
+		{
+			btn = buttons.get(i);
+			element = metamodel.getMetaelementByName(btn.getMetaConceptReference().getClass_());
+			if (element == null)
+			{
+				throw new Exception ("Class not found for creation button for class " + btn.getMetaConceptReference().getClass_());
+			}
+			//Crea el elemento no es un nodelink 
+			if (element.isNodeLink() == false && element.getGhaph() != null)
+			{
+				icnPath = "file:///" + editor.getPath() + "/Images/" + getIconClearPath(btn.getIcon());
+				icn = new Icon(element.getName(), btn.getName(), icnPath);
+				element.setIcon(icn);
+				ans.getIcons().add(icn);
+			}
+		}
+		return ans; 
+	}
+	
+	/**
+	 * Limpia la ruta al icono para utilizarla en este contexto 
+	 * @param iconPath - Ruta al icono sin cambios 
+	 * @return - Ruta al icono sin separadores /
+	 */
+	public String getIconClearPath(String iconPath)
+	{
+		if(iconPath.contains("/"))
+		{
+			String [] path = iconPath.split("/");
+			return path[path.length - 1];
+		}
+		else
+		{
+			return iconPath;
+		}
 	}
 	
 	/**
@@ -792,5 +852,23 @@ public class ModelBuilder {
 	 */
 	public void setEditor(Editor editor) {
 		this.editor = editor;
+	}
+
+
+
+	/**
+	 * @return the palette
+	 */
+	public Palette getPalette() {
+		return palette;
+	}
+
+
+
+	/**
+	 * @param palette the palette to set
+	 */
+	public void setPalette(Palette palette) {
+		this.palette = palette;
 	}
 }
