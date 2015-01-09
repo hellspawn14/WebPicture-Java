@@ -8,10 +8,6 @@ import en.ar.picture.webpicture.graphical.rules.estructural.connection.LinkingRu
  */
 public class Paper {
 	// ------------------------------------------------------------------
-	// Constantes 
-	// ------------------------------------------------------------------
-
-	// ------------------------------------------------------------------
 	// Atributos 
 	// ------------------------------------------------------------------
 
@@ -20,7 +16,6 @@ public class Paper {
 	 */
 	private LinkingRulesGenerator validationRules;
 
-	
 	// ------------------------------------------------------------------
 	// Constructores 
 	// ------------------------------------------------------------------
@@ -29,8 +24,7 @@ public class Paper {
 	 * Crea una nueva definición para el paper principal 
 	 * @param validationRules - Reglas validación de conexion 
 	 */
-	public Paper (LinkingRulesGenerator validationRules)
-	{
+	public Paper (LinkingRulesGenerator validationRules){
 		this.validationRules = validationRules;
 	}
 	
@@ -42,8 +36,7 @@ public class Paper {
 	 * Genera el script del paper principal con las reglas de validacion 
 	 * @return - Codigo JS para crear el paper principal 
 	 */
-	public String generateScript()
-	{
+	public String generateScript(){
 		String ans = "var graph = new joint.dia.Graph;var paper = new joint.dia.Paper({ el: $('#modelCanvas'), gridSize: 10,height: $('#modelCanvas').height(),width: $('#modelCanvas').width(),gridSize: 1,model: graph,";
 		ans += validationRules.generateLinkingRulesScript();
 		ans += "});";
