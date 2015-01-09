@@ -48,13 +48,15 @@ public class LinkStylingGenerator {
 		for (int i = 0; i < metamodel.getModelElements().size(); i++) {
 			Metaelement E = metamodel.getModelElements().get(i);
 			// Obtiene los que tienen relaciones repetidas
-			for (int k = 0; k < E.getReferences().size(); k++) {
+			for (int k = 0; k < E.getReferences().size(); k++) 
+			{
 				Metalink L = E.getReferences().get(k);
-				if (L.isContaintment() == false) {
+			if (L.isContaintment() == false && L.getGrpLink() != null && L.getScr().getGhaph() != null && L.getTrg().getGhaph() != null) 
+				{
 					ArrayList<Metalink> toCmp = E.getMultipleReferences(L);
-					if (toCmp.isEmpty() == false) {
-						MultipleLinkStylingRuleDefinition mutiple = new MultipleLinkStylingRuleDefinition(
-								toCmp);
+					if (toCmp.isEmpty() == false) 
+					{
+						MultipleLinkStylingRuleDefinition mutiple = new MultipleLinkStylingRuleDefinition(toCmp);
 						complexRules.add(mutiple);
 					}
 				}
@@ -64,11 +66,11 @@ public class LinkStylingGenerator {
 		for (int i = 0; i < metamodel.getModelElements().size(); i++) {
 			Metaelement E = metamodel.getModelElements().get(i);
 			// Obtiene las relaciones simples
-			for (int j = 0; j < E.getReferences().size(); j++) {
-				Metalink L = E.getReferences().get(j);
-				if (L.isContaintment() == false) {
-					SimpleLinkStylingRuleDefinition simple = new SimpleLinkStylingRuleDefinition(
-							L);
+			for (int k = 0; k < E.getReferences().size(); k++) {
+				Metalink L = E.getReferences().get(k);
+				if (L.isContaintment() == false && L.getGrpLink() != null && L.getScr().getGhaph() != null && L.getTrg().getGhaph() != null) 
+				{
+					SimpleLinkStylingRuleDefinition simple = new SimpleLinkStylingRuleDefinition(L);
 					simpleRules.add(simple);
 				}
 			}
@@ -83,10 +85,17 @@ public class LinkStylingGenerator {
 	public String generateLinkStylingRulesScript() {
 		String ans = "function replaceLink(oldLink, src, trg) {";
 		for (int i = 0; i < simpleRules.size(); i++) {
-			ans += simpleRules.get(i).generateRule();
+			if (!simpleRules.get(i).generateRule().equals(""))
+			{
+				ans += simpleRules.get(i).generateRule();
+			}
+			
 		}
 		for (int i = 0; i < complexRules.size(); i++) {
-			ans += complexRules.get(i).generateRule();
+			if (!complexRules.get(i).generateRule().equals(""))
+			{
+				ans += complexRules.get(i).generateRule();
+			}
 		}
 		ans += "}";
 		return ans;

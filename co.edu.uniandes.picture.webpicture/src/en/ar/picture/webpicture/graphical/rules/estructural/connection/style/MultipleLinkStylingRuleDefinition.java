@@ -44,10 +44,17 @@ public class MultipleLinkStylingRuleDefinition {
 	public String generateRule() {
 		String ans = "if (src == '" + links.get(0).getScr().getGhaph().getType() + "' && trg == '" + links.get(0).getTrg().getGhaph().getType() + "'){var msg = 'Select the link to display'; bootbox.dialog({ message: msg, buttons: {";
 		for (int i = 0; i < links.size(); i++) {
+			if (links.get(i).getGrpLink() != null)
+			{
+				ans += links.get(i).getGrpLink().getLabel() + ": { label: '"
+						+ links.get(i).getGrpLink().getLabel()
+						+ "', className: 'btn-primary', callback: function () {"
+						+ links.get(i).getGrpLink().getGenScript() + "}}," + "\n";
+			}/*
 			ans += links.get(i).getGrpLink().getLabel() + ": { label: '"
 					+ links.get(i).getGrpLink().getLabel()
 					+ "', className: 'btn-primary', callback: function () {"
-					+ links.get(i).getGrpLink().getGenScript() + "}}," + "\n";
+					+ links.get(i).getGrpLink().getGenScript() + "}}," + "\n";*/
 		}
 		ans += "}});}";
 		return ans;
