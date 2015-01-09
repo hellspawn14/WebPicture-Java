@@ -37,8 +37,7 @@ public class ContaintmentRulesGenerator {
 		for (int i = 0; i < metamodel.getModelElements().size(); i++) {
 			for (int k = 0; k < metamodel.getModelElements().get(i)
 					.getReferences().size(); k++) {
-				if (metamodel.getModelElements().get(i).getReferences().get(k)
-						.isContaintment() == true) {
+				if (metamodel.getModelElements().get(i).getReferences().get(k).isContaintment() == true && metamodel.getModelElements().get(i).getReferences().get(k).getScr().getGhaph() != null && metamodel.getModelElements().get(i).getReferences().get(k).getTrg().getGhaph() != null) {
 					ContaintmentRuleDefinition C = new ContaintmentRuleDefinition(
 							metamodel.getModelElements().get(i).getReferences()
 									.get(k));
@@ -73,9 +72,28 @@ public class ContaintmentRulesGenerator {
 				rule = getHierarchicalRules().get(i);
 				ans += "||" + rule.getDeclaration();
 			}
-			ans += "){cellViewBelow.model.embed(cell);}}} updateDiagram();}});";
+			ans += "){cellViewBelow.model.embed(cell);}";
 		}
+		ans += "}} updateDiagram();}});";
 		return ans;
+		/*
+		 * paper.on('cell:pointerup', function (cellView, evt, x, y) { if (cellView.model instanceof joint.dia.Link) { updateDiagram(); } else { var cell = cellView.model; var cellViewsBelow = paper.findViewsFromPoint(cell.getBBox().center());
+                if (cellViewsBelow.length) { var cellViewBelow = _.find(cellViewsBelow, function (c) { return c.model.id !== cell.id });
+                    if (cellViewBelow && cellViewBelow.model.get('parent') !== cell.id) {
+                        var father = graph.getCell(cellViewBelow.model.id); var son = graph.getCell(cell.id);
+                        var child = son.attr(getElementInstance(son)); var parent = father.attr(getElementInstance(father));
+                        //Generado 
+                        var VAL_2b193f2d = parent == 'B' && child == 'A';
+                        var VAL_355da254 = parent == 'A' && child == 'A';
+                        if (VAL_2b193f2d || VAL_355da254) {
+                            cellViewBelow.model.embed(cell);
+                        }
+                    }
+                }
+                updateDiagram();
+            }
+        });
+		 */
 	}
 
 	// ------------------------------------------------------------------
