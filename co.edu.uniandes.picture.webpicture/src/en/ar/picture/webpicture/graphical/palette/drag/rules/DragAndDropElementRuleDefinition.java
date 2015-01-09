@@ -40,11 +40,19 @@ public class DragAndDropElementRuleDefinition {
 	 * @return - Fragmento de codigo JS con la regla de sustitución del elemento
 	 */
 	public String generateRule() {
+		String ans = "";
 		Icon icn = metaelement.getIcon();
 		Graph grp = metaelement.getGhaph();
-		String ans = "if (elType == '" + icn.getType() + "') {"
-				+ "elementClone = " + grp.getId() + ".clone(); cloneBBox = "
-				+ grp.getId() + ".getBBox();}";
+		if(icn == null || grp == null)
+		{
+			ans = "";
+		}
+		else
+		{
+			ans = "if (elType == '" + icn.getType() + "') {"
+					+ "elementClone = " + grp.getId() + ".clone(); cloneBBox = "
+					+ grp.getId() + ".getBBox();}";
+		}
 		return ans;
 	}
 
