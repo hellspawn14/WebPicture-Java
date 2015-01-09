@@ -38,8 +38,6 @@ public class DSLLoader {
 	 */
 	private Resource resource;
 	
-	
-	
 	// ------------------------------------------------------------------
 	// Constructores
 	// ------------------------------------------------------------------
@@ -54,8 +52,6 @@ public class DSLLoader {
 		resourceSet = injector.getInstance(XtextResourceSet.class);
 		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL,Boolean.TRUE);
 	}
-	
-	
 	
 	// ------------------------------------------------------------------
 	// Metodos
@@ -76,13 +72,7 @@ public class DSLLoader {
 		if (listaErrores.isEmpty()) {
 			return model;
 		} else {
-			String mensajeException = "Your Picture file has some errors fix them and try again"
-					+ "\n";
-			/*for (Iterator<Diagnostic> iter = listaErrores.iterator(); iter
-					.hasNext();) {
-				Diagnostic element = iter.next();
-				mensajeException += element.toString() + "\n";
-			}*/
+			String mensajeException = "Your Picture file has some errors fix them and try again";
 			throw new Exception(mensajeException);
 		}
 	}

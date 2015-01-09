@@ -87,11 +87,9 @@ public class XMIMetamodelLoader {
 				Node nNode = eClasses.item(i);
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element eElement = (Element) nNode;
-					Metaelement source = metamodel
-							.getMetaelementByName(eElement.getAttribute("name"));
+					Metaelement source = metamodel.getMetaelementByName(eElement.getAttribute("name"));
 
-					NodeList eStructuralFeatures = eElement
-							.getElementsByTagName("eStructuralFeatures");
+					NodeList eStructuralFeatures = eElement.getElementsByTagName("eStructuralFeatures");
 					for (int k = 0; k < eStructuralFeatures.getLength(); k++) {
 						Node nElement = eStructuralFeatures.item(k);
 						if (nElement.getNodeType() == Node.ELEMENT_NODE) {
@@ -130,18 +128,12 @@ public class XMIMetamodelLoader {
 											.getAttribute("upperBound"));
 								}
 
-								Metaelement target = metamodel
-										.getMetaelementByName(xElement
-												.getAttribute("eType").split(
-														"//")[1]);
+								Metaelement target = metamodel.getMetaelementByName(xElement.getAttribute("eType").split("//")[1]);
 								boolean containment = false;
-								if (!xElement.getAttribute("containment")
-										.trim().equals("")) {
+								if (!xElement.getAttribute("containment").trim().equals("")) {
 									containment = true;
 								}
-								Metalink link = new Metalink(linkName, source,
-										target, containment, upperBound,
-										lowerBound);
+								Metalink link = new Metalink(linkName, source,target, containment, upperBound,lowerBound);
 								source.getReferences().add(link);
 							}
 						}
@@ -150,6 +142,7 @@ public class XMIMetamodelLoader {
 			}
 			// Metamodelo construido
 			metamodel.consolidateMetamodel();
+			metamodel.consolidateInheritance();
 			return metamodel;
 		}
 

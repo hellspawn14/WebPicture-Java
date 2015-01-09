@@ -1,6 +1,10 @@
 package en.ar.picture.webpicture.core.build.generator;
 
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Hashtable;
 
@@ -26,12 +30,12 @@ import co.edu.uniandes.enar.picture.impl.RegularFigureImpl;
 import co.edu.uniandes.enar.picture.impl.RegularPolygonImpl;
 import co.edu.uniandes.enar.picture.impl.RoundedImpl;
 import en.ar.picture.webpicture.core.Editor;
-import en.ar.picture.webpicture.core.Modeler;
 import en.ar.picture.webpicture.core.build.dsl.util.DSLLoader;
 import en.ar.picture.webpicture.core.build.metamodel.Metaelement;
 import en.ar.picture.webpicture.core.build.metamodel.Metalink;
 import en.ar.picture.webpicture.core.build.metamodel.Metamodel;
 import en.ar.picture.webpicture.core.build.metamodel.util.XMIMetamodelLoader;
+import en.ar.picture.webpicture.core.files.FileManager;
 import en.ar.picture.webpicture.graphical.elements.Ellipse;
 import en.ar.picture.webpicture.graphical.elements.Graph;
 import en.ar.picture.webpicture.graphical.elements.IconEllipse;
@@ -45,6 +49,13 @@ import en.ar.picture.webpicture.graphical.links.Decoration;
 import en.ar.picture.webpicture.graphical.links.Link;
 import en.ar.picture.webpicture.graphical.palette.Palette;
 import en.ar.picture.webpicture.graphical.palette.Toolgroup;
+import en.ar.picture.webpicture.graphical.palette.drag.events.DragAndDropEventsGenerator;
+import en.ar.picture.webpicture.graphical.palette.drag.rules.DragAndDropElementRulesGenerator;
+import en.ar.picture.webpicture.graphical.paper.GraphicalDefinition;
+import en.ar.picture.webpicture.graphical.paper.Paper;
+import en.ar.picture.webpicture.graphical.rules.estructural.connection.LinkingRulesGenerator;
+import en.ar.picture.webpicture.graphical.rules.estructural.connection.style.LinkStylingGenerator;
+import en.ar.picture.webpicture.graphical.rules.estructural.containtment.ContaintmentRulesGenerator;
 import en.ar.picture.webpicture.graphical.style.Color;
 import en.ar.picture.webpicture.graphical.style.Border;
 import en.ar.picture.webpicture.graphical.util.SVGPathCreator;
@@ -179,15 +190,56 @@ public class ModelBuilder {
 	private Editor editor;
 	
 	/**
-	 * Paleta de elemeentos generado 
+	 * Paleta de elementos generado 
 	 */
 	private Palette palette; 
+	
+	/**
+	 * Definicion del paper principal 
+	 */
+	private Paper paper; 
+	
+	/**
+	 * Definicion de eventos de drag and drop
+	 */
+	private DragAndDropEventsGenerator dragAndDropEvents;
+	
+	/**
+	 * Definicion de reglas de sustitución de iconos 
+	 */
+	private DragAndDropElementRulesGenerator dragAndDropRules;
+	
+	/**
+	 * Definicion de reglas de conexion 
+	 */
+	private LinkingRulesGenerator linkingRules;
+	
+	/**
+	 * Definicion de reglas de estilo de links
+	 */
+	private LinkStylingGenerator linkingStyling;
+	
+	/**
+	 * Definicion de reglas de contenencia 
+	 */
+	private ContaintmentRulesGenerator containtmentRules;
+	
+	/**
+	 * Graficos creados a partir del picture y el metamodelo 
+	 */
+	private GraphicalDefinition graphs;
 	
 	
 	// ------------------------------------------------------------------
 	// Constructores
 	// ------------------------------------------------------------------
 
+	/**
+	 * Crea un nuevo modelador de editores 
+	 * @param metamodel - Metamodelo creado a partir del ecore 
+	 * @param langModel - Modelo del lenguaje con la especificación del picture
+	 * @param editor - Esqueleto del editor 
+	 */
 	public ModelBuilder (Metamodel metamodel, Model langModel, Editor editor)
 	{
 		this.metamodel = metamodel;
@@ -197,9 +249,7 @@ public class ModelBuilder {
 		borders = new Hashtable <String, Border>();
 		basicShapes = new Hashtable <String, FigureStyleImpl>();
 	}
-	
-	
-	
+
 	// ------------------------------------------------------------------
 	// Metodos
 	// ------------------------------------------------------------------
@@ -232,11 +282,34 @@ public class ModelBuilder {
 		buildStyleForModel();
 		//5. Crear las representaciones graficas de los elementos 
 		buildGraphicalRepresentation();
+		
 		//6. Crear los iconos dependiendo de las representaciones graficas (nodeElement y nodeLink) 
 		setPalette(buildEditorPalette());
 		
+		//Generacion del editor
+		dragAndDropEvents = new DragAndDropEventsGenerator(palette);
+		dragAndDropRules = new DragAndDropElementRulesGenerator(metamodel);
+		linkingRules = new LinkingRulesGenerator(metamodel);
+		linkingStyling = new LinkStylingGenerator(metamodel);
+		containtmentRules = new ContaintmentRulesGenerator(metamodel);
+		paper = new Paper(linkingRules);
+		setGraphs(new GraphicalDefinition(metamodel));
+		
+		String core = buildEditorCoreCode();
+		writeEditorScript(core);
+		
+		/*
+		for (int i = 0; i < metamodel.getModelElements().size(); i++)
+		{
+			System.out.println(metamodel.getModelElements().get(i).getName());
+			for (int k = 0; k < metamodel.getModelElements().get(i).getReferences().size(); k++)
+			{
+				System.out.println(metamodel.getModelElements().get(i).getReferences().get(k).getScr().getName() + " - " + metamodel.getModelElements().get(i).getReferences().get(k).getName() + " -> " + metamodel.getModelElements().get(i).getReferences().get(k).getTrg().getName());
+			}
+		}*/
+		
 		//Generacion del editor 
-		//1. Codigo de la paleta 
+		//1. Codigo de la paleta
 		//2. Codigo del paper principal -> Codigo reglas de conexion 
 		//3. Codigo drag and drop 
 		//4. Codigo reglas de sustitucion de links
@@ -245,8 +318,40 @@ public class ModelBuilder {
 		//7. Script de conexion con el servidor 
 		
 		
-		System.out.println(palette.generateScript());
+		//System.out.println(palette.generateScript());
 		//8. Generar reglas 
+	}
+
+	public String buildEditorCoreCode()
+	{
+		String ans = "";//"(function () {";
+		ans += palette.generateScript(); 
+		ans += "\n";
+		ans += paper.generateScript();
+		ans += "\n";
+		ans += graphs.generateElementsDeclaration();
+		ans += "\n";
+		ans += dragAndDropEvents.generateEventScript();
+		ans += "\n";
+		ans += dragAndDropRules.generateDragAndDropRules();
+		ans += "\n";
+		ans += linkingStyling.generateLinkStylingRulesScript();
+		ans += "\n";
+		ans += containtmentRules.generateHierarchicalRulesScript();
+		ans += "\n";	
+		//ans += "}";
+		return ans; 
+	}
+	
+	public void writeEditorScript(String coreEditor) throws IOException
+	{
+		File F = new File (editor.getPath() + "/" + FileManager.SCR_DIRECTORY + "/" + "text.txt");
+		F.createNewFile();
+		FileWriter fw = new FileWriter(F.getAbsoluteFile());
+		BufferedWriter bw = new BufferedWriter(fw);
+		bw.write(coreEditor);
+		bw.close();
+
 	}
 
 	/**
@@ -381,8 +486,7 @@ public class ModelBuilder {
 			}	
 		}
 	}
-	
-	
+		
 	/**
 	 * Crea la representación grafica de un elemento 
 	 * @param element - Elemento a representar  
@@ -417,7 +521,7 @@ public class ModelBuilder {
 		else if ((figureType.equals(IMAGE_FIGURE)))
 		{
 			ImageFigureImpl img = (ImageFigureImpl) figure;
-			String path = "file:///" + editor.getPath() + "/Images/" +  img.getPath(); 
+			String path = "file://" + editor.getPath() + "/Images/" +  img.getPath(); 
 			Image grpImage = new Image (description.getSize().getHeight(), description.getSize().getWidth(), element.getName(), description.getLabel(), getElementLabelPlacement(description), description.isPhantomN(), path);
 			return grpImage;
 		}
@@ -463,7 +567,7 @@ public class ModelBuilder {
 			else
 			{
 				//Se declara una ellipse con imagen de fondo 
-				String iconPath = "file:///" + editor.getPath() + "/Images/" +  imgPath; 
+				String iconPath = "file://" + editor.getPath() + "/Images/" +  imgPath; 
 				int iconHeight = reg.getSize().getHeight();
 				int iconWidth = reg.getSize().getWidth();
 				int iconRefX = reg.getPosition().getX();
@@ -488,7 +592,7 @@ public class ModelBuilder {
 			else
 			{
 				//Se declara un rectangulo con una imagen 
-				String iconPath = "file:///" + editor.getPath() + "/Images/" +  imgPath; 
+				String iconPath = "file://" + editor.getPath() + "/Images/" +  imgPath; 
 				int iconHeight = reg.getSize().getHeight();
 				int iconWidth = reg.getSize().getWidth();
 				int iconRefX = reg.getPosition().getX();
@@ -514,7 +618,7 @@ public class ModelBuilder {
 			else
 			{
 				//Se declara un poligono regular con imagen
-				String iconPath = "file:///" + editor.getPath() + "/Images/" +  imgPath; 
+				String iconPath = "file://" + editor.getPath() + "/Images/" +  imgPath; 
 				int iconHeight = reg.getSize().getHeight();
 				int iconWidth = reg.getSize().getWidth();
 				int iconRefX = reg.getPosition().getX();
@@ -613,7 +717,7 @@ public class ModelBuilder {
 			//Crea el elemento no es un nodelink 
 			if (element.isNodeLink() == false && element.getGhaph() != null)
 			{
-				icnPath = "file:///" + editor.getPath() + "/Images/" + getIconClearPath(btn.getIcon());
+				icnPath = "file://" + editor.getPath() + "/Images/" + getIconClearPath(btn.getIcon());
 				icn = new Icon(element.getName(), btn.getName(), icnPath);
 				element.setIcon(icn);
 				ans.getIcons().add(icn);
@@ -710,6 +814,7 @@ public class ModelBuilder {
 			Link L = new Link(b, description.getLabel(), decSrc, decTrg);
 			elementAsLink.setGrpLink(L);
 			element.setNodeLink(true);
+			metamodel.consolidateNewMetalink(elementAsLink);
 		}
 	}
 	
@@ -745,8 +850,8 @@ public class ModelBuilder {
 
 	public static void main (String args[])
 	{
-		String mmPath = "./WebContent/Ejemplos/ArchimateExtendido/Descriptors/ArchimateExtendido.ecore";
-		String picPath = "./WebContent/Ejemplos/ArchimateExtendido/Descriptors/ArchimateExtendidoDefinition.picture";
+		String mmPath = "./WebContent/Ejemplos/UseCaseEditor/Descriptors/UseCaseDsl.ecore";
+		String picPath = "./WebContent/Ejemplos/UseCaseEditor/Descriptors/UseCaseDsl.picture";
 		XMIMetamodelLoader metaLoader = new XMIMetamodelLoader();
 		Metamodel MM = null;
 		DSLLoader dslLoader = new DSLLoader();
@@ -766,7 +871,7 @@ public class ModelBuilder {
 			e.printStackTrace();
 		}
 		//public Editor(int id, String name, String description, String author, String path, Date created)
-		Editor E = new Editor(0, "Prueba", "Prueba", "Yo", "Users/hellspawn/Documents/Uniandes/Tesis/Repositorios/WebPicture-Java/co.edu.uniandes.picture.webpicture/WebContent/Ejemplos/UseCaseEditor", new Date());
+		Editor E = new Editor(0, "Prueba", "Prueba", "Yo", "/Users/hellspawn/Documents/Uniandes/Tesis/Repositorios/WebPicture-Java/co.edu.uniandes.picture.webpicture/WebContent/Editors/8e8745eb-bb31-423d-80f4-1ae5e15fba3d", new Date());
 		//./WebContent/Editors/8e8745eb-bb31-423d-80f4-1ae5e15fba3d
 		ModelBuilder MB = new ModelBuilder(MM, langModel, E);
 		try {
@@ -870,5 +975,103 @@ public class ModelBuilder {
 	 */
 	public void setPalette(Palette palette) {
 		this.palette = palette;
+	}
+
+	/**
+	 * @return the paper
+	 */
+	public Paper getPaper() {
+		return paper;
+	}
+
+	/**
+	 * @param paper the paper to set
+	 */
+	public void setPaper(Paper paper) {
+		this.paper = paper;
+	}
+
+	/**
+	 * @return the dragAndDropEvents
+	 */
+	public DragAndDropEventsGenerator getDragAndDropEvents() {
+		return dragAndDropEvents;
+	}
+
+	/**
+	 * @param dragAndDropEvents the dragAndDropEvents to set
+	 */
+	public void setDragAndDropEvents(DragAndDropEventsGenerator dragAndDropEvents) {
+		this.dragAndDropEvents = dragAndDropEvents;
+	}
+
+	/**
+	 * @return the dragAndDropRules
+	 */
+	public DragAndDropElementRulesGenerator getDragAndDropRules() {
+		return dragAndDropRules;
+	}
+
+	/**
+	 * @param dragAndDropRules the dragAndDropRules to set
+	 */
+	public void setDragAndDropRules(DragAndDropElementRulesGenerator dragAndDropRules) {
+		this.dragAndDropRules = dragAndDropRules;
+	}
+
+	/**
+	 * @return the linkingRules
+	 */
+	public LinkingRulesGenerator getLinkingRules() {
+		return linkingRules;
+	}
+
+	/**
+	 * @param linkingRules the linkingRules to set
+	 */
+	public void setLinkingRules(LinkingRulesGenerator linkingRules) {
+		this.linkingRules = linkingRules;
+	}
+
+	/**
+	 * @return the linkingStyling
+	 */
+	public LinkStylingGenerator getLinkingStyling() {
+		return linkingStyling;
+	}
+
+	/**
+	 * @param linkingStyling the linkingStyling to set
+	 */
+	public void setLinkingStyling(LinkStylingGenerator linkingStyling) {
+		this.linkingStyling = linkingStyling;
+	}
+
+	/**
+	 * @return the containtmentRules
+	 */
+	public ContaintmentRulesGenerator getContaintmentRules() {
+		return containtmentRules;
+	}
+
+	/**
+	 * @param containtmentRules the containtmentRules to set
+	 */
+	public void setContaintmentRules(ContaintmentRulesGenerator containtmentRules) {
+		this.containtmentRules = containtmentRules;
+	}
+
+	/**
+	 * @return the graphs
+	 */
+	public GraphicalDefinition getGraphs() {
+		return graphs;
+	}
+
+	/**
+	 * @param graphs the graphs to set
+	 */
+	public void setGraphs(GraphicalDefinition graphs) {
+		this.graphs = graphs;
 	}
 }
