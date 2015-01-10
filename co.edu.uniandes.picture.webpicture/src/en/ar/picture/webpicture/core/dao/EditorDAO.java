@@ -42,6 +42,7 @@ public class EditorDAO
 	private DateParser dateParser;
 
 
+	
 	//------------------------------------------------------------------
 	//Constructores
 	//------------------------------------------------------------------
@@ -364,6 +365,48 @@ public class EditorDAO
 				ans.add(E);
 			}
 			return ans;			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			close(S, RS, DBConnection);
+		}
+		return null;
+	}
+	
+	public Editor getLastInsertedEditor()
+	{
+		Editor E = null;
+		Statement S = null;
+		ResultSet RS = null;
+		try
+		{
+			connectToDB();
+			String query = "select * from WebPicture.Editors where idEditor = (select MAX(idEditor) from WebPicture.Editors);";
+			S = DBConnection.createStatement();
+			RS = S.executeQuery(query);
+			
+			//Verificar que el RS tenga información 
+			if (!RS.next()) 
+			{
+				//Retorna null no hay información de un diagrama con identificador idDiagram
+				return E;
+			} 
+			else 
+			{
+				//Solo hay una entrada en el RS 
+				int id = RS.getInt("idEditor");
+				String name = RS.getString("Name");
+				String description = RS.getString("Description");
+				String author = RS.getString("Author");
+				String path = RS.getString("Path");
+				Date created = dateParser.stringToDate(RS.getString("Created"));
+				E = new Editor(id, name, description, author, path, created);
+				return E;
+			}
 		}
 		catch(Exception e)
 		{

@@ -7,6 +7,7 @@ import java.util.Date;
 
 import co.edu.uniandes.enar.picture.Model;
 import en.ar.picture.webpicture.core.build.dsl.util.DSLLoader;
+import en.ar.picture.webpicture.core.build.generator.ModelBuilder;
 import en.ar.picture.webpicture.core.build.metamodel.Metamodel;
 import en.ar.picture.webpicture.core.build.metamodel.util.XMIMetamodelLoader;
 import en.ar.picture.webpicture.core.dao.EditorDAO;
@@ -95,43 +96,61 @@ public class Webpicture
 	/**
 	 * Crea un nuevo editor 
 	 */
-	public synchronized void createEditor(String name, String description, String author, String path) throws Exception
+	/**
+	 * Crea un nuevo editor a partir de un ecore y un picture 
+	 * @param name - Nombre del editor 
+	 * @param description - Descripcion del editor 
+	 * @param author - Autor del editor 
+	 * @param path - Ruta del editor 
+	 * @return Editor generado con el identificador generado en la base de datos  
+	 * @throws Exception - En el caso de que ocurra algun problema en la validación de los archivos y la generación del editor 
+	 */
+	@SuppressWarnings("static-access")
+	public synchronized Editor createEditor(String name, String description, String author, String path) throws Exception
 	{
 		Date created = new Date();
 		Editor E = new Editor(0, name, description, author, path, created);
-		System.out.println(path);
+		//Modelo del lenguaje 
+		Model langModel = null; 
+		//Metamodelo intermedio 
+		Metamodel metamodel = null; 
 		
-		//Directorio al archivo picture
-		
+		//Inicializa el modelo del lenguaje 
 		String picture = new File(E.getPath() + "/" + fileManager.PICTURE_LANG_DIRECTORY).listFiles()[0].getAbsolutePath();
 		try
 		{
-			Model langModel = pictureLoader.loadPicture(picture);
+			langModel = pictureLoader.loadPicture(picture);
 		}
 		catch(Exception e)
 		{
 			fileManager.deleteDir(E.getPath());
 			throw e;
-			
 		}
-		
-		//Directorio al archivo ecore
+
+		//Inicializa el metamodelo intermedio 
 		String ecore = new File(E.getPath() + "/" + fileManager.META_MODEL_DIRECTORY).listFiles()[0].getAbsolutePath();
-		
 		try
 		{
-			Metamodel metamodel = ecoreLoader.load(ecore);
+			metamodel = ecoreLoader.load(ecore);
 		}
 		catch(Exception e)
 		{
 			fileManager.deleteDir(E.getPath());
 			throw e;
 		}
-		
+		try
+		{
+			ModelBuilder builder = new ModelBuilder(metamodel, langModel, E);
+			builder.buildEditorMetamodel();
+		}
+		catch (Exception e)
+		{
+			fileManager.deleteDir(E.getPath());
+			throw e;
+		}
 		this.registerEditorInDB(E);
-		fileManager.makeMeta(path, name, author, description, created);
-		
-		
+		E = editorDAO.getLastInsertedEditor();
+		return E;
 	}	
 	
 	public synchronized void createDiagram(Diagram D, Editor E)

@@ -260,7 +260,7 @@ public class ModelBuilder {
 	 * @return - Metamodelo completo con la especificación del picture
 	 * @throws Exception - En el caso de: No se encuentra alguno de los archivos descritos en el picture 
 	 */
-	private void buildEditorMetamodel() throws Exception{
+	public void buildEditorMetamodel() throws Exception{
 		//1. Verificar que el metamodelo y el picture se referencien 
 		String mmRefModel = metamodel.getReferencedModel();
 		String langRefModel = langModel.getGraphicalREpresentation().getReferencePackage();
@@ -345,7 +345,7 @@ public class ModelBuilder {
 	
 	public void writeEditorScript(String coreEditor) throws IOException
 	{
-		File F = new File (editor.getPath() + "/" + FileManager.SCR_DIRECTORY + "/" + "text.txt");
+		File F = new File (editor.getPath() + "/" + FileManager.SCR_DIRECTORY + "/" + "core.js");
 		F.createNewFile();
 		FileWriter fw = new FileWriter(F.getAbsoluteFile());
 		BufferedWriter bw = new BufferedWriter(fw);
@@ -850,8 +850,8 @@ public class ModelBuilder {
 
 	public static void main (String args[])
 	{
-		String mmPath = "./WebContent/Ejemplos/UseCaseEditor/Descriptors/UseCaseDsl.ecore";
-		String picPath = "./WebContent/Ejemplos/UseCaseEditor/Descriptors/UseCaseDsl.picture";
+		String mmPath = "./WebContent/Ejemplos/Archimate/Descriptors/archimateR3.ecore";
+		String picPath = "./WebContent/Ejemplos/Archimate/Descriptors/archimateR3.picture";
 		XMIMetamodelLoader metaLoader = new XMIMetamodelLoader();
 		Metamodel MM = null;
 		DSLLoader dslLoader = new DSLLoader();
