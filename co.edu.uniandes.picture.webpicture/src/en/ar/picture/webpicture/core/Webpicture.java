@@ -204,10 +204,10 @@ public class Webpicture
 		String diaDir = baseDir + "/Diagrams/" + diagram.getName() + "/dia.js";
 		Diagrammer dia = new Diagrammer(D);
 		dia.buildDiagramScript(dateParser.dateToString(D.getCreated()), dateParser.dateToString(D.getLastModified()));
-		String coreDir = "<script src=" + '"' + baseDir + "/Scripts/core.js" + '"' + "></script>" + "\n";
+		String coreDir = "<script src=" + '"' + baseDir + "/Scripts/editor.js" + '"' + "></script>" + "\n";
 		String modelerDir = "<script src=\"resources/basic-js/modeler.js\"></script>" + "\n";
 		String diagramDir = "<script src=" + '"' + diaDir + '"' + "></script>" + "\n";
-		return coreDir + modelerDir + diagramDir;
+		return coreDir + diagramDir + modelerDir;
 	}
 	
 	/**

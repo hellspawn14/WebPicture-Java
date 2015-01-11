@@ -349,7 +349,7 @@ public class ModelBuilder {
 	
 	public void writeEditorScript(String coreEditor) throws IOException
 	{
-		File F = new File (editor.getPath() + "/" + FileManager.SCR_DIRECTORY + "/" + "core.js");
+		File F = new File (editor.getPath() + "/" + FileManager.SCR_DIRECTORY + "/" + "editor.js");
 		F.createNewFile();
 		FileWriter fw = new FileWriter(F.getAbsoluteFile());
 		BufferedWriter bw = new BufferedWriter(fw);

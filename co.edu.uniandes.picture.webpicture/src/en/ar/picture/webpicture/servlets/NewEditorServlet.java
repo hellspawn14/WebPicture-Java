@@ -106,6 +106,7 @@ public class NewEditorServlet extends HttpServlet {
 		fileFactory.setRepository(filesDir);
 		this.uploader = new ServletFileUpload(fileFactory);
 		System.out.println("Init");
+		
 	}
 
 	// ------------------------------------------------------------------
