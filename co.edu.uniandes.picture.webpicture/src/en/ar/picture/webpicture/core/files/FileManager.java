@@ -290,7 +290,7 @@ public class FileManager {
 		String diagramPath = this.getRandomPath();
 		File F = new File(basePath + "/" + DIAGRAM_DIR + "/" + diagramPath);
 		F.mkdirs();
-		return basePath + "/" + diagramPath;
+		return basePath + "/" + DIAGRAM_DIR + "/" + diagramPath;
 	}
 
 	// ------------------------------------------------------------------

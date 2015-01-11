@@ -154,7 +154,7 @@ Graphical representation OrganizationalUnit2 {
 			label placement internal
 			size ( 550 ,  300 )
 			Image figure{
-				image path "unidad2.svg"
+				image path "NodeIcon.gif"
 			}
 			phantom false
 		}
@@ -168,7 +168,7 @@ Graphical representation OrganizationalUnit2 {
 			label placement internal
 			size (  58,  65)
 			Image figure{
-				image path "empleado.svg"
+				image path "NodeIcon.gif"
 			}
 			phantom false
 		}
@@ -181,7 +181,7 @@ Graphical representation OrganizationalUnit2 {
 			label placement internal
 			size (  58,  65)
 			Image figure{
-				image path "lider.svg"
+				image path "NodeIcon.gif"
 			}
 			phantom false
 		}
@@ -193,7 +193,7 @@ Graphical representation OrganizationalUnit2 {
 			label placement internal
 			size ( 68 ,  40 )
 			Image figure{
-				image path "rol.svg"
+				image path "NodeIcon.gif"
 			}
 			phantom false
 		}

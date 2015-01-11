@@ -194,6 +194,51 @@ public class DiagramDAO
 		return null;
 	}
 	
+	
+	public Diagram getLastInsertedDiagram()
+	{
+		Diagram D = null;
+		Statement S = null;
+		ResultSet RS = null;
+		try
+		{
+			connectToDB();
+			String query = "select * from WebPicture.Diagrams where idDiagram = (select MAX(idDiagram) from WebPicture.Diagrams);";
+			S = DBConnection.createStatement();
+			RS = S.executeQuery(query);
+			
+			//Verificar que el RS tenga información 
+			if (!RS.next()) 
+			{
+				//Retorna null no hay información de un diagrama con identificador idDiagram
+				return D;
+			} 
+			else 
+			{
+				//Solo hay una entrada en el RS 
+				int id = RS.getInt("idDiagram");
+				String name = RS.getString("Name");
+				String description = RS.getString("Description");
+				String author = RS.getString("Author");
+				String path = RS.getString("Path");
+				Date created = dateParser.stringToDate(RS.getString("Created"));
+				Date modified = dateParser.stringToDate(RS.getString("LastModified")); 
+				D = new Diagram(id, name, description, author, path, created, modified);
+				return D;
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			close(S, RS, DBConnection);
+		}
+		return null;
+	}
+	
+	
 	/**
 	 * Retorna la información del diagrama(s) creado por un autor dado 
 	 * @param diagramAuthor - Autor del diagrama

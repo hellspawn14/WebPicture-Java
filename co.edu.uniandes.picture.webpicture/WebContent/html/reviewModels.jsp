@@ -142,7 +142,25 @@
             }
             //Editar diagrama
             else{
-            	
+            	$("#editor").val(model);
+                console.log($("#editor").val());
+				var form = $('#reviewDiagramsForm');
+				form.attr('action','get_diagram');
+				form.on("submit", function(e) {
+					$.ajax({
+						url: $(this).attr('action'),
+						type : $(this).attr('method'),
+						data : $(this).serialize(),
+						success : function(data) {
+
+						},
+						error : function(jXHR, textStatus, errorThrown) {
+							alert(errorThrown);
+						}
+					});
+					return true; 
+				});
+				form.submit();
             }
         }
 

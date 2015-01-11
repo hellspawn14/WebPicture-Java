@@ -61,8 +61,7 @@ public class GraphicalDefinition {
 	}
 
 	/**
-	 * @param metamodel
-	 *            the metamodel to set
+	 * @param metamodel the metamodel to set
 	 */
 	public void setMetamodel(Metamodel metamodel) {
 		this.metamodel = metamodel;

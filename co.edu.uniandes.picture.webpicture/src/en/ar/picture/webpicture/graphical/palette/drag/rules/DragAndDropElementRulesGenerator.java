@@ -16,12 +16,7 @@ import en.ar.picture.webpicture.graphical.style.Color;
  * Generador de la regla de sustitución de iconos por elementos 
  * @author hellspawn
  */
-public class DragAndDropElementRulesGenerator 
-{
-	// ------------------------------------------------------------------
-	// Constantes
-	// ------------------------------------------------------------------
-
+public class DragAndDropElementRulesGenerator {
 	// ------------------------------------------------------------------
 	// Atributos
 	// ------------------------------------------------------------------

@@ -1,12 +1,15 @@
 package en.ar.picture.webpicture.core;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
 import co.edu.uniandes.enar.picture.Model;
 import en.ar.picture.webpicture.core.build.dsl.util.DSLLoader;
+import en.ar.picture.webpicture.core.build.generator.Diagrammer;
 import en.ar.picture.webpicture.core.build.generator.ModelBuilder;
 import en.ar.picture.webpicture.core.build.metamodel.Metamodel;
 import en.ar.picture.webpicture.core.build.metamodel.util.XMIMetamodelLoader;
@@ -149,28 +152,97 @@ public class Webpicture
 			throw e;
 		}
 		this.registerEditorInDB(E);
+		fileManager.makeMeta(E.getPath(), E.getName(), E.getAuthor(), E.getDescription(), E.getCreated());
 		E = editorDAO.getLastInsertedEditor();
 		return E;
 	}	
 	
-	public synchronized void createDiagram(Diagram D, Editor E)
+	/**
+	 * Crea un nuevo diagrama para un editor existente 
+	 * @param D - Diagrama a crear 
+	 * @param E - Editor del diagrama
+	 * @throws IOException -  En el caso de que se produzca un error al escribir el archivo 
+	 */
+	public synchronized Diagram createDiagram(Diagram D, Editor E) throws IOException
 	{
 		//Crear el directorio del diagrama 
 		String editorPath = E.getPath();
 		String diagramPath = fileManager.makeDiagramDir(editorPath);
+		
 		D.setPath(diagramPath);
-		//TODO - Implementar creacion del archivo de texto 
-		File file = new File("diagramPath");
+		//Crear el archivo con el contenido del diagrama (diagrama vacio) en JSON 
+		String cnt = "{\"cells\":[]}";
+		File diagram = new File(diagramPath + "/dia.txt");
 		try {
-			file.createNewFile();
+			diagram.createNewFile();
+			FileWriter fw = new FileWriter(diagram.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write(cnt);
+			bw.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		//Crear en db 
 		diagramDAO.insertDiagram(D, E);
+		D = diagramDAO.getLastInsertedDiagram();
+		return D;
+	}
+	
+	/**
+	 * Genera el script con el estado actual del diagrama  
+	 * @param D - Diagrama a recuperar 
+	 * @return - Ruta al script del diagrama 
+	 * @throws IOException 
+	 */
+	public synchronized String restoreDiagram(Diagram D) throws IOException
+	{
+		File diagram = new File(D.getPath());
+		File editor = diagram.getParentFile().getParentFile();
+		//Directorio base del editor
+		String baseDir = "Editors/" + editor.getName();
+		//Directorio base del diagrama
+		String diaDir = baseDir + "/Diagrams/" + diagram.getName() + "/dia.js";
+		Diagrammer dia = new Diagrammer(D);
+		dia.buildDiagramScript(dateParser.dateToString(D.getCreated()), dateParser.dateToString(D.getLastModified()));
+		String coreDir = "<script src=" + '"' + baseDir + "/Scripts/core.js" + '"' + "></script>" + "\n";
+		String modelerDir = "<script src=\"resources/basic-js/modeler.js\"></script>" + "\n";
+		String diagramDir = "<script src=" + '"' + diaDir + '"' + "></script>" + "\n";
+		return coreDir + modelerDir + diagramDir;
+	}
+	
+	/**
+	 * Guarda el estado de un diagrama en formato JSON 
+	 * @param D - Diagrama a guardar 
+	 * @param cnt - JSON con el estado del diagrama a guardar 
+	 */
+	public synchronized void saveDiagram(Diagram D, String cnt)
+	{
+		String diagramPath = D.getPath();
+		Date today = new Date();
+		D.setLastModified(today);
+		File diagram = new File(diagramPath + "/dia.txt");
+		//Borrar el archivo existente 
+		diagram.delete();
+		try {
+			diagram.createNewFile();
+			FileWriter fw = new FileWriter(diagram.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write(cnt);
+			bw.close();
+			diagramDAO.updateDiagram(D);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
+	
+	
+	
+	/**
+	 * Registra un editor en la base de datos 
+	 * @param E - Editor a registrar 
+	 */
 	public synchronized void registerEditorInDB(Editor E)
 	{
 		this.getEditorDAO().insertEditor(E);
@@ -226,13 +298,22 @@ public class Webpicture
 	}
 	
 	/**
+	 * Retorna un diagrama dado su identificador 
+	 * @param diagramId - Identificador del diagrama
+	 * @return Diagrama con el identificador solicitado o null
+	 */
+	public synchronized Diagram getDiagramById(int diagramId)
+	{
+		return diagramDAO.getDiagramById(diagramId);
+	}
+	
+	/**
 	 * Elimina un diagrama dado su identificador 
 	 * @param idDiagram - Identificador del diagrama
 	 */
 	public synchronized void deleteDiagram(int idDiagram)
 	{
 		Diagram D = diagramDAO.getDiagramById(idDiagram);
-		//TODO - Implementar borrado del directorio 
 		String dPath = D.getPath();
 		fileManager.deleteDir(dPath);
 		diagramDAO.deleteDiagram(D);

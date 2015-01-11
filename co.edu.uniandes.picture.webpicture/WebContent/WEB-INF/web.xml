@@ -98,7 +98,7 @@
 	<!-- Mapeo del manejador  -->
 	<servlet>
 		<servlet-name>reviewModelsForEditor.jsp</servlet-name>
-		<servlet-class>en.ar.picture.webpicture.servlets.ReviewModelsEditor</servlet-class>
+		<servlet-class>en.ar.picture.webpicture.servlets.ReviewModelsEditorServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>reviewModelsForEditor.jsp</servlet-name>
@@ -112,6 +112,25 @@
 		<servlet-name>editor.jsp</servlet-name>
 		<url-pattern>/editor</url-pattern>
 	</servlet-mapping>
+	<!-- Mapeo de servlet para guardar diagramas -->
+	<servlet>
+		<servlet-name>saveDiagram.jsp</servlet-name>
+		<servlet-class>en.ar.picture.webpicture.servlets.SaveDiagramServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>saveDiagram.jsp</servlet-name>
+		<url-pattern>/save_diagram</url-pattern>
+	</servlet-mapping>
+	<!-- Mapeo de servlet para guardar diagramas -->
+	<servlet>
+		<servlet-name>getDiagram.jsp</servlet-name>
+		<servlet-class>en.ar.picture.webpicture.servlets.GetDiagramServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>getDiagram.jsp</servlet-name>
+		<url-pattern>/get_diagram</url-pattern>
+	</servlet-mapping>
+	
 	<!--  <context-param>
 		<param-name>tempfile.dir</param-name>
 		<param-value>tmpfiles</param-value>

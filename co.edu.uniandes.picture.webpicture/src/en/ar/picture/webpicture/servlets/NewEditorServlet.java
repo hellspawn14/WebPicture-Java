@@ -160,6 +160,7 @@ public class NewEditorServlet extends HttpServlet {
 					+ "}"
 					+ "</script>"
 					+ "</body></html>";
+			
 			out.println(html);
 		}
 		catch(Exception e)

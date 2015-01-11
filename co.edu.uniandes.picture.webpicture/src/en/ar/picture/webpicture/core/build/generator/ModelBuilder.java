@@ -5,7 +5,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Date;
 import java.util.Hashtable;
 
 import org.eclipse.emf.common.util.EList;
@@ -30,11 +29,9 @@ import co.edu.uniandes.enar.picture.impl.RegularFigureImpl;
 import co.edu.uniandes.enar.picture.impl.RegularPolygonImpl;
 import co.edu.uniandes.enar.picture.impl.RoundedImpl;
 import en.ar.picture.webpicture.core.Editor;
-import en.ar.picture.webpicture.core.build.dsl.util.DSLLoader;
 import en.ar.picture.webpicture.core.build.metamodel.Metaelement;
 import en.ar.picture.webpicture.core.build.metamodel.Metalink;
 import en.ar.picture.webpicture.core.build.metamodel.Metamodel;
-import en.ar.picture.webpicture.core.build.metamodel.util.XMIMetamodelLoader;
 import en.ar.picture.webpicture.core.files.FileManager;
 import en.ar.picture.webpicture.graphical.elements.Ellipse;
 import en.ar.picture.webpicture.graphical.elements.Graph;
@@ -229,6 +226,11 @@ public class ModelBuilder {
 	 */
 	private GraphicalDefinition graphs;
 	
+	/**
+	 * Directorio base del editor 
+	 */
+	private String editorBasePath; 
+	
 	
 	// ------------------------------------------------------------------
 	// Constructores
@@ -248,6 +250,8 @@ public class ModelBuilder {
 		colors = new Hashtable<String, Color>();
 		borders = new Hashtable <String, Border>();
 		basicShapes = new Hashtable <String, FigureStyleImpl>();
+		File F = new File (editor.getPath());
+		editorBasePath = "Editors/" + F.getName();
 	}
 
 	// ------------------------------------------------------------------
@@ -521,7 +525,7 @@ public class ModelBuilder {
 		else if ((figureType.equals(IMAGE_FIGURE)))
 		{
 			ImageFigureImpl img = (ImageFigureImpl) figure;
-			String path = "file://" + editor.getPath() + "/Images/" +  img.getPath(); 
+			String path = editorBasePath + "/Images/" +  img.getPath(); 
 			Image grpImage = new Image (description.getSize().getHeight(), description.getSize().getWidth(), element.getName(), description.getLabel(), getElementLabelPlacement(description), description.isPhantomN(), path);
 			return grpImage;
 		}
@@ -567,7 +571,7 @@ public class ModelBuilder {
 			else
 			{
 				//Se declara una ellipse con imagen de fondo 
-				String iconPath = "file://" + editor.getPath() + "/Images/" +  imgPath; 
+				String iconPath = editorBasePath + "/Images/" +  imgPath; 
 				int iconHeight = reg.getSize().getHeight();
 				int iconWidth = reg.getSize().getWidth();
 				int iconRefX = reg.getPosition().getX();
@@ -592,7 +596,7 @@ public class ModelBuilder {
 			else
 			{
 				//Se declara un rectangulo con una imagen 
-				String iconPath = "file://" + editor.getPath() + "/Images/" +  imgPath; 
+				String iconPath = editorBasePath + "/Images/" +  imgPath; 
 				int iconHeight = reg.getSize().getHeight();
 				int iconWidth = reg.getSize().getWidth();
 				int iconRefX = reg.getPosition().getX();
@@ -618,7 +622,7 @@ public class ModelBuilder {
 			else
 			{
 				//Se declara un poligono regular con imagen
-				String iconPath = "file://" + editor.getPath() + "/Images/" +  imgPath; 
+				String iconPath = editorBasePath + "/Images/" +  imgPath; 
 				int iconHeight = reg.getSize().getHeight();
 				int iconWidth = reg.getSize().getWidth();
 				int iconRefX = reg.getPosition().getX();
@@ -717,7 +721,7 @@ public class ModelBuilder {
 			//Crea el elemento no es un nodelink 
 			if (element.isNodeLink() == false && element.getGhaph() != null)
 			{
-				icnPath = "file://" + editor.getPath() + "/Images/" + getIconClearPath(btn.getIcon());
+				icnPath = editorBasePath + "/Images/" + getIconClearPath(btn.getIcon());
 				icn = new Icon(element.getName(), btn.getName(), icnPath);
 				element.setIcon(icn);
 				ans.getIcons().add(icn);
@@ -847,43 +851,6 @@ public class ModelBuilder {
 		}
 		return ans;
 	}
-
-	public static void main (String args[])
-	{
-		String mmPath = "./WebContent/Ejemplos/Archimate/Descriptors/archimateR3.ecore";
-		String picPath = "./WebContent/Ejemplos/Archimate/Descriptors/archimateR3.picture";
-		XMIMetamodelLoader metaLoader = new XMIMetamodelLoader();
-		Metamodel MM = null;
-		DSLLoader dslLoader = new DSLLoader();
-		Model langModel = null;
-		try{
-			MM = metaLoader.load(mmPath);
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-		try{
-			langModel = dslLoader.loadPicture(picPath);
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-		//public Editor(int id, String name, String description, String author, String path, Date created)
-		Editor E = new Editor(0, "Prueba", "Prueba", "Yo", "/Users/hellspawn/Documents/Uniandes/Tesis/Repositorios/WebPicture-Java/co.edu.uniandes.picture.webpicture/WebContent/Editors/8e8745eb-bb31-423d-80f4-1ae5e15fba3d", new Date());
-		//./WebContent/Editors/8e8745eb-bb31-423d-80f4-1ae5e15fba3d
-		ModelBuilder MB = new ModelBuilder(MM, langModel, E);
-		try {
-			MB.buildEditorMetamodel();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		
-		
-	}
-
 	
 	// ------------------------------------------------------------------
 	// Getters & Setters 
